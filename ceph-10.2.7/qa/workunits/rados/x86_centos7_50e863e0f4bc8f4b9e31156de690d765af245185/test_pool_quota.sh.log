@@ -1,0 +1,92 @@
+++ uuidgen
++ p=36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ ceph osd pool create 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b 12
+pool '36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b' created
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_objects 10
+set-quota max_objects = 10 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
+++ seq 1 10
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj1 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj2 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj3 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj4 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj5 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj6 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj7 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj8 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj9 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put obj10 /etc/passwd
++ sleep 30
++ pid=317319
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_objects 100
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put onemore /etc/passwd
+2018-03-05 13:46:15.321572 7f633cbcfa40  0 client.1516226.objecter  FULL, paused modify 0x7f633e1f35c0 tid 0
+set-quota max_objects = 100 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ wait 317319
++ '[' 0 -ne 0 ']'
++ true
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put twomore /etc/passwd
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_bytes 100
+set-quota max_bytes = 100 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ sleep 30
++ pid=319777
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_bytes 0
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put two /etc/passwd
+2018-03-05 13:46:52.400778 7f70b5fcea40  0 client.1516289.objecter  FULL, paused modify 0x7f70b7b955c0 tid 0
+set-quota max_bytes = 0 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_objects 0
+set-quota max_objects = 0 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ wait 319777
++ '[' 0 -ne 0 ']'
++ true
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put three /etc/passwd
+++ uuidgen
++ pp=eb0c6570-e780-4790-8448-d27b188162f2
++ ceph osd pool create eb0c6570-e780-4790-8448-d27b188162f2 12
+pool 'eb0c6570-e780-4790-8448-d27b188162f2' created
++ ceph osd pool set-quota eb0c6570-e780-4790-8448-d27b188162f2 max_objects 10
+set-quota max_objects = 10 for pool eb0c6570-e780-4790-8448-d27b188162f2
++ sleep 30
+++ seq 1 10
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj1 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj2 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj3 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj4 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj5 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj6 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj7 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj8 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj9 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p eb0c6570-e780-4790-8448-d27b188162f2 put obj10 /etc/passwd
++ sleep 30
++ rados -p 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b put threemore /etc/passwd
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_bytes 0
+set-quota max_bytes = 0 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ ceph osd pool set-quota 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b max_objects 0
+set-quota max_objects = 0 for pool 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b
++ sleep 30
++ ceph osd pool delete 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b 36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b --yes-i-really-really-mean-it
+pool '36dad0d9-4cd3-4059-aba8-b7be6bf6ca8b' removed
++ ceph osd pool delete eb0c6570-e780-4790-8448-d27b188162f2 eb0c6570-e780-4790-8448-d27b188162f2 --yes-i-really-really-mean-it
+pool 'eb0c6570-e780-4790-8448-d27b188162f2' removed
++ echo OK
+OK

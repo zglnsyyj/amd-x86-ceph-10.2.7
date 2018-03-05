@@ -1,0 +1,31 @@
+Running main() from gmock_main.cc
+[==========] Running 7 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 7 tests from LibRadosPools
+[ RUN      ] LibRadosPools.PoolList
+[       OK ] LibRadosPools.PoolList (5691 ms)
+[ RUN      ] LibRadosPools.PoolLookup
+[       OK ] LibRadosPools.PoolLookup (2010 ms)
+[ RUN      ] LibRadosPools.PoolLookup2
+[       OK ] LibRadosPools.PoolLookup2 (1937 ms)
+[ RUN      ] LibRadosPools.PoolDelete
+[       OK ] LibRadosPools.PoolDelete (3823 ms)
+[ RUN      ] LibRadosPools.PoolCreateDelete
+[       OK ] LibRadosPools.PoolCreateDelete (3833 ms)
+[ RUN      ] LibRadosPools.PoolCreateWithCrushRule
+test/librados/pool.cc:92: Failure
+Value of: rados_pool_create_with_crush_rule(cluster, pool2_name.c_str(), 0)
+  Actual: -2
+Expected: 0
+[  FAILED  ] LibRadosPools.PoolCreateWithCrushRule (1952 ms)
+[ RUN      ] LibRadosPools.PoolGetBaseTier
+[       OK ] LibRadosPools.PoolGetBaseTier (6552 ms)
+[----------] 7 tests from LibRadosPools (25798 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test case ran. (25798 ms total)
+[  PASSED  ] 6 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] LibRadosPools.PoolCreateWithCrushRule
+
+ 1 FAILED TEST

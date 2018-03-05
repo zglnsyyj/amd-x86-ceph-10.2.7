@@ -1,0 +1,2687 @@
++ parallel=1
++ '[' 1 = --serial ']'
++ color=
++ '[' -t 1 ']'
++ trap cleanup EXIT ERR HUP INT QUIT
++ pids=
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
+++ printf %25s api_aio
++ r='                  api_aio'
++ pid=21440
++ echo 'test api_aio on pid 21440'
+test api_aio on pid 21440
++ pids=' 21440'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_aio  2>&1 | tee ceph_test_rados_api_aio.log | sed "s/^/                  api_aio: /"'
+++ printf %25s api_io
++ r='                   api_io'
++ pid=21442
++ echo 'test api_io on pid 21442'
+test api_io on pid 21442
++ pids=' 21440 21442'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ bash -o pipefail -exc 'ceph_test_rados_api_io  2>&1 | tee ceph_test_rados_api_io.log | sed "s/^/                   api_io: /"'
++ '[' 1 -eq 1 ']'
+++ printf %25s api_list
++ ceph_test_rados_api_aio
++ tee ceph_test_rados_api_aio.log
++ r='                 api_list'
++ pid=21447
++ echo 'test api_list on pid 21447'
+test api_list on pid 21447
++ pids=' 21440 21442 21447'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_list  2>&1 | tee ceph_test_rados_api_list.log | sed "s/^/                 api_list: /"'
+++ printf %25s api_lock
++ r='                 api_lock'
++ pid=21450
++ echo 'test api_lock on pid 21450'
+test api_lock on pid 21450
++ pids=' 21440 21442 21447 21450'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_lock  2>&1 | tee ceph_test_rados_api_lock.log | sed "s/^/                 api_lock: /"'
++ sed 's/^/                  api_aio: /'
++ ceph_test_rados_api_io
++ sed 's/^/                   api_io: /'
+++ printf %25s api_misc
++ tee ceph_test_rados_api_lock.log
++ r='                 api_misc'
++ pid=21460
++ echo 'test api_misc on pid 21460'
+test api_misc on pid 21460
++ pids=' 21440 21442 21447 21450 21460'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ sed 's/^/                 api_lock: /'
++ tee ceph_test_rados_api_list.log
+++ printf %25s api_tier
++ r='                 api_tier'
++ bash -o pipefail -exc 'ceph_test_rados_api_misc  2>&1 | tee ceph_test_rados_api_misc.log | sed "s/^/                 api_misc: /"'
++ pid=21462
++ echo 'test api_tier on pid 21462'
+test api_tier on pid 21462
++ pids=' 21440 21442 21447 21450 21460 21462'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_tier  2>&1 | tee ceph_test_rados_api_tier.log | sed "s/^/                 api_tier: /"'
++ ceph_test_rados_api_misc
+++ printf %25s api_pool
++ r='                 api_pool'
++ pid=21470
++ echo 'test api_pool on pid 21470'
+test api_pool on pid 21470
++ pids=' 21440 21442 21447 21450 21460 21462 21470'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ tee ceph_test_rados_api_tier.log
++ tee ceph_test_rados_api_misc.log
+++ printf %25s api_snapshots
++ r='            api_snapshots'
++ pid=21473
++ echo 'test api_snapshots on pid 21473'
+test api_snapshots on pid 21473
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
+++ printf %25s api_stat
++ r='                 api_stat'
++ pid=21475
++ echo 'test api_stat on pid 21475'
+test api_stat on pid 21475
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_snapshots  2>&1 | tee ceph_test_rados_api_snapshots.log | sed "s/^/            api_snapshots: /"'
++ ceph_test_rados_api_lock
+++ printf %25s api_watch_notify
++ r='         api_watch_notify'
++ pid=21481
++ echo 'test api_watch_notify on pid 21481'
+test api_watch_notify on pid 21481
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_stat  2>&1 | tee ceph_test_rados_api_stat.log | sed "s/^/                 api_stat: /"'
++ sed 's/^/            api_snapshots: /'
++ ceph_test_rados_api_tier
++ tee ceph_test_rados_api_io.log
++ sed 's/^/                 api_tier: /'
++ bash -o pipefail -exc 'ceph_test_rados_api_pool  2>&1 | tee ceph_test_rados_api_pool.log | sed "s/^/                 api_pool: /"'
++ sed 's/^/                 api_list: /'
++ sed 's/^/                 api_stat: /'
++ ceph_test_rados_api_snapshots
++ ceph_test_rados_api_list
++ ceph_test_rados_api_pool
++ bash -o pipefail -exc 'ceph_test_rados_api_watch_notify  2>&1 | tee ceph_test_rados_api_watch_notify.log | sed "s/^/         api_watch_notify: /"'
+++ printf %25s api_cmd
++ r='                  api_cmd'
++ pid=21496
++ echo 'test api_cmd on pid 21496'
+test api_cmd on pid 21496
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ ceph_test_rados_api_stat
++ tee ceph_test_rados_api_pool.log
++ sed 's/^/                 api_pool: /'
++ tee ceph_test_rados_api_watch_notify.log
++ sed 's/^/                 api_misc: /'
++ tee ceph_test_rados_api_snapshots.log
++ tee ceph_test_rados_api_stat.log
++ ceph_test_rados_api_watch_notify
++ sed 's/^/         api_watch_notify: /'
++ bash -o pipefail -exc 'ceph_test_rados_api_cmd  2>&1 | tee ceph_test_rados_api_cmd.log | sed "s/^/                  api_cmd: /"'
+++ printf %25s api_c_write_operations
++ r='   api_c_write_operations'
++ pid=21523
++ echo 'test api_c_write_operations on pid 21523'
+test api_c_write_operations on pid 21523
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ ceph_test_rados_api_cmd
++ tee ceph_test_rados_api_cmd.log
+++ printf %25s api_c_read_operations
++ r='    api_c_read_operations'
++ pid=21533
++ echo 'test api_c_read_operations on pid 21533'
+test api_c_read_operations on pid 21533
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523 21533'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ bash -o pipefail -exc 'ceph_test_rados_api_c_write_operations  2>&1 | tee ceph_test_rados_api_c_write_operations.log | sed "s/^/   api_c_write_operations: /"'
++ tee ceph_test_rados_api_c_write_operations.log
++ sed 's/^/                  api_cmd: /'
++ bash -o pipefail -exc 'ceph_test_rados_api_c_read_operations  2>&1 | tee ceph_test_rados_api_c_read_operations.log | sed "s/^/    api_c_read_operations: /"'
++ ceph_test_rados_api_c_write_operations
+++ printf %25s api_tmap_migrate
++ r='         api_tmap_migrate'
++ pid=21552
++ echo 'test api_tmap_migrate on pid 21552'
+test api_tmap_migrate on pid 21552
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523 21533 21552'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ ceph_test_rados_api_c_read_operations
++ bash -o pipefail -exc 'ceph_test_rados_api_tmap_migrate  2>&1 | tee ceph_test_rados_api_tmap_migrate.log | sed "s/^/         api_tmap_migrate: /"'
+                 api_misc: [==========] Running 28 tests from 5 test cases.
+                 api_misc: [----------] Global test environment set-up.
+                 api_misc: [----------] 2 tests from LibRadosMiscVersion
+                 api_misc: [ RUN      ] LibRadosMiscVersion.Version
+                 api_misc: [       OK ] LibRadosMiscVersion.Version (0 ms)
+                 api_misc: [ RUN      ] LibRadosMiscVersion.VersionPP
+                 api_misc: [       OK ] LibRadosMiscVersion.VersionPP (0 ms)
+                 api_misc: [----------] 2 tests from LibRadosMiscVersion (0 ms total)
+                 api_misc: 
+                 api_misc: [----------] 1 test from LibRadosMiscConnectFailure
+                 api_misc: [ RUN      ] LibRadosMiscConnectFailure.ConnectFailure
+                 api_misc: 2018-03-05 14:31:51.186649 7f800521c8c0 10 monclient(hunting): build_initial_monmap
+                 api_misc: 2018-03-05 14:31:51.186851 7f800521c8c0  1 -- :/0 messenger.start
+                 api_misc: 2018-03-05 14:31:51.186884 7f800521c8c0 10 monclient(hunting): init
+                 api_misc: 2018-03-05 14:31:51.186889 7f800521c8c0 10 monclient(hunting): auth_supported 2 method cephx
+                 api_misc: 2018-03-05 14:31:51.187146 7f800521c8c0 10 monclient(hunting): _reopen_session rank -1 name 
+                 api_misc: 2018-03-05 14:31:51.187185 7f800521c8c0 10 monclient(hunting): picked mon.noname-b con 0x7f80102c2720 addr 192.168.100.75:6789/0
+                 api_misc: 2018-03-05 14:31:51.187198 7f800521c8c0 10 monclient(hunting): _send_mon_message to mon.noname-b at 192.168.100.75:6789/0
+                 api_misc: 2018-03-05 14:31:51.187199 7f800521c8c0  1 -- :/1892420496 --> 192.168.100.75:6789/0 -- auth(proto 0 30 bytes epoch 0) v1 -- ?+0 0x7f80102c7f60 con 0x7f80102c2720
+                 api_misc: 2018-03-05 14:31:51.187204 7f800521c8c0 10 monclient(hunting): renew_subs
+                 api_misc: 2018-03-05 14:31:51.187207 7f800521c8c0 10 monclient(hunting): authenticate will time out at 2018-03-05 14:31:51.187206
+                 api_misc: 2018-03-05 14:31:51.197320 7f800521c8c0  0 monclient(hunting): authenticate timed out after 1e-09
+                 api_misc: 2018-03-05 14:31:51.197355 7f800521c8c0  0 librados: client.admin authentication error (110) Connection timed out
+                 api_misc: 2018-03-05 14:31:51.197386 7f800521c8c0 10 monclient(hunting): shutdown
+                 api_misc: 2018-03-05 14:31:51.197387 7f800521c8c0 20 monclient(hunting): shutdown discarding pending message mon_subscribe({monmap=0+}) v2
+                 api_misc: 2018-03-05 14:31:51.197396 7f800521c8c0  1 -- :/1892420496 mark_down 0x7f80102c2720 -- 0x7f80102ca0b0
+                 api_misc: 2018-03-05 14:31:51.203998 7f800521c8c0  1 -- :/1892420496 mark_down_all
+                 api_misc: 2018-03-05 14:31:51.218944 7f800521c8c0  1 -- :/1892420496 shutdown complete.
+                 api_misc: 2018-03-05 14:31:51.219029 7f800521c8c0 10 monclient(hunting): build_initial_monmap
+                 api_misc: 2018-03-05 14:31:51.219145 7f800521c8c0  1 -- :/0 messenger.start
+                 api_misc: 2018-03-05 14:31:51.219161 7f800521c8c0 10 monclient(hunting): init
+                 api_misc: 2018-03-05 14:31:51.219166 7f800521c8c0 10 monclient(hunting): auth_supported 2 method cephx
+                 api_misc: 2018-03-05 14:31:51.219330 7f800521c8c0 10 monclient(hunting): _reopen_session rank -1 name 
+                 api_misc: 2018-03-05 14:31:51.219360 7f800521c8c0 10 monclient(hunting): picked mon.noname-a con 0x7f80102bfd10 addr 192.168.100.74:6789/0
+                 api_misc: 2018-03-05 14:31:51.219370 7f800521c8c0 10 monclient(hunting): _send_mon_message to mon.noname-a at 192.168.100.74:6789/0
+                 api_misc: 2018-03-05 14:31:51.219372 7f800521c8c0  1 -- :/3879466735 --> 192.168.100.74:6789/0 -- auth(proto 0 30 bytes epoch 0) v1 -- ?+0 0x7f80102ca6e0 con 0x7f80102bfd10
+                 api_misc: 2018-03-05 14:31:51.219377 7f800521c8c0 10 monclient(hunting): renew_subs
+                 api_misc: 2018-03-05 ++ printf %25s list_parallel
++ r='            list_parallel'
++ pid=21586
++ echo 'test list_parallel on pid 21586'
+test list_parallel on pid 21586
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523 21533 21552 21586'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ sed 's/^/   api_c_write_operations: /'
++ tee ceph_test_rados_api_c_read_operations.log
++ sed 's/^/    api_c_read_operations: /'
++ tee ceph_test_rados_api_tmap_migrate.log
++ bash -o pipefail -exc 'ceph_test_rados_list_parallel  2>&1 | tee ceph_test_rados_list_parallel.log | sed "s/^/            list_parallel: /"'
++ sed 's/^/         api_tmap_migrate: /'
++ ceph_test_rados_api_tmap_migrate
+++ printf %25s open_pools_parallel
++ r='      open_pools_parallel'
++ pid=21615
++ echo 'test open_pools_parallel on pid 21615'
+test open_pools_parallel on pid 21615
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523 21533 21552 21586 21615'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
++ sed 's/^/            list_parallel: /'
++ bash -o pipefail -exc 'ceph_test_rados_open_pools_parallel  2>&1 | tee ceph_test_rados_open_pools_parallel.log | sed "s/^/      open_pools_parallel: /"'
++ tee ceph_test_rados_list_parallel.log
++ ceph_test_rados_list_parallel
+++ printf %25s delete_pools_parallel
++ ceph_test_rados_open_pools_parallel
++ tee ceph_test_rados_open_pools_parallel.log
++ sed 's/^/      open_pools_parallel: /'
++ r='    delete_pools_parallel'
++ pid=21677
++ echo 'test delete_pools_parallel on pid 21677'
+test delete_pools_parallel on pid 21677
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523 21533 21552 21586 21615 21677'
++ for f in api_aio api_io api_list api_lock api_misc api_tier api_pool api_snapshots api_stat api_watch_notify api_cmd api_c_write_operations api_c_read_operations api_tmap_migrate list_parallel open_pools_parallel delete_pools_parallel watch_notify
++ '[' 1 -eq 1 ']'
+++ printf %25s watch_notify
++ bash -o pipefail -exc 'ceph_test_rados_delete_pools_parallel  2>&1 | tee ceph_test_rados_delete_pools_parallel.log | sed "s/^/    delete_pools_parallel: /"'
++ ceph_test_rados_delete_pools_parallel
++ tee ceph_test_rados_delete_pools_parallel.log
++ sed 's/^/    delete_pools_parallel: /'
++ r='             watch_notify'
++ pid=21696
++ echo 'test watch_notify on pid 21696'
+test watch_notify on pid 21696
++ pids=' 21440 21442 21447 21450 21460 21462 21470 21473 21475 21481 21496 21523 21533 21552 21586 21615 21677 21696'
++ ret=0
++ '[' 1 -eq 1 ']'
++ for p in '$pids'
++ wait 21440
++ bash -o pipefail -exc 'ceph_test_rados_watch_notify  2>&1 | tee ceph_test_rados_watch_notify.log | sed "s/^/             watch_notify: /"'
++ ceph_test_rados_watch_notify
++ tee ceph_test_rados_watch_notify.log
++ sed 's/^/             watch_notify: /'
+         api_tmap_migrate: Running main() from gmock_main.cc
+         api_tmap_migrate: [==========] Running 1 test from 1 test case.
+         api_tmap_migrate: [----------] Global test environment set-up.
+         api_tmap_migrate: [----------] 1 test from TmapMigratePP
+         api_tmap_migrate: [ RUN      ] TmapMigratePP.DataScan
+         api_tmap_migrate: *** Caught signal (Segmentation fault) **
+         api_tmap_migrate:  in thread 7f0bdd09ebc0 thread_name:ceph_test_rados
+         api_tmap_migrate:  ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+         api_tmap_migrate:  1: (()+0x572faa) [0x7f0bdd62bfaa]
+         api_tmap_migrate:  2: (()+0xf5e0) [0x7f0bd26ff5e0]
+         api_tmap_migrate:  3: (()+0x18c798) [0x7f0bd3896798]
+         api_tmap_migrate:  4: (()+0xcafe6) [0x7f0bd37d4fe6]
+         api_tmap_migrate:  5: (()+0xcb5ef) [0x7f0bd37d55ef]
+         api_tmap_migrate:  6: (()+0x9a88f) [0x7f0bd37a488f]
+         api_tmap_migrate:  7: (DataScan::main(std::vector<char const*, std::allocator<char const*> > const&)+0x6e3) [0x7f0bdd2d0db3]
+         api_tmap_migrate:  8: (TmapMigratePP_DataScan_Test::TestBody()+0x89d) [0x7f0bdd2d934d]
+         api_tmap_migrate:  9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7f0bdd3269e3]
+         api_tmap_migrate:  10: (testing::Test::Run()+0xb7) [0x7f0bdd3180e7]
+         api_tmap_migrate:  11: (testing::TestInfo::Run()+0x9e) [0x7f0bdd31818e]
+         api_tmap_migrate:  12: (testing::TestCase::Run()+0xa5) [0x7f0bdd318295]
+         api_tmap_migrate:  13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7f0bdd318568]
+         api_tmap_migrate:  14: (testing::UnitTest::Run()+0x68) [0x7f0bdd318828]
+         api_tmap_migrate:  15: (main()+0x39) [0x7f0bdd2d1a99]
+         api_tmap_migrate:  16: (__libc_start_main()+0xf5) [0x7f0bd1710c05]
+         api_tmap_migrate:  17: (()+0x21f9bf) [0x7f0bdd2d89bf]
+         api_tmap_migrate: 2018-03-05 14:32:01.858156 7f0bdd09ebc0 -1 *** Caught signal (Segmentation fault) **
+         api_tmap_migrate:  in thread 7f0bdd09ebc0 thread_name:ceph_test_rados
+         api_tmap_migrate: 
+         api_tmap_migrate:  ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+         api_tmap_migrate:  1: (()+0x572faa) [0x7f0bdd62bfaa]
+         api_tmap_migrate:  2: (()+0xf5e0) [0x7f0bd26ff5e0]
+         api_tmap_migrate:  3: (()+0x18c798) [0x7f0bd3896798]
+         api_tmap_migrate:  4: (()+0xcafe6) [0x7f0bd37d4fe6]
+         api_tmap_migrate:  5: (()+0xcb5ef) [0x7f0bd37d55ef]
+         api_tmap_migrate:  6: (()+0x9a88f) [0x7f0bd37a488f]
+         api_tmap_migrate:  7: (DataScan::main(std::vector<char const*, std::allocator<char const*> > const&)+0x6e3) [0x7f0bdd2d0db3]
+         api_tmap_migrate:  8: (TmapMigratePP_DataScan_Test::TestBody()+0x89d) [0x7f0bdd2d934d]
+         api_tmap_migrate:  9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7f0bdd3269e3]
+         api_tmap_migrate:  10: (testing::Test::Run()+0xb7) [0x7f0bdd3180e7]
+         api_tmap_migrate:  11: (testing::TestInfo::Run()+0x9e) [0x7f0bdd31818e]
+         api_tmap_migrate:  12: (testing::TestCase::Run()+0xa5) [0x7f0bdd318295]
+         api_tmap_migrate:  13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7f0bdd318568]
+         api_tmap_migrate:  14: (testing::UnitTest::Run()+0x68) [0x7f0bdd318828]
+         api_tmap_migrate:  15: (main()+0x39) [0x7f0bdd2d1a99]
+         api_tmap_migrate:  16: (__libc_start_main()+0xf5) [0x7f0bd1710c05]
+         api_tmap_migrate:  17: (()+0x21f9bf) [0x7f0bdd2d89bf]
+         api_tmap_migrate:  NOTE: a copy of the executable, or `objdump -rdS <executable>` is needed to interpret this.
+         api_tmap_migrate: 
+         api_tmap_migrate: --- begin dump of recent events ---
+         api_tmap_migrate:    -64> 2018-03-05 14:31:54.940921 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command perfcounters_dump hook 0x7f0be8026210
+         api_tmap_migrate:    -63> 2018-03-05 14:31:54.940964 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command 1 hook 0x7f0be8026210
+         api_tmap_migrate:    -62> 2018-03-05 14:31:54.940968 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command perf dump hook 0x7f0be8026210
+         api_tmap_migrate:    -61> 2018-03-05 14:31:54.940973 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command perfcounters_schema hook 0x7f0be8026210
+         api_tmap_migrate:    -60> 2018-03-05 14:31:54.940992 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command 2 hook 0x7f0be8026210
+         api_tmap_migrate:    -59> 2018-03-05 14:31:54.940996 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command perf schema hook 0x7f0be8026210
+         api_tmap_migrate:    -58> 2018-03-05 14:31:54.940999 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command perf reset hook 0x7f0be8026210
+         api_tmap_migrate:    -57> 2018-03-05 14:31:54.941003 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command config show hook 0x7f0be8026210
+         api_tmap_migrate:    -56> 2018-03-05 14:31:54.941008 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command config set hook 0x7f0be8026210
+         api_tmap_migrate:    -55> 2018-03-05 14:31:54.941011 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command config get hook 0x7f0be8026210
+         api_tmap_migrate:    -54> 2018-03-05 14:31:54.941013 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command config diff hook 0x7f0be8026210
+         api_tmap_migrate:    -53> 2018-03-05 14:31:54.941016 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command log flush hook 0x7f0be8026210
+         api_tmap_migrate:    -52> 2018-03-05 14:31:54.941019 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command log dump hook 0x7f0be8026210
+         api_tmap_migrate:    -51> 2018-03-05 14:31:54.941023 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command log reopen hook 0x7f0be8026210
+         api_tmap_migrate:    -50> 2018-03-05 14:32:01.841081 7f0bdd09ebc0  1 accepter.accepter.bind my_inst.addr is 0.0.0.0:6801/81597640 need_addr=1
+         api_tmap_migrate:    -49> 2018-03-05 14:32:01.841132 7f0bdd09ebc0  1 -- 0.0.0.0:6801/81597640 messenger.start
+         api_tmap_migrate:    -48> 2018-03-05 14:32:01.841210 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command objecter_requests hook 0x7f0be8026260
+         api_tmap_migrate:    -47> 2018-03-05 14:32:01.841400 7f0bdd09ebc0  1 accepter.accepter.start
+         api_tmap_migrate:    -46> 2018-03-05 14:32:01.841448 7f0bdd09ebc0 10 monclient(hunting): build_initial_monmap
+         api_tmap_migrate:    -45> 2018-03-05 14:32:01.841568 7f0bdd09ebc0 10 monclient(hunting): init
+         api_tmap_migrate:    -44> 2018-03-05 14:32:01.841619 7f0bdd09ebc0  5 adding auth protocol: cephx
+         api_tmap_migrate:    -43> 2018-03-05 14:32:01.841637 7f0bdd09ebc0 10 monclient(hunting): auth_supported 2 method cephx
+         api_tmap_migrate:    -42> 2018-03-05 14:32:01.842066 7f0bdd09ebc0  2 auth: KeyRing::load: loaded key file /etc/ceph/ceph.client.admin.keyring
+         api_tmap_migrate:    -41> 2018-03-05 14:32:01.842763 7f0bdd09ebc0 10 monclient(hunting): _reopen_session rank -1 name 
+         api_tmap_migrate:    -40> 2018-03-05 14:32:01.843003 7f0bdd09ebc0 10 monclient(hunting): picked mon.noname-c con 0x7f0be805b080 addr 192.168.100.76:6789/0
+         api_tmap_migrate:    -39> 2018-03-05 14:32:01.843038 7f0bdd09ebc0 10 monclient(hunting): _send_mon_message to mon.noname-c at 192.168.100.76:6789/0
+         api_tmap_migrate:    -38> 2018-03-05 14:32:01.843064 7f0bdd09ebc0  1 -- 0.0.0.0:6801/81597640 --> 192.168.100.76:6789/0 -- auth(proto 0 30 bytes epoch 0) v1 -- ?+0 0x7f0be8060f40 con 0x7f0be805b080
+         api_tmap_migrate:    -37> 2018-03-05 14:32:01.843141 7f0bdd09ebc0 10 monclient(hunting): renew_subs
+         api_tmap_migrate:    -36> 2018-03-05 14:32:01.845313 7f0bc5304700  1 -- 192.168.100.74:6801/81597640 learned my addr 192.168.100.74:6801/81597640
+         api_tmap_migrate:    -35> 2018-03-05 14:32:01.849182 7f0bc5203700  2 -- 192.168.100.74:6801/81597640 >> 192.168.100.76:6789/0 pipe(0x7f0be815a000 sd=7 :42098 s=2 pgs=355 cs=1 l=1 c=0x7f0be805b080).reader got KEEPALIVE_ACK
+         api_tmap_migrate:    -34> 2018-03-05 14:32:01.849382 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 1 ==== mon_map magic: 0 v1 ==== 512+0+0 (2350962666 0 0) 0x7f0be813c1c0 con 0x7f0be805b080
+         api_tmap_migrate:    -33> 2018-03-05 14:32:01.849431 7f0bc7b09700 10 monclient(hunting): handle_monmap mon_map magic: 0 v1
+         api_tmap_migrate:    -32> 2018-03-05 14:32:01.849441 7f0bc7b09700 10 monclient(hunting):  got monmap 1, mon.noname-c is now rank -1
+         api_tmap_migrate:    -31> 2018-03-05 14:32:01.849446 7f0bc7b09700 10 monclient(hunting): dump:
+         api_tmap_migrate: epoch 1
+         api_tmap_migrate: fsid 2897b33c-cd74-4ce2-8a54-ca958e426319
+         api_tmap_migrate: last_changed 2018-03-02 21:04:24.770251
+         api_tmap_migrate: created 2018-03-02 21:04:24.770251
+         api_tmap_migrate: 0: 192.168.100.74:6789/0 mon.centos7-ceph-1
+         api_tmap_migrate: 1: 192.168.100.75:6789/0 mon.centos7-ceph-2
+         api_tmap_migrate: 2: 192.168.100.76:6789/0 mon.centos7-ceph-3
+         api_tmap_migrate: 
+         api_tmap_migrate:    -30> 2018-03-05 14:32:01.849499 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 2 ==== auth_reply(proto 2 0 (0) Success) v1 ==== 33+0+0 (1232553179 0 0) 0x7f0be813c400 con 0x7f0be805b080
+         api_tmap_migrate:    -29> 2018-03-05 14:32:01.849617 7f0bc7b09700 10 monclient(hunting): my global_id is 4955
+         api_tmap_migrate:    -28> 2018-03-05 14:32:01.849702 7f0bc7b09700 10 monclient(hunting): _send_mon_message to mon.centos7-ceph-3 at 192.168.100.76:6789/0
+         api_tmap_migrate:    -27> 2018-03-05 14:32:01.849713 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 --> 192.168.100.76:6789/0 -- auth(proto 2 32 bytes epoch 0) v1 -- ?+0 0x7f0be813c1c0 con 0x7f0be805b080
+         api_tmap_migrate:    -26> 2018-03-05 14:32:01.850875 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 3 ==== auth_reply(proto 2 0 (0) Success) v1 ==== 206+0+0 (3015684882 0 0) 0x7f0be813c640 con 0x7f0be805b080
+         api_tmap_migrate:    -25> 2018-03-05 14:32:01.850952 7f0bc7b09700 10 monclient(hunting): _send_mon_message to mon.centos7-ceph-3 at 192.168.100.76:6789/0
+         api_tmap_migrate:    -24> 2018-03-05 14:32:01.850959 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 --> 192.168.100.76:6789/0 -- auth(proto 2 165 bytes epoch 0) v1 -- ?+0 0x7f0be813c400 con 0x7f0be805b080
+         api_tmap_migrate:    -23> 2018-03-05 14:32:01.852209 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 4 ==== auth_reply(proto 2 0 (0) Success) v1 ==== 580+0+0 (68898298 0 0) 0x7f0be813c1c0 con 0x7f0be805b080
+         api_tmap_migrate:    -22> 2018-03-05 14:32:01.852297 7f0bc7b09700  1 monclient(hunting): found mon.centos7-ceph-3
+         api_tmap_migrate:    -21> 2018-03-05 14:32:01.852305 7f0bc7b09700 10 monclient: _send_mon_message to mon.centos7-ceph-3 at 192.168.100.76:6789/0
+         api_tmap_migrate:    -20> 2018-03-05 14:32:01.852309 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 --> 192.168.100.76:6789/0 -- mon_subscribe({monmap=0+}) v2 -- ?+0 0x7f0be80bb000 con 0x7f0be805b080
+         api_tmap_migrate:    -19> 2018-03-05 14:32:01.852357 7f0bdd09ebc0  5 monclient: authenticate success, global_id 4955
+         api_tmap_migrate:    -18> 2018-03-05 14:32:01.852406 7f0bdd09ebc0 10 monclient: renew_subs
+         api_tmap_migrate:    -17> 2018-03-05 14:32:01.852411 7f0bdd09ebc0 10 monclient: _send_mon_message to mon.centos7-ceph-3 at 192.168.100.76:6789/0
+         api_tmap_migrate:    -16> 2018-03-05 14:32:01.852418 7f0bdd09ebc0  1 -- 192.168.100.74:6801/81597640 --> 192.168.100.76:6789/0 -- mon_subscribe({osdmap=0}) v2 -- ?+0 0x7f0be80ba400 con 0x7f0be805b080
+         api_tmap_migrate:    -15> 2018-03-05 14:32:01.852914 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 5 ==== mon_map magic: 0 v1 ==== 512+0+0 (2350962666 0 0) 0x7f0be813cac0 con 0x7f0be805b080
+         api_tmap_migrate:    -14> 2018-03-05 14:32:01.852934 7f0bc7b09700 10 monclient: handle_monmap mon_map magic: 0 v1
+         api_tmap_migrate:    -13> 2018-03-05 14:32:01.852941 7f0bc7b09700 10 monclient:  got monmap 1, mon.centos7-ceph-3 is now rank 2
+         api_tmap_migrate:    -12> 2018-03-05 14:32:01.852947 7f0bc7b09700 10 monclient: dump:
+         api_tmap_migrate: epoch 1
+         api_tmap_migrate: fsid 2897b33c-cd74-4ce2-8a54-ca958e426319
+         api_tmap_migrate: last_changed 2018-03-02 21:04:24.770251
+         api_tmap_migrate: created 2018-03-02 21:04:24.770251
+         api_tmap_migrate: 0: 192.168.100.74:6789/0 mon.centos7-ceph-1
+         api_tmap_migrate: 1: 192.168.100.75:6789/0 mon.centos7-ceph-2
+         api_tmap_migrate: 2: 192.168.100.76:6789/0 mon.centos7-ceph-3
+         api_tmap_migrate: 
+         api_tmap_migrate:    -11> 2018-03-05 14:32:01.853163 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 6 ==== osd_map(372..372 src has 1..372) v3 ==== 8009+0+0 (1943301791 0 0) 0x7f0be8060f40 con 0x7f0be805b080
+         api_tmap_migrate:    -10> 2018-03-05 14:32:01.853567 7f0bdd09ebc0 10 monclient: renew_subs
+         api_tmap_migrate:     -9> 2018-03-05 14:32:01.853580 7f0bdd09ebc0 10 monclient: _send_mon_message to mon.centos7-ceph-3 at 192.168.100.76:6789/0
+         api_tmap_migrate:     -8> 2018-03-05 14:32:01.853588 7f0bdd09ebc0  1 -- 192.168.100.74:6801/81597640 --> 192.168.100.76:6789/0 -- mon_subscribe({fsmap=0}) v2 -- ?+0 0x7f0be80ba600 con 0x7f0be805b080
+         api_tmap_migrate:     -7> 2018-03-05 14:32:01.853618 7f0bdd09ebc0  4 waiting for MDS map...
+         api_tmap_migrate:     -6> 2018-03-05 14:32:01.854464 7f0bc7b09700  1 -- 192.168.100.74:6801/81597640 <== mon.2 192.168.100.76:6789/0 7 ==== fsmap(e 1) v1 ==== 319+0+0 (74130721 0 0) 0x7f0be81003c0 con 0x7f0be805b080
+         api_tmap_migrate:     -5> 2018-03-05 14:32:01.854519 7f0bdd09ebc0  4 Got MDS map 1
+         api_tmap_migrate:     -4> 2018-03-05 14:32:01.854727 7f0bdd09ebc0 10 monclient(hunting): build_initial_monmap
+         api_tmap_migrate:     -3> 2018-03-05 14:32:01.854815 7f0bdd09ebc0  1 librados: starting msgr at :/0
+         api_tmap_migrate:     -2> 2018-03-05 14:32:01.854823 7f0bdd09ebc0  1 librados: starting objecter
+         api_tmap_migrate:     -1> 2018-03-05 14:32:01.854924 7f0bdd09ebc0  5 asok(0x7f0be804a500) register_command objecter_requests hook 0x7f0be80262e0 EEXIST
+         api_tmap_migrate:      0> 2018-03-05 14:32:01.858156 7f0bdd09ebc0 -1 *** Caught signal (Segmentation fault) **
+         api_tmap_migrate:  in thread 7f0bdd09ebc0 thread_name:ceph_test_rados
+         api_tmap_migrate: 
+         api_tmap_migrate:  ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+         api_tmap_migrate:  1: (()+0x572faa) [0x7f0bdd62bfaa]
+         api_tmap_migrate:  2: (()+0xf5e0) [0x7f0bd26ff5e0]
+         api_tmap_migrate:  3: (()+0x18c798) [0x7f0bd3896798]
+         api_tmap_migrate:  4: (()+0xcafe6) [0x7f0bd37d4fe6]
+         api_tmap_migrate:  5: (()+0xcb5ef) [0x7f0bd37d55ef]
+         api_tmap_migrate:  6: (()+0x9a88f) [0x7f0bd37a488f]
+         api_tmap_migrate:  7: (DataScan::main(std::vector<char const*, std::allocator<char const*> > const&)+0x6e3) [0x7f0bdd2d0db3]
+         api_tmap_migrate:  8: (TmapMigratePP_DataScan_Test::TestBody()+0x89d) [0x7f0bdd2d934d]
+         api_tmap_migrate:  9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7f0bdd3269e3]
+         api_tmap_migrate:  10: (testing::Test::Run()+0xb7) [0x7f0bdd3180e7]
+         api_tmap_migrate:  11: (testing::TestInfo::Run()+0x9e) [0x7f0bdd31818e]
+         api_tmap_migrate:  12: (testing::TestCase::Run()+0xa5) [0x7f0bdd318295]
+         api_tmap_migrate:  13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7f0bdd318568]
+         api_tmap_migrate:  14: (testing::UnitTest::Run()+0x68) [0x7f0bdd318828]
+         api_tmap_migrate:  15: (main()+0x39) [0x7f0bdd2d1a99]
+         api_tmap_migrate:  16: (__libc_start_main()+0xf5) [0x7f0bd1710c05]
+         api_tmap_migrate:  17: (()+0x21f9bf) [0x7f0bdd2d89bf]
+         api_tmap_migrate:  NOTE: a copy of the executable, or `objdump -rdS <executable>` is needed to interpret this.
+         api_tmap_migrate: 
+         api_tmap_migrate: --- logging levels ---
+         api_tmap_migrate:    0/ 5 none
+         api_tmap_migrate:    0/ 1 lockdep
+         api_tmap_migrate:    0/ 1 context
+         api_tmap_migrate:    1/ 1 crush
+         api_tmap_migrate:    1/ 5 mds
+         api_tmap_migrate:    1/ 5 mds_balancer
+         api_tmap_migrate:    1/ 5 mds_locker
+         api_tmap_migrate:    1/ 5 mds_log
+         api_tmap_migrate:    1/ 5 mds_log_expire
+         api_tmap_migrate:    1/ 5 mds_migrator
+         api_tmap_migrate:    0/ 1 buffer
+         api_tmap_migrate:    0/ 1 timer
+         api_tmap_migrate:    0/ 1 filer
+         api_tmap_migrate:    0/ 1 striper
+         api_tmap_migrate:    0/ 1 objecter
+         api_tmap_migrate:    0/ 5 rados
+         api_tmap_migrate:    0/ 5 rbd
+         api_tmap_migrate:    0/ 5 rbd_mirror
+         api_tmap_migrate:    0/ 5 rbd_replay
+         api_tmap_migrate:    0/ 5 journaler
+         api_tmap_migrate:    0/ 5 objectcacher
+         api_tmap_migrate:    0/ 5 client
+         api_tmap_migrate:    0/ 5 osd
+         api_tmap_migrate:    0/ 5 optracker
+         api_tmap_migrate:    0/ 5 objclass
+         api_tmap_migrate:    1/ 3 filestore
+         api_tmap_migrate:    1/ 3 journal
+         api_tmap_migrate:    0/ 5 ms
+         api_tmap_migrate:    1/ 5 mon
+         api_tmap_migrate:    0/10 monc
+         api_tmap_migrate:    1/ 5 paxos
+         api_tmap_migrate:    0/ 5 tp
+         api_tmap_migrate:    1/ 5 auth
+         api_tmap_migrate:    1/ 5 crypto
+         api_tmap_migrate:    1/ 1 finisher
+         api_tmap_migrate:    1/ 5 heartbeatmap
+         api_tmap_migrate:    1/ 5 perfcounter
+         api_tmap_migrate:    1/ 5 rgw
+         api_tmap_migrate:    1/10 civetweb
+         api_tmap_migrate:    1/ 5 javaclient
+         api_tmap_migrate:    1/ 5 asok
+         api_tmap_migrate:    1/ 1 throttle
+         api_tmap_migrate:    0/ 0 refs
+         api_tmap_migrate:    1/ 5 xio
+         api_tmap_migrate:    1/ 5 compressor
+         api_tmap_migrate:    1/ 5 newstore
+         api_tmap_migrate:    1/ 5 bluestore
+         api_tmap_migrate:    1/ 5 bluefs
+         api_tmap_migrate:    1/ 3 bdev
+         api_tmap_migrate:    1/ 5 kstore
+         api_tmap_migrate:    4/ 5 rocksdb
+         api_tmap_migrate:    4/ 5 leveldb
+         api_tmap_migrate:    1/ 5 kinetic
+         api_tmap_migrate:    1/ 5 fuse
+         api_tmap_migrate:   -2/-2 (syslog threshold)
+         api_tmap_migrate:   99/99 (stderr threshold)
+         api_tmap_migrate:   max_recent       500
+         api_tmap_migrate:   max_new         1000
+         api_tmap_migrate:   log_file 
+         api_tmap_migrate: --- end dump of recent events ---
+bash: line 1: 21583 Segmentation fault      ceph_test_rados_api_tmap_migrate 2>&1
+     21584 Done                    | tee ceph_test_rados_api_tmap_migrate.log
+     21585 Done                    | sed "s/^/         api_tmap_migrate: /"
+    api_c_read_operations: Running main() from gmock_main.cc
+    api_c_read_operations: [==========] Running 13 tests from 1 test case.
+    api_c_read_operations: [----------] Global test environment set-up.
+    api_c_read_operations: [----------] 13 tests from CReadOpsTest
+    api_c_read_operations: [ RUN      ] CReadOpsTest.NewDelete
+    api_c_read_operations: [       OK ] CReadOpsTest.NewDelete (6898 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.SetOpFlags
+    api_c_read_operations: [       OK ] CReadOpsTest.SetOpFlags (28 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.AssertExists
+    api_c_read_operations: [       OK ] CReadOpsTest.AssertExists (24 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.AssertVersion
+    api_c_read_operations: [       OK ] CReadOpsTest.AssertVersion (28 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.CmpXattr
+    api_c_read_operations: [       OK ] CReadOpsTest.CmpXattr (50 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.Read
+    api_c_read_operations: [       OK ] CReadOpsTest.Read (28 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.RWOrderedRead
+    api_c_read_operations: [       OK ] CReadOpsTest.RWOrderedRead (19 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.ShortRead
+    api_c_read_operations: [       OK ] CReadOpsTest.ShortRead (48 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.Exec
+    api_c_read_operations: [       OK ] CReadOpsTest.Exec (47 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.ExecUserBuf
+    api_c_read_operations: [       OK ] CReadOpsTest.ExecUserBuf (20 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.Stat
+    api_c_read_operations: [       OK ] CReadOpsTest.Stat (20 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.Omap
+    api_c_read_operations: [       OK ] CReadOpsTest.Omap (44 ms)
+    api_c_read_operations: [ RUN      ] CReadOpsTest.GetXattrs
+    api_c_read_operations: [       OK ] CReadOpsTest.GetXattrs (1027 ms)
+    api_c_read_operations: [----------] 13 tests from CReadOpsTest (8281 ms total)
+    api_c_read_operations: 
+    api_c_read_operations: [----------] Global test environment tear-down
+    api_c_read_operations: [==========] 13 tests from 1 test case ran. (13234 ms total)
+    api_c_read_operations: [  PASSED  ] 13 tests.
+      open_pools_parallel: process_1_[21682]: starting.
+      open_pools_parallel: process_2_[21683]: starting.
+      open_pools_parallel: process_1_[21682]: creating pool ceph_test_rados_open_pools_parallel.centos7-ceph-1-21657
+      open_pools_parallel: process_1_[21682]: created object 0...
+      open_pools_parallel: process_1_[21682]: created object 25...
+      open_pools_parallel: process_1_[21682]: created object 49...
+      open_pools_parallel: process_1_[21682]: finishing.
+      open_pools_parallel: process_1_[21682]: shutting down.
+      open_pools_parallel: process_2_[21683]: rados_pool_create.
+      open_pools_parallel: process_2_[21683]: rados_ioctx_create.
+      open_pools_parallel: process_2_[21683]: shutting down.
+      open_pools_parallel: *******************************
+      open_pools_parallel: process_3_[22295]: starting.
+      open_pools_parallel: *******************************
+      open_pools_parallel: process_4_[22296]: starting.
+      open_pools_parallel: process_3_[22295]: creating pool ceph_test_rados_open_pools_parallel.centos7-ceph-1-21657
+      open_pools_parallel: process_3_[22295]: created object 0...
+      open_pools_parallel: process_3_[22295]: created object 25...
+      open_pools_parallel: process_3_[22295]: created object 49...
+      open_pools_parallel: process_3_[22295]: finishing.
+      open_pools_parallel: process_3_[22295]: shutting down.
+      open_pools_parallel: process_4_[22296]: rados_pool_create.
+      open_pools_parallel: process_4_[22296]: rados_ioctx_create.
+      open_pools_parallel: process_4_[22296]: shutting down.
+      open_pools_parallel: *******************************
+      open_pools_parallel: *******************************
+      open_pools_parallel: ******* SUCCESS **********
+                  api_cmd: Running main() from gmock_main.cc
+                  api_cmd: [==========] Running 7 tests from 1 test case.
+                  api_cmd: [----------] Global test environment set-up.
+                  api_cmd: [----------] 7 tests from LibRadosCmd
+                  api_cmd: [ RUN      ] LibRadosCmd.MonDescribe
+                  api_cmd: [       OK ] LibRadosCmd.MonDescribe (192 ms)
+                  api_cmd: [ RUN      ] LibRadosCmd.MonDescribePP
+                  api_cmd: [       OK ] LibRadosCmd.MonDescribePP (49 ms)
+                  api_cmd: [ RUN      ] LibRadosCmd.OSDCmd
+                  api_cmd: [       OK ] LibRadosCmd.OSDCmd (1626 ms)
+                  api_cmd: [ RUN      ] LibRadosCmd.OSDCmdPP
+                  api_cmd: [       OK ] LibRadosCmd.OSDCmdPP (572 ms)
+                  api_cmd: [ RUN      ] LibRadosCmd.PGCmd
+                  api_cmd: [       OK ] LibRadosCmd.PGCmd (8579 ms)
+                  api_cmd: [ RUN      ] LibRadosCmd.PGCmdPP
+                  api_cmd: [       OK ] LibRadosCmd.PGCmdPP (8885 ms)
+                  api_cmd: [ RUN      ] LibRadosCmd.WatchLog
+                  api_cmd: got: 2018-03-05 14:32:10.268352 mon.0 [INF] pgmap v4119: 672 pgs: 3 active+clean+snaptrim, 2 active+clean+snaptrim_wait, 595 active+clean, 4 creating+activating, 13 creating+peering, 55 creating; 28009 bytes data, 208 MB used, 91903 MB / 92111 MB avail
+                  api_cmd: got: 2018-03-05 14:32:11.102235 mon.0 [INF] osdmap e382: 3 osds: 3 up, 3 in
+                  api_cmd: got: 2018-03-05 14:32:11.299373 mon.0 [INF] pgmap v4120: 656 pgs: 7 creating+peering, 2 active+clean+snaptrim_wait, 4 active+clean+snaptrim, 613 active+clean, 1 creating+activating, 29 creating; 28030 bytes data, 198 MB used, 91913 MB / 92111 MB avail; 6047 B/s rd, 24861 B/s wr, 28 op/s
+                  api_cmd: got: 2018-03-05 14:32:11.309316 client.4991 [INF] onexx
+                  api_cmd: got: 2018-03-05 14:32:11.309649 mon.0 [INF] from='client.4991 :/0' entity='client.admin' cmd=[{"prefix":"log", "logtext":["onexx"]}]: dispatch
+                  api_cmd: got: 2018-03-05 14:32:11.385725 mon.2 [INF] from='client.? 192.168.100.74:0/2573162306' entity='client.admin' cmd=[{"prefix":"log", "logtext":["onexx"]}]: dispatch
+                  api_cmd: got: 2018-03-05 14:32:13.161656 mon.0 [INF] pgmap v4122: 664 pgs: 8 creating+peering, 2 active+clean+snaptrim_wait, 5 active+clean+snaptrim, 625 active+clean, 24 creating; 32132 bytes data, 192 MB used, 91919 MB / 92111 MB avail; 9968 B/s wr, 9 op/s
+                  api_cmd: got: 2018-03-05 14:32:14.183589 mon.0 [INF] osdmap e385: 3 osds: 3 up, 3 in
+                  api_cmd: got: 2018-03-05 14:32:14.199045 mon.0 [INF] pgmap v4123: 656 pgs: 2 active+clean+snaptrim_wait, 5 active+clean+snaptrim, 625 active+clean, 24 creating; 32132 bytes data, 192 MB used, 91919 MB / 92111 MB avail
+                  api_cmd: got: 2018-03-05 14:32:15.133653 client.4991 [INF] threexx
+                  api_cmd: got: 2018-03-05 14:32:15.134070 mon.0 [INF] from='client.4991 :/0' entity='client.admin' cmd=[{"prefix":"log", "logtext":["threexx"]}]: dispatch
+                  api_cmd: got: 2018-03-05 14:32:15.209881 mon.2 [INF] from='client.? 192.168.100.74:0/2573162306' entity='client.admin' cmd=[{"prefix":"log", "logtext":["threexx"]}]: dispatch
+                  api_cmd: [       OK ] LibRadosCmd.WatchLog (7128 ms)
+                  api_cmd: [----------] 7 tests from LibRadosCmd (27032 ms total)
+                  api_cmd: 
+                  api_cmd: [----------] Global test environment tear-down
+                  api_cmd: [==========] 7 tests from 1 test case ran. (27032 ms total)
+                  api_cmd: [  PASSED  ] 7 tests.
+                 api_pool: Running main() from gmock_main.cc
+                 api_pool: [==========] Running 7 tests from 1 test case.
+                 api_pool: [----------] Global test environment set-up.
+                 api_pool: [----------] 7 tests from LibRadosPools
+                 api_pool: [ RUN      ] LibRadosPools.PoolList
+                 api_pool: [       OK ] LibRadosPools.PoolList (4797 ms)
+                 api_pool: [ RUN      ] LibRadosPools.PoolLookup
+                 api_pool: [       OK ] LibRadosPools.PoolLookup (2111 ms)
+                 api_pool: [ RUN      ] LibRadosPools.PoolLookup2
+                 api_pool: [       OK ] LibRadosPools.PoolLookup2 (2086 ms)
+                 api_pool: [ RUN      ] LibRadosPools.PoolDelete
+                 api_pool: [       OK ] LibRadosPools.PoolDelete (4309 ms)
+                 api_pool: [ RUN      ] LibRadosPools.PoolCreateDelete
+                 api_pool: [       OK ] LibRadosPools.PoolCreateDelete (4081 ms)
+                 api_pool: [ RUN      ] LibRadosPools.PoolCreateWithCrushRule
+                 api_pool: [       OK ] LibRadosPools.PoolCreateWithCrushRule (5646 ms)
+                 api_pool: [ RUN      ] LibRadosPools.PoolGetBaseTier
+                 api_pool: [       OK ] LibRadosPools.PoolGetBaseTier (7201 ms)
+                 api_pool: [----------] 7 tests from LibRadosPools (30231 ms total)
+                 api_pool: 
+                 api_pool: [----------] Global test environment tear-down
+                 api_pool: [==========] 7 tests from 1 test case ran. (30231 ms total)
+                 api_pool: [  PASSED  ] 7 tests.
+             watch_notify: process_1_[21767]: starting.
+             watch_notify: process_4_[21770]: starting.
+             watch_notify: process_3_[21769]: starting.
+             watch_notify: process_2_[21768]: starting.
+             watch_notify: process_1_[21767]: creating pool foo.21754
+             watch_notify: process_1_[21767]: created object 0...
+             watch_notify: process_1_[21767]: finishing.
+             watch_notify: process_1_[21767]: shutting down.
+             watch_notify: process_3_[21769]: notifying object 0.obj
+             watch_notify: process_3_[21769]: shutting down.
+             watch_notify: process_2_[21768]: watching object 0.obj
+             watch_notify: process_2_[21768]: shutting down.
+             watch_notify: process_4_[21770]: deleting pool foo.21754
+             watch_notify: process_4_[21770]: shutting down.
+             watch_notify: *******************************
+             watch_notify: process_7_[22174]: starting.
+             watch_notify: *******************************
+             watch_notify: process_6_[22172]: starting.
+             watch_notify: *******************************
+             watch_notify: process_8_[22175]: starting.
+             watch_notify: *******************************
+             watch_notify: process_5_[22171]: starting.
+             watch_notify: process_5_[22171]: creating pool foo.21754.
+             watch_notify: process_5_[22171]: finishing.
+             watch_notify: process_5_[22171]: shutting down.
+             watch_notify: process_6_[22172]: watching object 0.obj
+             watch_notify: process_6_[22172]: shutting down.
+             watch_notify: process_7_[22174]: notifying object 0.obj
+             watch_notify: process_7_[22174]: shutting down.
+             watch_notify: process_8_[22175]: deleting pool foo.21754.
+             watch_notify: process_8_[22175]: shutting down.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_10_[22595]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_13_[22598]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_15_[22600]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_11_[22596]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_14_[22599]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_9_[22594]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_12_[22597]: starting.
+             watch_notify: process_9_[22594]: creating pool foo.21754..
+             watch_notify: process_9_[22594]: created object 0...
+             watch_notify: process_9_[22594]: finishing.
+             watch_notify: process_9_[22594]: shutting down.
+             watch_notify: process_11_[22596]: notifying object 0.obj
+             watch_notify: process_11_[22596]: shutting down.
+             watch_notify: process_12_[22597]: deleting pool foo.21754..
+             watch_notify: process_12_[22597]: shutting down.
+             watch_notify: process_13_[22598]: creating pool bar
+             watch_notify: process_13_[22598]: created object 0...
+             watch_notify: process_13_[22598]: finishing.
+             watch_notify: process_13_[22598]: shutting down.
+             watch_notify: process_14_[22599]: notifying object 0.obj
+             watch_notify: process_14_[22599]: shutting down.
+             watch_notify: process_10_[22595]: watching o    delete_pools_parallel: process_2_[21695]: starting.
+    delete_pools_parallel: process_1_[21694]: starting.
+    delete_pools_parallel: process_1_[21694]: creating pool ceph_test_rados_delete_pools_parallel.centos7-ceph-1-21688
+    delete_pools_parallel: process_1_[21694]: created object 0...
+    delete_pools_parallel: process_1_[21694]: created object 25...
+    delete_pools_parallel: process_1_[21694]: created object 49...
+    delete_pools_parallel: process_1_[21694]: finishing.
+    delete_pools_parallel: process_1_[21694]: shutting down.
+    delete_pools_parallel: process_2_[21695]: deleting pool ceph_test_rados_delete_pools_parallel.centos7-ceph-1-21688
+    delete_pools_parallel: process_2_[21695]: shutting down.
+    delete_pools_parallel: *******************************
+    delete_pools_parallel: process_3_[22392]: starting.
+    delete_pools_parallel: *******************************
+    delete_pools_parallel: process_4_[22393]: starting.
+    delete_pools_parallel: *******************************
+    delete_pools_parallel: process_5_[22395]: starting.
+    delete_pools_parallel: process_3_[22392]: creating pool ceph_test_rados_delete_pools_parallel.centos7-ceph-1-21688
+    delete_pools_parallel: process_3_[22392]: created object 0...
+    delete_pools_parallel: process_3_[22392]: created object 25...
+    delete_pools_parallel: process_3_[22392]: created object 49...
+    delete_pools_parallel: process_3_[22392]: finishing.
+    delete_pools_parallel: process_3_[22392]: shutting down.
+    delete_pools_parallel: process_5_[22395]: listing objects.
+    delete_pools_parallel: process_5_[22395]: listed object 0...
+    delete_pools_parallel: process_5_[22395]: listed object 25...
+    delete_pools_parallel: process_5_[22395]: saw 50 objects
+    delete_pools_parallel: process_5_[22395]: shutting down.
+    delete_pools_parallel: process_4_[22393]: deleting pool ceph_test_rados_delete_pools_parallel.centos7-ceph-1-21688
+    delete_pools_parallel: process_4_[22393]: shutting down.
+    delete_pools_parallel: *******************************
+    delete_pools_parallel: *******************************
+    delete_pools_parallel: ******* SUCCESS **********
+            list_parallel: process_1_[21667]: starting.
+            list_parallel: process_2_[21670]: starting.
+            list_parallel: process_2_[21670]: listing objects.
+            list_parallel: process_2_[21670]: listed object 0...
+            list_parallel: process_2_[21670]: listed object 25...
+            list_parallel: process_2_[21670]: saw 50 objects
+            list_parallel: process_2_[21670]: shutting down.
+            list_parallel: process_1_[21667]: creating pool ceph_test_rados_list_parallel.centos7-ceph-1-21592
+            list_parallel: process_1_[21667]: created object 0...
+            list_parallel: process_1_[21667]: created object 25...
+            list_parallel: process_1_[21667]: created object 49...
+            list_parallel: process_1_[21667]: finishing.
+            list_parallel: process_1_[21667]: shutting down.
+            list_parallel: *******************************
+            list_parallel: process_3_[22326]: starting.
+            list_parallel: *******************************
+            list_parallel: process_4_[22327]: starting.
+            list_parallel: *******************************
+            list_parallel: process_5_[22329]: starting.
+            list_parallel: process_3_[22326]: creating pool ceph_test_rados_list_parallel.centos7-ceph-1-21592
+            list_parallel: process_3_[22326]: created object 0...
+            list_parallel: process_3_[22326]: created object 25...
+            list_parallel: process_3_[22326]: created object 49...
+            list_parallel: process_3_[22326]: finishing.
+            list_parallel: process_3_[22326]: shutting down.
+            list_parallel: process_4_[22327]: listing objects.
+            list_parallel: process_4_[22327]: listed object 0...
+            list_parallel: process_4_[22327]: listed object 25...
+            list_parallel: process_4_[22327]: saw 40 objects
+            list_parallel: process_4_[22327]: shutting down.
+            list_parallel: process_5_[22329]: removed 25 objects...
+            list_parallel: process_5_[22329]: removed half of the objects
+            list_parallel: process_5_[22329]: removed 50 objects...
+            list_parallel: process_5_[22329]: removed 50 objects
+            list_parallel: process_5_[22329]: shutting down.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_6_[22900]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_7_[22901]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_8_[22903]: starting.
+            list_parallel: process_6_[22900]: creating pool ceph_test_rados_list_parallel.centos7-ceph-1-21592
+            list_parallel: process_6_[22900]: created object 0...
+            list_parallel: process_6_[22900]: created object 25...
+            list_parallel: process_6_[22900]: created object 49...
+            list_parallel: process_6_[22900]: finishing.
+            list_parallel: process_6_[22900]: shutting down.
+            list_parallel: process_7_[22901]: listing objects.
+            list_parallel: process_7_[22901]: listed object 0...
+            list_parallel: process_7_[22901]: listed object 25...
+            list_parallel: process_7_[22901]: listed object 50...
+            list_parallel: process_7_[22901]: saw 66 objects
+            list_parallel: process_7_[22901]: shutting down.
+            list_parallel: process_8_[22903]: added 25 objects...
+            list_parallel: process_8_[22903]: added half of the objects
+            list_parallel: process_8_[22903]: added 50 objects...
+            list_parallel: process_8_[22903]: added 50 objects
+            list_parallel: process_8_[22903]: shutting down.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******14:31:51.219380 7f800521c8c0 10 monclient(hunting): authenticate will time out at 2018-03-05 14:31:51.219380
+                 api_misc: 2018-03-05 14:31:51.219386 7f800521c8c0  0 librados: client.admin authentication error (110) Connection timed out
+                 api_misc: 2018-03-05 14:31:51.219401 7f800521c8c0 10 monclient(hunting): shutdown
+                 api_misc: 2018-03-05 14:31:51.219402 7f800521c8c0 20 monclient(hunting): shutdown discarding pending message mon_subscribe({monmap=0+}) v2
+                 api_misc: 2018-03-05 14:31:51.219405 7f800521c8c0  1 -- :/3879466735 mark_down 0x7f80102bfd10 -- 0x7f80102d0f00
+                 api_misc: 2018-03-05 14:31:51.248434 7f800521c8c0  1 -- :/3879466735 mark_down_all
+                 api_misc: 2018-03-05 14:31:51.248651 7f800521c8c0  1 -- :/3879466735 shutdown complete.
+                 api_misc: [       OK ] LibRadosMiscConnectFailure.ConnectFailure (74 ms)
+                 api_misc: [----------] 1 test from LibRadosMiscConnectFailure (74 ms total)
+                 api_misc: 
+                 api_misc: [----------] 3 tests from LibRadosMisc
+                 api_misc: [ RUN      ] LibRadosMisc.ClusterFSID
+                 api_misc: [       OK ] LibRadosMisc.ClusterFSID (9473 ms)
+                 api_misc: [ RUN      ] LibRadosMisc.Exec
+                 api_misc: [       OK ] LibRadosMisc.Exec (117 ms)
+                 api_misc: [ RUN      ] LibRadosMisc.CloneRange
+                 api_misc: [       OK ] LibRadosMisc.CloneRange (89 ms)
+                 api_misc: [----------] 3 tests from LibRadosMisc (9680 ms total)
+                 api_misc: 
+                 api_misc: [----------] 21 tests from LibRadosMiscPP
+                 api_misc: [ RUN      ] LibRadosMiscPP.WaitOSDMapPP
+                 api_misc: [       OK ] LibRadosMiscPP.WaitOSDMapPP (6311 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.LongNamePP
+                 api_misc: [       OK ] LibRadosMiscPP.LongNamePP (8102 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.LongLocatorPP
+                 api_misc: [       OK ] LibRadosMiscPP.LongLocatorPP (404 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.LongNSpacePP
+                 api_misc: [       OK ] LibRadosMiscPP.LongNSpacePP (903 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.LongAttrNamePP
+                 api_misc: [       OK ] LibRadosMiscPP.LongAttrNamePP (2553 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.TmapUpdatePP
+                 api_misc: [       OK ] LibRadosMiscPP.TmapUpdatePP (10659 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.TmapUpdateMisorderedPP
+                 api_misc: [       OK ] LibRadosMiscPP.TmapUpdateMisorderedPP (517 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.TmapUpdateMisorderedPutPP
+                 api_misc: [       OK ] LibRadosMiscPP.TmapUpdateMisorderedPutPP (186 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.Tmap2OmapPP
+                 api_misc: [       OK ] LibRadosMiscPP.Tmap2OmapPP (98 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.ExecPP
+                 api_misc: [       OK ] LibRadosMiscPP.ExecPP (37 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.BadFlagsPP
+                 api_misc: [       OK ] LibRadosMiscPP.BadFlagsPP (26 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.Operate1PP
+                 api_misc: [       OK ] LibRadosMiscPP.Operate1PP (46 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.Operate2PP
+                 api_misc: [       OK ] LibRadosMiscPP.Operate2PP (43 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.BigObjectPP
+                 api_misc: [       OK ] LibRadosMiscPP.BigObjectPP (32 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.AioOperatePP
+                 api_misc: [       OK ] LibRadosMiscPP.AioOperatePP (39 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.CloneRangePP
+                 api_misc: [       OK ] LibRadosMiscPP.CloneRangePP (100 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.AssertE                   api_io: Running main() from gmock_main.cc
+                   api_io: [==========] Running 50 tests from 4 test cases.
+                   api_io: [----------] Global test environment set-up.
+                   api_io: [----------] 12 tests from LibRadosIo
+                   api_io: [ RUN      ] LibRadosIo.SimpleWrite
+                   api_io: [       OK ] LibRadosIo.SimpleWrite (6383 ms)
+                   api_io: [ RUN      ] LibRadosIo.TooBig
+                   api_io: [       OK ] LibRadosIo.TooBig (96 ms)
+                   api_io: [ RUN      ] LibRadosIo.ReadTimeout
+                   api_io: no timeout :/
+                   api_io: no timeout :/
+                   api_io: [       OK ] LibRadosIo.ReadTimeout (7486 ms)
+                   api_io: [ RUN      ] LibRadosIo.RoundTrip
+                   api_io: [       OK ] LibRadosIo.RoundTrip (569 ms)
+                   api_io: [ RUN      ] LibRadosIo.OverlappingWriteRoundTrip
+                   api_io: [       OK ] LibRadosIo.OverlappingWriteRoundTrip (295 ms)
+                   api_io: [ RUN      ] LibRadosIo.WriteFullRoundTrip
+                   api_io: [       OK ] LibRadosIo.WriteFullRoundTrip (156 ms)
+                   api_io: [ RUN      ] LibRadosIo.AppendRoundTrip
+                   api_io: [       OK ] LibRadosIo.AppendRoundTrip (41 ms)
+                   api_io: [ RUN      ] LibRadosIo.TruncTest
+                   api_io: [       OK ] LibRadosIo.TruncTest (42 ms)
+                   api_io: [ RUN      ] LibRadosIo.RemoveTest
+                   api_io: [       OK ] LibRadosIo.RemoveTest (39 ms)
+                   api_io: [ RUN      ] LibRadosIo.XattrsRoundTrip
+                   api_io: [       OK ] LibRadosIo.XattrsRoundTrip (7813 ms)
+                   api_io: [ RUN      ] LibRadosIo.RmXattr
+                   api_io: [       OK ] LibRadosIo.RmXattr (1312 ms)
+                   api_io: [ RUN      ] LibRadosIo.XattrIter
+                   api_io: [       OK ] LibRadosIo.XattrIter (2495 ms)
+                   api_io: [----------] 12 tests from LibRadosIo (26728 ms total)
+                   api_io: 
+                   api_io: [----------] 14 tests from LibRadosIoPP
+                   api_io: [ RUN      ] LibRadosIoPP.SimpleWritePP
+                   api_io: [       OK ] LibRadosIoPP.SimpleWritePP (9303 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.ReadOpPP
+                   api_io: [       OK ] LibRadosIoPP.ReadOpPP (53 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.SparseReadOpPP
+                   api_io: [       OK ] LibRadosIoPP.SparseReadOpPP (221 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.RoundTripPP
+                   api_io: [       OK ] LibRadosIoPP.RoundTripPP (59 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.RoundTripPP2
+                   api_io: [       OK ] LibRadosIoPP.RoundTripPP2 (44 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.OverlappingWriteRoundTripPP
+                   api_io: [       OK ] LibRadosIoPP.OverlappingWriteRoundTripPP (38 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.WriteFullRoundTripPP
+                   api_io: [       OK ] LibRadosIoPP.WriteFullRoundTripPP (26 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.WriteFullRoundTripPP2
+                   api_io: [       OK ] LibRadosIoPP.WriteFullRoundTripPP2 (46 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.AppendRoundTripPP
+                   api_io: [       OK ] LibRadosIoPP.AppendRoundTripPP (46 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.TruncTestPP
+                   api_io: [       OK ] LibRadosIoPP.TruncTestPP (110 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.RemoveTestPP
+                   api_io: [       OK ] LibRadosIoPP.RemoveTestPP (48 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.XattrsRoundTripPP
+                   api_io: [       OK ] LibRadosIoPP.XattrsRoundTripPP (84 ms)
+                   api_io: [ RUN      ] LibRadosIoPP.RmXattrPP
+                   api_io: [       OK ] LibRadosIoPP.RmXattrPP (100 ms)
+                      api_c_write_operations: Running main() from gmock_main.cc
+   api_c_write_operations: [==========] Running 6 tests from 2 test cases.
+   api_c_write_operations: [----------] Global test environment set-up.
+   api_c_write_operations: [----------] 1 test from LibradosCWriteOps
+   api_c_write_operations: [ RUN      ] LibradosCWriteOps.NewDelete
+   api_c_write_operations: [       OK ] LibradosCWriteOps.NewDelete (0 ms)
+   api_c_write_operations: [----------] 1 test from LibradosCWriteOps (0 ms total)
+   api_c_write_operations: 
+   api_c_write_operations: [----------] 5 tests from LibRadosCWriteOps
+   api_c_write_operations: [ RUN      ] LibRadosCWriteOps.assertExists
+   api_c_write_operations: [       OK ] LibRadosCWriteOps.assertExists (9968 ms)
+   api_c_write_operations: [ RUN      ] LibRadosCWriteOps.WriteOpAssertVersion
+   api_c_write_operations: [       OK ] LibRadosCWriteOps.WriteOpAssertVersion (8403 ms)
+   api_c_write_operations: [ RUN      ] LibRadosCWriteOps.Xattrs
+   api_c_write_operations: [       OK ] LibRadosCWriteOps.Xattrs (9751 ms)
+   api_c_write_operations: [ RUN      ] LibRadosCWriteOps.Write
+   api_c_write_operations: [       OK ] LibRadosCWriteOps.Write (13549 ms)
+   api_c_write_operations: [ RUN      ] LibRadosCWriteOps.Exec
+   api_c_write_operations: [       OK ] LibRadosCWriteOps.Exec (8606 ms)
+   api_c_write_operations: [----------] 5 tests from LibRadosCWriteOps (50278 ms total)
+   api_c_write_operations: 
+   api_c_write_operations: [----------] Global test environment tear-down
+   api_c_write_operations: [==========] 6 tests from 2 test cases ran. (50278 ms total)
+   api_c_write_operations: [  PASSED  ] 6 tests.
+bject 0.obj
+             watch_notify: process_10_[22595]: shutting down.
+             watch_notify: process_15_[22600]: deleting pool bar
+             watch_notify: process_15_[22600]: shutting down.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_18_[22964]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_16_[22962]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_20_[22966]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_19_[22965]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_21_[22967]: starting.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: process_17_[22963]: starting.
+             watch_notify: process_16_[22962]: creating pool foo.21754...
+             watch_notify: process_16_[22962]: created object 0...
+             watch_notify: process_16_[22962]: finishing.
+             watch_notify: process_16_[22962]: shutting down.
+             watch_notify: process_18_[22964]: notifying object 0.obj
+             watch_notify: process_18_[22964]: shutting down.
+             watch_notify: process_19_[22965]: deleted object 0...
+             watch_notify: process_19_[22965]: shutting down.
+             watch_notify: process_20_[22966]: notifying object 0.obj
+             watch_notify: process_20_[22966]: shutting down.
+             watch_notify: process_17_[22963]: watching object 0.obj
+             watch_notify: process_17_[22963]: shutting down.
+             watch_notify: process_21_[22967]: deleting pool foo.21754...
+             watch_notify: process_21_[22967]: shutting down.
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: *******************************
+             watch_notify: ******* SUCCESS **********
+************************
+            list_parallel: process_10_[23059]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_9_[23058]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_11_[23060]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_13_[23064]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_12_[23063]: starting.
+            list_parallel: process_9_[23058]: creating pool ceph_test_rados_list_parallel.centos7-ceph-1-21592
+            list_parallel: process_9_[23058]: created object 0...
+            list_parallel: process_9_[23058]: created object 25...
+            list_parallel: process_9_[23058]: created object 49...
+            list_parallel: process_9_[23058]: finishing.
+            list_parallel: process_9_[23058]: shutting down.
+            list_parallel: process_10_[23059]: listing objects.
+            list_parallel: process_10_[23059]: listed object 0...
+            list_parallel: process_10_[23059]: listed object 25...
+            list_parallel: process_10_[23059]: listed object 50...
+            list_parallel: process_10_[23059]: listed object 75...
+            list_parallel: process_10_[23059]: listed object 100...
+            list_parallel: process_10_[23059]: saw 101 objects
+            list_parallel: process_10_[23059]: shutting down.
+            list_parallel: process_13_[23064]: removed 25 objects...
+            list_parallel: process_13_[23064]: removed half of the objects
+            list_parallel: process_13_[23064]: removed 50 objects...
+            list_parallel: process_13_[23064]: removed 50 objects
+            list_parallel: process_13_[23064]: shutting down.
+            list_parallel: process_11_[23060]: added 25 objects...
+            list_parallel: process_11_[23060]: added half of the objects
+            list_parallel: process_11_[23060]: added 50 objects...
+            list_parallel: process_11_[23060]: added 50 objects
+            list_parallel: process_11_[23060]: shutting down.
+            list_parallel: process_12_[23063]: added 25 objects...
+            list_parallel: process_12_[23063]: added half of the objects
+            list_parallel: process_12_[23063]: added 50 objects...
+            list_parallel: process_12_[23063]: added 50 objects
+            list_parallel: process_12_[23063]: shutting down.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_14_[23399]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_15_[23400]: starting.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: process_16_[23401]: starting.
+            list_parallel: process_14_[23399]: creating pool ceph_test_rados_list_parallel.centos7-ceph-1-21592
+            list_parallel: process_14_[23399]: created object 0...
+            list_parallel: process_14_[23399]: created object 25...
+            list_parallel: process_14_[23399]: created object 49...
+            list_parallel: process_14_[23399]: finishing.
+            list_parallel: process_14_[23399]: shutting down.
+            list_parallel: process_15_[23400]: listing objects.
+            list_parallel: process_15_[23400]: listed object 0...
+            list_parallel: process_15_[23400]: listed object 25...
+            list_parallel: process_15_[23400]: listed object 50...
+            list_parallel: process_15_[23400]: listed object 75...
+            list_parallel: process_15_[23400]: listed object 100...
+            list_parallel: process_15_[23400]: listed object 125...
+            list_parallel: process_15_[23400]: saw 150 objects
+            list_parallel: process_15_[23400]: shutting down.
+            list_parallel: process_16_[23401]: added 25 objects...
+            list_parallel: process_16_[23401]: added half of the objects
+            list_parallel: process_16_[23401]: added 50 objects...
+            list_parallel: process_16_[23401]: added 50 objects
+            list_parallel: process_16_[23401]: shutting down.
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: *******************************
+            list_parallel: ******* SUCCESS **********
+                 api_lock: Running main() from gmock_main.cc
+                 api_lock: [==========] Running 32 tests from 4 test cases.
+                 api_lock: [----------] Global test environment set-up.
+                 api_lock: [----------] 8 tests from LibRadosLock
+                 api_lock: [ RUN      ] LibRadosLock.LockExclusive
+                 api_lock: [       OK ] LibRadosLock.LockExclusive (9568 ms)
+                 api_lock: [ RUN      ] LibRadosLock.LockShared
+                 api_lock: [       OK ] LibRadosLock.LockShared (41 ms)
+                 api_lock: [ RUN      ] LibRadosLock.LockExclusiveDur
+                 api_lock: [       OK ] LibRadosLock.LockExclusiveDur (1164 ms)
+                 api_lock: [ RUN      ] LibRadosLock.LockSharedDur
+                 api_lock: [       OK ] LibRadosLock.LockSharedDur (5689 ms)
+                 api_lock: [ RUN      ] LibRadosLock.LockRenew
+                 api_lock: [       OK ] LibRadosLock.LockRenew (715 ms)
+                 api_lock: [ RUN      ] LibRadosLock.Unlock
+                 api_lock: [       OK ] LibRadosLock.Unlock (487 ms)
+                 api_lock: [ RUN      ] LibRadosLock.ListLockers
+                 api_lock: [       OK ] LibRadosLock.ListLockers (178 ms)
+                 api_lock: [ RUN      ] LibRadosLock.BreakLock
+                 api_lock: [       OK ] LibRadosLock.BreakLock (70 ms)
+                 api_lock: [----------] 8 tests from LibRadosLock (17912 ms total)
+                 api_lock: 
+                 api_lock: [----------] 8 tests from LibRadosLockPP
+                 api_lock: [ RUN      ] LibRadosLockPP.LockExclusivePP
+                 api_lock: [       OK ] LibRadosLockPP.LockExclusivePP (7049 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.LockSharedPP
+                 api_lock: [       OK ] LibRadosLockPP.LockSharedPP (2512 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.LockExclusiveDurPP
+                 api_lock: [       OK ] LibRadosLockPP.LockExclusiveDurPP (10887 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.LockSharedDurPP
+                 api_lock: [       OK ] LibRadosLockPP.LockSharedDurPP (1090 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.LockRenewPP
+                 api_lock: [       OK ] LibRadosLockPP.LockRenewPP (50 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.UnlockPP
+                 api_lock: [       OK ] LibRadosLockPP.UnlockPP (64 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.ListLockersPP
+                 api_lock: [       OK ] LibRadosLockPP.ListLockersPP (134 ms)
+                 api_lock: [ RUN      ] LibRadosLockPP.BreakLockPP
+                 api_lock: [       OK ] LibRadosLockPP.BreakLockPP (876 ms)
+                 api_lock: [----------] 8 tests from LibRadosLockPP (22662 ms total)
+                 api_lock: 
+                 api_lock: [----------] 8 tests from LibRadosLockEC
+                 api_lock: [ RUN      ] LibRadosLockEC.LockExclusive
+                 api_lock: [       OK ] LibRadosLockEC.LockExclusive (3037 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.LockShared
+                 api_lock: [       OK ] LibRadosLockEC.LockShared (372 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.LockExclusiveDur
+                 api_lock: [       OK ] LibRadosLockEC.LockExclusiveDur (1051 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.LockSharedDur
+                 api_lock: [       OK ] LibRadosLockEC.LockSharedDur (1474 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.LockRenew
+                 api_lock: [       OK ] LibRadosLockEC.LockRenew (648 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.Unlock
+                 api_lock: [       OK ] LibRadosLockEC.Unlock (6049 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.ListLockers
+                 api_lock: [       OK ] LibRadosLockEC.ListLockers (998 ms)
+                 api_lock: [ RUN      ] LibRadosLockEC.BreakLock
+                 api_lock: [       OK ] LibRadosLockEC.BreakLock (6695 ms)
+                 api_lock:                 api_stat: Running main() from gmock_main.cc
+                 api_stat: [==========] Running 17 tests from 4 test cases.
+                 api_stat: [----------] Global test environment set-up.
+                 api_stat: [----------] 4 tests from LibRadosStat
+                 api_stat: [ RUN      ] LibRadosStat.Stat
+                 api_stat: [       OK ] LibRadosStat.Stat (6068 ms)
+                 api_stat: [ RUN      ] LibRadosStat.StatNS
+                 api_stat: [       OK ] LibRadosStat.StatNS (402 ms)
+                 api_stat: [ RUN      ] LibRadosStat.ClusterStat
+                 api_stat: [       OK ] LibRadosStat.ClusterStat (104 ms)
+                 api_stat: [ RUN      ] LibRadosStat.PoolStat
+                 api_stat: [       OK ] LibRadosStat.PoolStat (192 ms)
+                 api_stat: [----------] 4 tests from LibRadosStat (6766 ms total)
+                 api_stat: 
+                 api_stat: [----------] 5 tests from LibRadosStatPP
+                 api_stat: [ RUN      ] LibRadosStatPP.StatPP
+                 api_stat: [       OK ] LibRadosStatPP.StatPP (14247 ms)
+                 api_stat: [ RUN      ] LibRadosStatPP.Stat2Mtime2PP
+                 api_stat: [       OK ] LibRadosStatPP.Stat2Mtime2PP (1092 ms)
+                 api_stat: [ RUN      ] LibRadosStatPP.StatPPNS
+                 api_stat: [       OK ] LibRadosStatPP.StatPPNS (2927 ms)
+                 api_stat: [ RUN      ] LibRadosStatPP.ClusterStatPP
+                 api_stat: [       OK ] LibRadosStatPP.ClusterStatPP (10394 ms)
+                 api_stat: [ RUN      ] LibRadosStatPP.PoolStatPP
+                 api_stat: [       OK ] LibRadosStatPP.PoolStatPP (204 ms)
+                 api_stat: [----------] 5 tests from LibRadosStatPP (28864 ms total)
+                 api_stat: 
+                 api_stat: [----------] 4 tests from LibRadosStatEC
+                 api_stat: [ RUN      ] LibRadosStatEC.Stat
+                 api_stat: [       OK ] LibRadosStatEC.Stat (6160 ms)
+                 api_stat: [ RUN      ] LibRadosStatEC.StatNS
+                 api_stat: [       OK ] LibRadosStatEC.StatNS (509 ms)
+                 api_stat: [ RUN      ] LibRadosStatEC.ClusterStat
+                 api_stat: [       OK ] LibRadosStatEC.ClusterStat (20 ms)
+                 api_stat: [ RUN      ] LibRadosStatEC.PoolStat
+                 api_stat: [       OK ] LibRadosStatEC.PoolStat (163 ms)
+                 api_stat: [----------] 4 tests from LibRadosStatEC (6852 ms total)
+                 api_stat: 
+                 api_stat: [----------] 4 tests from LibRadosStatECPP
+                 api_stat: [ RUN      ] LibRadosStatECPP.StatPP
+                 api_stat: [       OK ] LibRadosStatECPP.StatPP (10953 ms)
+                 api_stat: [ RUN      ] LibRadosStatECPP.StatPPNS
+                 api_stat: [       OK ] LibRadosStatECPP.StatPPNS (327 ms)
+                 api_stat: [ RUN      ] LibRadosStatECPP.ClusterStatPP
+                 api_stat: [       OK ] LibRadosStatECPP.ClusterStatPP (14 ms)
+                 api_stat: [ RUN      ] LibRadosStatECPP.PoolStatPP
+                 api_stat: [       OK ] LibRadosStatECPP.PoolStatPP (44 ms)
+                 api_stat: [----------] 4 tests from LibRadosStatECPP (11339 ms total)
+                 api_stat: 
+                 api_stat: [----------] Global test environment tear-down
+                 api_stat: [==========] 17 tests from 4 test cases ran. (70086 ms total)
+                 api_stat: [  PASSED  ] 17 tests.
+         api_watch_notify: Running main() from gmock_main.cc
+         api_watch_notify: [==========] Running 24 tests from 4 test cases.
+         api_watch_notify: [----------] Global test environment set-up.
+         api_watch_notify: [----------] 9 tests from LibRadosWatchNotify
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.WatchNotify
+         api_watch_notify: watch_notify_test_cb
+         api_watch_notify: [       OK ] LibRadosWatchNotify.WatchNotify (6905 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.Watch2Delete
+         api_watch_notify: waiting up to 300 for disconnect notification ...
+         api_watch_notify: watch_notify2_test_errcb cookie 139744958489872 err -107
+         api_watch_notify: [       OK ] LibRadosWatchNotify.Watch2Delete (1025 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.AioWatchDelete
+         api_watch_notify: waiting up to 300 for disconnect notification ...
+         api_watch_notify: watch_notify2_test_errcb cookie 139744958523456 err -107
+         api_watch_notify: [       OK ] LibRadosWatchNotify.AioWatchDelete (5460 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.Watch2Timeout
+         api_watch_notify: waiting up to 900 for osd to time us out ...
+         api_watch_notify: watch_notify2_test_errcb cookie 139744958525456 err -107
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1752346666845 cookie 139744958525456
+         api_watch_notify: [       OK ] LibRadosWatchNotify.Watch2Timeout (32899 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.WatchNotify2
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1752346666772 cookie 139744958527408
+         api_watch_notify: [       OK ] LibRadosWatchNotify.WatchNotify2 (465 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.AioWatchNotify2
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1756641624140 cookie 139744958531968
+         api_watch_notify: [       OK ] LibRadosWatchNotify.AioWatchNotify2 (474 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.AioNotify
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1756641624141 cookie 139744958531968
+         api_watch_notify: [       OK ] LibRadosWatchNotify.AioNotify (62 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.WatchNotify2Multi
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1756641624142 cookie 139744958543008
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1756641624142 cookie 139744958544560
+         api_watch_notify: [       OK ] LibRadosWatchNotify.WatchNotify2Multi (48 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotify.WatchNotify2Timeout
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1756641624143 cookie 139744958471952
+         api_watch_notify: watch_notify2_test_cb from 4919 notify_id 1760936591440 cookie 139744958471952
+         api_watch_notify: [       OK ] LibRadosWatchNotify.WatchNotify2Timeout (3051 ms)
+         api_watch_notify: [----------] 9 tests from LibRadosWatchNotify (50390 ms total)
+         api_watch_notify: 
+         api_watch_notify: [----------] 1 test from LibRadosWatchNotifyEC
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyEC.WatchNotify
+         api_watch_notify: watch_notify_test_cb
+         api_watch_notify: [       OK ] LibRadosWatchNotifyEC.WatchNotify (4591 ms)
+         api_watch_notify: [----------] 1 test from LibRadosWatchNotifyEC (4591 ms total)
+         api_watch_notify: 
+         api_watch_notify: [----------] 2 tests from LibRadosWatchNotifyECPP
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyECPP.WatchNotify
+         api_watch_notify: notify
+         api_watch_notify: [       OK ] LibRadosWatchNotifyECPP.WatchNotify (2719 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyECPP.WatchNotifyTimeout
+         api_watch_notify: [       OK ] LibRadosWatchNotifyECPP.WatchNotifyTimeout (319 ms)
+         api_watch_notify: [----------] 2 tests fapi_io: [ RUN      ] LibRadosIoPP.XattrListPP
+                   api_io: [       OK ] LibRadosIoPP.XattrListPP (64 ms)
+                   api_io: [----------] 14 tests from LibRadosIoPP (10242 ms total)
+                   api_io: 
+                   api_io: [----------] 10 tests from LibRadosIoEC
+                   api_io: [ RUN      ] LibRadosIoEC.SimpleWrite
+                   api_io: [       OK ] LibRadosIoEC.SimpleWrite (3952 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.RoundTrip
+                   api_io: [       OK ] LibRadosIoEC.RoundTrip (327 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.OverlappingWriteRoundTrip
+                   api_io: [       OK ] LibRadosIoEC.OverlappingWriteRoundTrip (299 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.WriteFullRoundTrip
+                   api_io: [       OK ] LibRadosIoEC.WriteFullRoundTrip (147 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.AppendRoundTrip
+                   api_io: [       OK ] LibRadosIoEC.AppendRoundTrip (169 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.TruncTest
+                   api_io: [       OK ] LibRadosIoEC.TruncTest (90 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.RemoveTest
+                   api_io: [       OK ] LibRadosIoEC.RemoveTest (124 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.XattrsRoundTrip
+                   api_io: [       OK ] LibRadosIoEC.XattrsRoundTrip (199 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.RmXattr
+                   api_io: [       OK ] LibRadosIoEC.RmXattr (248 ms)
+                   api_io: [ RUN      ] LibRadosIoEC.XattrIter
+                   api_io: [       OK ] LibRadosIoEC.XattrIter (129 ms)
+                   api_io: [----------] 10 tests from LibRadosIoEC (5684 ms total)
+                   api_io: 
+                   api_io: [----------] 14 tests from LibRadosIoECPP
+                   api_io: [ RUN      ] LibRadosIoECPP.SimpleWritePP
+                   api_io: [       OK ] LibRadosIoECPP.SimpleWritePP (9926 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.ReadOpPP
+                   api_io: [       OK ] LibRadosIoECPP.ReadOpPP (155 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.SparseReadOpPP
+                   api_io: [       OK ] LibRadosIoECPP.SparseReadOpPP (175 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.RoundTripPP
+                   api_io: [       OK ] LibRadosIoECPP.RoundTripPP (54 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.RoundTripPP2
+                   api_io: [       OK ] LibRadosIoECPP.RoundTripPP2 (203 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.OverlappingWriteRoundTripPP
+                   api_io: [       OK ] LibRadosIoECPP.OverlappingWriteRoundTripPP (311 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.WriteFullRoundTripPP
+                   api_io: [       OK ] LibRadosIoECPP.WriteFullRoundTripPP (225 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.WriteFullRoundTripPP2
+                   api_io: [       OK ] LibRadosIoECPP.WriteFullRoundTripPP2 (81 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.AppendRoundTripPP
+                   api_io: [       OK ] LibRadosIoECPP.AppendRoundTripPP (103 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.TruncTestPP
+                   api_io: [       OK ] LibRadosIoECPP.TruncTestPP (101 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.RemoveTestPP
+                   api_io: [       OK ] LibRadosIoECPP.RemoveTestPP (554 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.XattrsRoundTripPP
+                   api_io: [       OK ] LibRadosIoECPP.XattrsRoundTripPP (1175 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.RmXattrPP
+                   api_io: [       OK ] LibRadosIoECPP.RmXattrPP (515 ms)
+                   api_io: [ RUN      ] LibRadosIoECPP.XattrListPP
+                   api_io: [       OK ] LibRadosIoECPP.XattrListPP (48 ms)
+                   api_io: [----------] 14 tests from LibRadosIoECPP (13628 ms total)
+                   api_io: 
+                   api_io: [----------] Global test environment tear-down
+                   api_io: [==========] 50 tests from 4 test cases ran. (76828 ms total)
+                   api_io: [  PASSED  ] 50 tests.
+ [----------] 8 tests from LibRadosLockEC (20325 ms total)
+                 api_lock: 
+                 api_lock: [----------] 8 tests from LibRadosLockECPP
+                 api_lock: [ RUN      ] LibRadosLockECPP.LockExclusivePP
+                 api_lock: [       OK ] LibRadosLockECPP.LockExclusivePP (2559 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.LockSharedPP
+                 api_lock: [       OK ] LibRadosLockECPP.LockSharedPP (980 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.LockExclusiveDurPP
+                 api_lock: [       OK ] LibRadosLockECPP.LockExclusiveDurPP (1304 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.LockSharedDurPP
+                 api_lock: [       OK ] LibRadosLockECPP.LockSharedDurPP (1031 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.LockRenewPP
+                 api_lock: [       OK ] LibRadosLockECPP.LockRenewPP (30 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.UnlockPP
+                 api_lock: [       OK ] LibRadosLockECPP.UnlockPP (32 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.ListLockersPP
+                 api_lock: [       OK ] LibRadosLockECPP.ListLockersPP (42 ms)
+                 api_lock: [ RUN      ] LibRadosLockECPP.BreakLockPP
+                 api_lock: [       OK ] LibRadosLockECPP.BreakLockPP (32 ms)
+                 api_lock: [----------] 8 tests from LibRadosLockECPP (6010 ms total)
+                 api_lock: 
+                 api_lock: [----------] Global test environment tear-down
+                 api_lock: [==========] 32 tests from 4 test cases ran. (84129 ms total)
+                 api_lock: [  PASSED  ] 32 tests.
+rom LibRadosWatchNotifyECPP (3038 ms total)
+         api_watch_notify: 
+         api_watch_notify: [----------] 12 tests from LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/0
+         api_watch_notify: notify
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/0 (2673 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/1
+         api_watch_notify: notify
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/1 (5021 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/0
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/0 (125 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/1
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/1 (26 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/0
+         api_watch_notify: handle_notify cookie 139744958307488 notify_id 1881195685730 notifier_gid 5036
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/0 (27 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/1
+         api_watch_notify: handle_notify cookie 139744958307488 notify_id 1881195675729 notifier_gid 5036
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/1 (28 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/0
+         api_watch_notify: handle_notify cookie 139744958307488 notify_id 1881195675730 notifier_gid 5036
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/0 (37 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/1
+         api_watch_notify: handle_notify cookie 139744958307488 notify_id 1881195675731 notifier_gid 5036
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/1 (51 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/0
+         api_watch_notify: handle_notify cookie 139744958307488 notify_id 1881195685731 notifier_gid 5036
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/0 (30 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/1
+         api_watch_notify: handle_notify cookie 139744958555952 notify_id 1881195685732 notifier_gid 5036
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/1 (26 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/0
+         api_watch_notify:  trying...
+         api_watch_notify: handle_notify cookie 139744958555952 notify_id 1881195685733 notifier_gid 5036
+         api_watch_notify:  timed out
+         api_watch_notify:  flushing
+         api_watch_notify:  flushed
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/0 (3026 ms)
+         api_watch_notify: [ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/1
+         api_watch_notify:  trying...
+         api_watch_notify: handle_notify cookie 139744958555952 notify_id 1894080577620 notifier_gid 5036
+         api_watch_notify:  timed out
+         api_watch_notify:  flushing
+         api_watch_notify:  flushed
+         api_watch_notify: [       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/1 (3030 ms)
+         api_watch_notify: [----------] 12 tests from LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP (14100 ms total)
+         api_watch_notify: 
+         api_watch_notify: [----------] Global test environment tear-down
+         api_watch_notify: [==========] 24 tests from 4 test cases ran. (94432 ms total)
+         api_watch_notify: [  PASSED  ] 24 tests.
+                 api_list: []
+                 api_list: [==========] Running 26 tests from 5 test cases.
+                 api_list: [----------] Global test environment set-up.
+                 api_list: [----------] 5 tests from LibRadosList
+                 api_list: [ RUN      ] LibRadosList.ListObjects
+                 api_list: [       OK ] LibRadosList.ListObjects (6907 ms)
+                 api_list: [ RUN      ] LibRadosList.ListObjectsNS
+                 api_list: [       OK ] LibRadosList.ListObjectsNS (82 ms)
+                 api_list: [ RUN      ] LibRadosList.ListObjectsStart
+                 api_list: 1 0
+                 api_list: 15 1
+                 api_list: 11 1
+                 api_list: 10 2
+                 api_list: 13 2
+                 api_list: 7 2
+                 api_list: 6 3
+                 api_list: 3 3
+                 api_list: 4 3
+                 api_list: 12 3
+                 api_list: 5 5
+                 api_list: 8 5
+                 api_list: 14 6
+                 api_list: 0 6
+                 api_list: 9 7
+                 api_list: 2 7
+                 api_list: have 9 expect one of 2,9
+                 api_list: have 14 expect one of 0,14
+                 api_list: have 5 expect one of 5,8
+                 api_list: have 6 expect one of 12,3,4,6
+                 api_list: have 10 expect one of 10,13,7
+                 api_list: have 15 expect one of 11,15
+                 api_list: have 1 expect one of 1
+                 api_list: [       OK ] LibRadosList.ListObjectsStart (163 ms)
+                 api_list: [ RUN      ] LibRadosList.EnumerateObjects
+                 api_list: [       OK ] LibRadosList.EnumerateObjects (78662 ms)
+                 api_list: [ RUN      ] LibRadosList.EnumerateObjectsSplit
+                 api_list: split 0/5 -> MIN 104:33333333::::head
+                 api_list: split 1/5 -> 104:33333333::::head 104:66666666::::head
+                 api_list: split 2/5 -> 104:66666666::::head 104:99999999::::head
+                 api_list: split 3/5 -> 104:99999999::::head 104:cccccccc::::head
+                 api_list: split 4/5 -> 104:cccccccc::::head MAX
+                 api_list: [       OK ] LibRadosList.EnumerateObjectsSplit (11270 ms)
+                 api_list: [----------] 5 tests from LibRadosList (97085 ms total)
+                 api_list: 
+                 api_list: [----------] 10 tests from LibRadosListPP
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsPP
+                 api_list: [       OK ] LibRadosListPP.ListObjectsPP (1175 ms)
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsTwicePP
+                 api_list: [       OK ] LibRadosListPP.ListObjectsTwicePP (26 ms)
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsCopyIterPP
+                 api_list: [       OK ] LibRadosListPP.ListObjectsCopyIterPP (26 ms)
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsEndIter
+                 api_list: [       OK ] LibRadosListPP.ListObjectsEndIter (18 ms)
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsPPNS
+                 api_list: [       OK ] LibRadosListPP.ListObjectsPPNS (68 ms)
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsManyPP
+                 api_list: 135 0
+                 api_list: 1 0
+                 api_list: 77 0
+                 api_list: 184 0
+                 api_list: 96 0
+                 api_list: 178 0
+                 api_list: 26 0
+                 api_list: 74 0
+                 api_list: 205 0
+                 api_list: 69 0
+                 api_list: 177 0
+                 api_list: 55 0
+                 api_list: 199 0
+                 api_list: 194 0
+                 api_list: 220 0
+                 api_list: 88 0
+                 api_list: 251 0
+                 api_list: 195 0
+                 api_list: 97 0
+                 api_list: 193 0
+                 api_list: 212 0
+                 api_list: 95 0
+                 api_list: 182 0
+                 api_list: 41 0
+                 api_list: 141 1
+                 api_list: 134 1
+                 api_list: 18 1
+                 api_list: 151 1
+                 api_list: 15 1
+                 api_list: 29 1
+                 api_list: 170 1
+                 api_list: 84 1
+                 api_list: 157 1
+                 api_list: 222 1
+                 api_list: 11 1
+                 api_list: 206 1
+                 api_list: 108 1
+                 api_list: 203 1
+                 api_list: 225 1
+                 api_list: 242 1
+                 api_list: 232 1
+                 api_list: 221 1
+                 api_list: 48 1
+                 api_list: 110 1
+                 api_list: 213 1
+                 api_list: 38 1
+                 api_list: 100 1
+                 api_list: 24 1
+                 api_list: 87 1
+                 api_list: 187 1
+                 api_list: 147 1
+                 api_list: 98 1
+                 api_list: 107 1
+                 api_list: 102 1
+                 api_list: 233 1
+                 api_list: 210 1
+                 api_list: 40 1
+                 api_list: 35 1
+                 api_list: 85 1
+                 api_list: 146 1
+                 api_list: 36 2
+                 api_list: 243 2
+                 api_list: 133 2
+                 api_list: 188 2
+                 api_list: 126 2
+                 api_list: 215 2
+                 api_list: 211 2
+                 api_list: 64 2
+                 api_list: 145 2
+                 api_list: 21 2
+                 api_list: 17 2
+                 api_list: 37 2
+                 api_list: 129 2
+                 api_list: 176 2
+                 api_list: 57 2
+                 api_list: 209 2
+                 api_list: 10 2
+                 api_list: 161 2
+                 api_list: 13 2
+                 api_list: 229 2
+                 api_list: 34 2
+                 api_list: 235 2
+                 api_list: 25 2
+                 api_list: 142 2
+                 api_list: 7 2
+                 api_list: 164 2
+                 api_list: 132 2
+                 api_list: 131 3
+                 api_list: 128 3
+                 api_list: 33 3
+                 api_list: 42 3
+                 api_list: 224 3
+                 api_list: 6 3
+                 api_list: 65 3
+                 api_list: 71 3
+                 api_list: 27 3
+                 api_list: 162 3
+                 api_list: 234 3
+                 api_list: 150 3
+                 api_list: 115 3
+                 api_list: 238 3
+                 api_list: 28 3
+                 api_list: 78 3
+                 api_list: 67 3
+                 api_list: 3 3
+                 api_list: 201 3
+                 api_list: 153 3
+                 api_list: 120 3
+                 api_list: 180 3
+                 api_list: 223 3
+                 api_list: 44 3
+                 api_list: 155 3
+                 api_list: 226 3
+                 api_list: 248 3
+                 api_list: 148 3
+                 api_list: 118 3
+                 api_list: 58 3
+                 api_list: 158 3
+                 api_list: 61 3
+                 api_list: 4 3
+                 api_list: 94 3
+                 api_list: 172 3
+                 api_list: 31 3
+                 api_list: 45 3
+                 api_list: 12 3
+                 api_list: 136 4
+                 api_list: 23 4
+                 api_list: 249 4
+                 api_list: 138 4
+                 api_list: 19 4
+                 api_list: 186 4
+                 api_list: 244 4
+                 api_list: 190 4
+                 api_list: 46 4
+                 api_list: 228 4
+                 api_list: 119 4
+                 api_list: 240 4
+                 api_list: 191 4
+                 api_list: 92 4
+                 api_list: 152 4
+                 api_list: 253 4
+                 api_list: 140 4
+                 api_list: 137 4
+                 api_list: 216 4
+                 api_list: 179 4
+                 api_list: 250 4
+                 api_list: 16 4
+                 api_list: 59 4
+                 api_list: 208 4
+                 api_list: 91 4
+                 api_list: 62 4
+                 api_list: 159 4
+                 api_list: 123 5
+                 api_list: 52 5
+                 api_list: 22 5
+                 api_list: 181 5
+                 api_list: 219 5
+                 api_list: 246 5
+                 api_list: 49 5
+                 api_list: 43 5
+                 api_list: 156 5
+                 api_list: 111 5
+                 api_list: 252 5
+                 api_list: 90 5
+                 api_list: 237 5
+                 api_list: 231 5
+                 api_list: 112 5
+                 api_list: 168 5
+                 api_list: 104 5
+                 api_list: 68 5
+                 api_list: 5 5
+                 api_list: 105 5
+                 api_list: 66 5
+                 api_list: 166 5
+                 api_list: 76 5
+                 api_list: 113 5
+                 api_list: 75 5
+                 api_list: 189 5
+                 api_list: 185 5
+                 api_list: 72 5
+                 api_list: 8 5
+                 api_list: 124 5
+                 api_list: 139 5
+                 api_list: 82 6
+                 api_list: 53 6
+                 api_list: 116 6
+                 api_list: 14 6
+                 api_list: 79 6
+                 api_list: 89 6
+                 api_list: 99 6
+                 api_list: 20 6
+                 api_list: 241 6
+                 api_list: 160 6
+                 api_list: 0 6
+                 api_list: 39 6
+                 api_list: 70 6
+                 api_list: 32 6
+                 api_list: 175 6
+                 api_list: 101 6
+                 api_list: 30 6
+                 api_list: 198 6
+                 api_list: 204 6
+                 api_list: 163 6
+                 api_list: 122 6
+                 api_list: 196 6
+                 api_list: 169 6
+                 api_list: 73 6
+                 api_list: 254 6
+                 api_list: 230 6
+                 api_list: 47 6
+                 api_list: 154 6
+                 api_list: 63 6
+                 api_list: 171 6
+                 api_list: 192 6
+                 api_list: 255 6
+                 api_list: 149 6
+                 api_list: 114 7
+                 api_list: 80 7
+                 api_list: 86 7
+                 api_list: 214 7
+                 api_list: 227 7
+                 api_list: 245 7
+                 api_list: 109 7
+                 api_list: 167 7
+                 api_list: 207 7
+                 api_list: 173 7
+                 api_list: 9 7
+                 api_list: 50 7
+                 api_list: 144 7
+                 api_list: 83 7
+                 api_list: 103 7
+                 api_list: 218 7
+                 api_list: 60 7
+                 api_list: 197 7
+                 api_list: 54 7
+                 api_list: 130 7
+                 api_list: 127 7
+                 api_list: 200 7
+                 api_list: 239 7
+                 api_list: 56 7
+                 api_list: 121 7
+                 api_list: 202 7
+                 api_list: 236 7
+                 api_list: 247 7
+                 api_list: 106 7
+                 api_list: 51 7
+                 api_list: 143 7
+                 api_list: 165 7
+                 api_list: 93 7
+                 api_list: 183 7
+                 api_list: 2 7
+                 api_list: 174 7
+                 api_list: 217 7
+                 api_list: 125 7
+                 api_list: 81 7
+                 api_list: 117 7
+                 api_list: saw 8 pgs 
+                 api_list: [       OK ] LibRadosListPP.ListObjectsManyPP (1742 ms)
+                 api_list: [ RUN      ] LibRadosListPP.ListObjectsStartPP
+                 api_list: 1 0
+                 api_list: 15 1
+                 api_list: 11 1
+                 api_list: 10 2
+                 api_list: 13 2
+                 api_list: 7 2
+                 api_list: 6 3
+                 api_list: 3 3
+                 api_list: 4 3
+                 api_list: 12 3
+                 api_list: 5 5
+                 api_list: 8 5
+                 api_list: 14 6
+                 api_list: 0 6
+                 api_list: 9 7
+                 api_list: 2 7
+                 api_list: have 9 expect one of 2,9
+                 api_list: have 14 expect one of 0,14
+                 api_list: have 5 expect one of 5,8
+                 api_list: have 6 expect one of 12,3,4,6
+                 api_list: have 10 expect one of 10,13,7
+                 api_list: have 15 expect one of 11,15
+                 api_list: have 1 expect one of 1
+                 api_list: [       OK ] LibRadosListPP.ListObjectsStartPP (149 ms)
+                 api_list: [ RUN      ] LibRadosListPP.EnumerateObjectsPP
+                 api_list: [       OK ] LibRadosListPP.EnumerateObjectsPP (161 ms)
+                 api_list: [ RUN      ] LibRadosListPP.EnumerateObjectsSplitPP
+                 api_list: [       OK ] LibRadosListPP.EnumerateObjectsSplitPP (117 ms)
+                 api_list: [ RUN      ] LibRadosListPP.EnumerateObjectsFilterPP
+                 api_list: [       OK ] LibRadosListPP.EnumerateObjectsFilterPP (40 ms)
+                 api_list: [----------] 10 tests from LibRadosListPP (3522 ms total)
+                 api_list: 
+                 api_list: [----------] 3 tests from LibRadosListEC
+                 api_list: [ RUN      ] LibRadosListEC.ListObjects
+                 api_list: [       OK ] LibRadosListEC.ListObjects (1693 ms)
+                 api_list: [ RUN      ] LibRadosListEC.ListObjectsNS
+                 api_list: [       OK ] LibRadosListEC.ListObjectsNS (168 ms)
+                 api_list: [ RUN      ] LibRadosListEC.ListObjectsStart
+                 api_list: 1 0
+                 api_list: 15 1
+                 api_list: 11 1
+                 api_list: 10 2
+                 api_list: 13 2
+                 api_list: 7 2
+                 api_list: 6 3
+                 api_list: 3 3
+                 api_list: 4 3
+                 api_list: 12 3
+                 api_list: 5 5
+                 api_list: 8 5
+                 api_list: 14 6
+                 api_list: 0 6
+                 api_list: 9 7
+                 api_list: 2 7
+                 api_list: have 9 expect one of 2,9
+                 api_list: have 14 expect one of 0,14
+                 api_list: have 5 expect one of 5,8
+                 api_list: have 6 expect one of 12,3,4,6
+                 api_list: have 10 expect one of 10,13,7
+                 api_list: have 15 expect one of 11,15
+                 api_list: have 1 expect one of 1
+                 api_list: [       OK ] LibRadosListEC.ListObjectsStart (148 ms)
+                 api_list: [----------] 3 tests from LibRadosListEC (2009 ms total)
+                 api_list: 
+                 api_list: [----------] 7 tests from LibRadosListECPP
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsPP
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsPP (1257 ms)
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsTwicePP
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsTwicePP (31 ms)
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsCopyIterPP
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsCopyIterPP (24 ms)
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsEndIter
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsEndIter (20 ms)
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsPPNS
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsPPNS (92 ms)
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsManyPP
+                 api_list: 135 0
+                 api_list: 1 0
+                 api_list: 77 0
+                 api_list: 184 0
+                 api_list: 96 0
+                 api_list: 178 0
+                 api_list: 26 0
+                 api_list: 74 0
+                 api_list: 205 0
+                 api_list: 69 0
+                 api_list: 177 0
+                 api_list: 55 0
+                 api_list: 199 0
+                 api_list: 194 0
+                 api_list: 220 0
+                 api_list: 88 0
+                 api_list: 251 0
+                 api_list: 195 0
+                 api_list: 97 0
+                 api_list: 193 0
+                 api_list: 212 0
+                 api_list: 95 0
+                 api_list: 182 0
+                 api_list: 41 0
+                 api_list: 141 1
+                 api_list: 134 1
+                 api_list: 18 1
+                 api_list: 151 1
+                 api_list: 15 1
+                 api_list: 29 1
+                 api_list: 170 1
+                 api_list: 84 1
+                 api_list: 157 1
+                 api_list: 222 1
+                 api_list: 11 1
+                 api_list: 206 1
+                 api_list: 108 1
+                 api_list: 203 1
+                 api_list: 225 1
+                 api_list: 242 1
+                 api_list: 232 1
+                 api_list: 221 1
+                 api_list: 48 1
+                 api_list: 110 1
+                 api_list: 213 1
+                 api_list: 38 1
+                 api_list: 100 1
+                 api_list: 24 1
+                 api_list: 87 1
+                 api_list: 187 1
+                 api_list: 147 1
+                 api_list: 98 1
+                 api_list: 107 1
+                 api_list: 102 1
+                 api_list: 233 1
+                 api_list: 210 1
+                 api_list: 40 1
+                 api_list: 35 1
+                 api_list: 85 1
+                 api_list: 146 1
+                 api_list: 36 2
+                 api_list: 243 2
+                 api_list: 133 2
+                 api_list: 188 2
+                 api_list: 126 2
+                 api_list: 215 2
+                 api_list: 211 2
+                 api_list: 64 2
+                 api_list: 145 2
+                 api_list: 21 2
+                 api_list: 17 2
+                 api_list: 37 2
+                 api_list: 129 2
+                 api_list: 176 2
+                 api_list: 57 2
+                 api_list: 209 2
+                 api_list: 10 2
+                 api_list: 161 2
+                 api_list: 13 2
+                 api_list: 229 2
+                 api_list: 34 2
+                 api_list: 235 2
+                 api_list: 25 2
+                 api_list: 142 2
+                 api_list: 7 2
+                 api_list: 164 2
+                 api_list: 132 2
+                 api_list: 131 3
+                 api_list: 128 3
+                 api_list: 33 3
+                 api_list: 42 3
+                 api_list: 224 3
+                 api_list: 6 3
+                 api_list: 65 3
+                 api_list: 71 3
+                 api_list: 27 3
+                 api_list: 162 3
+                 api_list: 234 3
+                 api_list: 150 3
+                 api_list: 115 3
+                 api_list: 238 3
+                 api_list: 28 3
+                 api_list: 78 3
+                 api_list: 67 3
+                 api_list: 3 3
+                 api_list: 201 3
+                 api_list: 153 3
+                 api_list: 120 3
+                 api_list: 180 3
+                 api_list: 223 3
+                 api_list: 44 3
+                 api_list: 155 3
+                 api_list: 226 3
+                 api_list: 248 3
+                 api_list: 148 3
+                 api_list: 118 3
+                 api_list: 58 3
+                 api_list: 158 3
+                 api_list: 61 3
+                 api_list: 4 3
+                 api_list: 94 3
+                 api_list: 172 3
+                 api_list: 31 3
+                 api_list: 45 3
+                 api_list: 12 3
+                 api_list: 136 4
+                 api_list: 23 4
+                 api_list: 249 4
+                 api_list: 138 4
+                 api_list: 19 4
+                 api_list: 186 4
+                 api_list: 244 4
+                 api_list: 190 4
+                 api_list: 46 4
+                 api_list: 228 4
+                 api_list: 119 4
+                 api_list: 240 4
+                 api_list: 191 4
+                 api_list: 92 4
+                 api_list: 152 4
+                 api_list: 253 4
+                 api_list: 140 4
+                 api_list: 137 4
+                 api_list: 216 4
+                 api_list: 179 4
+                 api_list: 250 4
+                 api_list: 16 4
+                 api_list: 59 4
+                 api_list: 208 4
+                 api_list: 91 4
+                 api_list: 62 4
+                 api_list: 159 4
+                 api_list: 123 5
+                 api_list: 52 5
+                 api_list: 22 5
+                 api_list: 181 5
+                 api_list: 219 5
+                 api_list: 246 5
+                 api_list: 49 5
+                 api_list: 43 5
+                 api_list: 156 5
+                 api_list: 111 5
+                 api_list: 252 5
+                 api_list: 90 5
+                 api_list: 237 5
+                 api_list: 231 5
+                 api_list: 112 5
+                 api_list: 168 5
+                 api_list: 104 5
+                 api_list: 68 5
+                 api_list: 5 5
+                 api_list: 105 5
+                 api_list: 66 5
+                 api_list: 166 5
+                 api_list: 76 5
+                 api_list: 113 5
+                 api_list: 75 5
+                 api_list: 189 5
+                 api_list: 185 5
+                 api_list: 72 5
+                 api_list: 8 5
+                 api_list: 124 5
+                 api_list: 139 5
+                 api_list: 82 6
+                 api_list: 53 6
+                 api_list: 116 6
+                 api_list: 14 6
+                 api_list: 79 6
+                 api_list: 89 6
+                 api_list: 99 6
+                 api_list: 20 6
+                 api_list: 241 6
+                 api_list: 160 6
+                 api_list: 0 6
+                 api_list: 39 6
+                 api_list: 70 6
+                 api_list: 32 6
+                 api_list: 175 6
+                 api_list: 101 6
+                 api_list: 30 6
+                 api_list: 198 6
+                 api_list: 204 6
+                 api_list: 163 6
+                 api_list: 122 6
+                 api_list: 196 6
+                 api_list: 169 6
+                 api_list: 73 6
+                 api_list: 254 6
+                 api_list: 230 6
+                 api_list: 47 6
+                 api_list: 154 6
+                 api_list: 63 6
+                 api_list: 171 6
+                 api_list: 192 6
+                 api_list: 255 6
+                 api_list: 149 6
+                 api_list: 114 7
+                 api_list: 80 7
+                 api_list: 86 7
+                 api_list: 214 7
+                 api_list: 227 7
+                 api_list: 245 7
+                 api_list: 109 7
+                 api_list: 167 7
+                 api_list: 207 7
+                 api_list: 173 7
+                 api_list: 9 7
+                 api_list: 50 7
+                 api_list: 144 7
+                 api_list: 83 7
+                 api_list: 103 7
+                 api_list: 218 7
+                 api_list: 60 7
+                 api_list: 197 7
+                 api_list: 54 7
+                 api_list: 130 7
+                 api_list: 127 7
+                 api_list: 200 7
+                 api_list: 239 7
+                 api_list: 56 7
+                 api_list: 121 7
+                 api_list: 202 7
+                 api_list: 236 7
+                 api_list: 247 7
+                 api_list: 106 7
+                 api_list: 51 7
+                 api_list: 143 7
+                 api_list: 165 7
+                 api_list: 93 7
+                 api_list: 183 7
+                 api_list: 2 7
+                 api_list: 174 7
+                 api_list: 217 7
+                 api_list: 125 7
+                 api_list: 81 7
+                 api_list: 117 7
+                 api_list: saw 8 pgs 
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsManyPP (3609 ms)
+                 api_list: [ RUN      ] LibRadosListECPP.ListObjectsStartPP
+                 api_list: 1 0
+                 api_list: 15 1
+                 api_list: 11 1
+                 api_list: 10 2
+                 api_list: 13 2
+                 api_list: 7 2
+                 api_list: 6 3
+                       api_snapshots: Running main() from gmock_main.cc
+            api_snapshots: [==========] Running 28 tests from 8 test cases.
+            api_snapshots: [----------] Global test environment set-up.
+            api_snapshots: [----------] 4 tests from LibRadosSnapshots
+            api_snapshots: [ RUN      ] LibRadosSnapshots.SnapList
+            api_snapshots: [       OK ] LibRadosSnapshots.SnapList (16213 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshots.SnapRemove
+            api_snapshots: [       OK ] LibRadosSnapshots.SnapRemove (9190 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshots.Rollback
+            api_snapshots: [       OK ] LibRadosSnapshots.Rollback (14691 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshots.SnapGetName
+            api_snapshots: [       OK ] LibRadosSnapshots.SnapGetName (7896 ms)
+            api_snapshots: [----------] 4 tests from LibRadosSnapshots (47990 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 5 tests from LibRadosSnapshotsPP
+            api_snapshots: [ RUN      ] LibRadosSnapshotsPP.SnapListPP
+            api_snapshots: [       OK ] LibRadosSnapshotsPP.SnapListPP (9515 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsPP.SnapRemovePP
+            api_snapshots: [       OK ] LibRadosSnapshotsPP.SnapRemovePP (7670 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsPP.RollbackPP
+            api_snapshots: [       OK ] LibRadosSnapshotsPP.RollbackPP (6402 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsPP.SnapGetNamePP
+            api_snapshots: [       OK ] LibRadosSnapshotsPP.SnapGetNamePP (1917 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsPP.SnapCreateRemovePP
+            api_snapshots: [       OK ] LibRadosSnapshotsPP.SnapCreateRemovePP (4451 ms)
+            api_snapshots: [----------] 5 tests from LibRadosSnapshotsPP (29955 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 2 tests from LibRadosSnapshotsSelfManaged
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManaged.Snap
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManaged.Snap (4220 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManaged.Rollback
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManaged.Rollback (4376 ms)
+            api_snapshots: [----------] 2 tests from LibRadosSnapshotsSelfManaged (8596 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 4 tests from LibRadosSnapshotsSelfManagedPP
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedPP.SnapPP
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedPP.SnapPP (4172 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedPP.RollbackPP
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedPP.RollbackPP (4216 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedPP.SnapOverlapPP
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedPP.SnapOverlapPP (6251 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedPP.Bug11677
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedPP.Bug11677 (4422 ms)
+            api_snapshots: [----------] 4 tests from LibRadosSnapshotsSelfManagedPP (19061 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 4 tests from LibRadosSnapshotsEC
+            api_snapshots: [ RUN      ] LibRadosSnapshotsEC.SnapList
+            api_snapshots: [       OK ] LibRadosSnapshotsEC.SnapList (3315 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsEC.SnapRemove
+            api_snapshots: [       OK ] LibRadosSnapshotsEC.SnapRemove (2791 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsEC.Rollback
+            api_snapshots: [       OK ] LibRadosSnapshotsEC.Rollback (1539 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsEC.SnapGetName
+            api_snapshots: [       OK ] LibRadosSnapshotsEC.SnapGetName (1946 ms)
+            api_snapshots      api_list: 3 3
+                 api_list: 4 3
+                 api_list: 12 3
+                 api_list: 5 5
+                 api_list: 8 5
+                 api_list: 14 6
+                 api_list: 0 6
+                 api_list: 9 7
+                 api_list: 2 7
+                 api_list: have 9 expect one of 2,9
+                 api_list: have 14 expect one of 0,14
+                 api_list: have 5 expect one of 5,8
+                 api_list: have 6 expect one of 12,3,4,6
+                 api_list: have 10 expect one of 10,13,7
+                 api_list: have 15 expect one of 11,15
+                 api_list: have 1 expect one of 1
+                 api_list: [       OK ] LibRadosListECPP.ListObjectsStartPP (605 ms)
+                 api_list: [----------] 7 tests from LibRadosListECPP (5638 ms total)
+                 api_list: 
+                 api_list: [----------] 1 test from LibRadosListNP
+                 api_list: [ RUN      ] LibRadosListNP.ListObjectsError
+                 api_list: [       OK ] LibRadosListNP.ListObjectsError (3103 ms)
+                 api_list: [----------] 1 test from LibRadosListNP (3103 ms total)
+                 api_list: 
+                 api_list: [----------] Global test environment tear-down
+                 api_list: [==========] 26 tests from 5 test cases ran. (128616 ms total)
+                 api_list: [  PASSED  ] 26 tests.
+                  api_aio: Running main() from gmock_main.cc
+                  api_aio: [==========] Running 71 tests from 2 test cases.
+                  api_aio: [----------] Global test environment set-up.
+                  api_aio: [----------] 37 tests from LibRadosAio
+                  api_aio: [ RUN      ] LibRadosAio.TooBig
+                  api_aio: [       OK ] LibRadosAio.TooBig (4840 ms)
+                  api_aio: [ RUN      ] LibRadosAio.TooBigPP
+                  api_aio: [       OK ] LibRadosAio.TooBigPP (2110 ms)
+                  api_aio: [ RUN      ] LibRadosAio.PoolQuotaPP
+                  api_aio: [       OK ] LibRadosAio.PoolQuotaPP (27500 ms)
+                  api_aio: [ RUN      ] LibRadosAio.SimpleWrite
+                  api_aio: [       OK ] LibRadosAio.SimpleWrite (8358 ms)
+                  api_aio: [ RUN      ] LibRadosAio.SimpleWritePP
+                  api_aio: [       OK ] LibRadosAio.SimpleWritePP (10688 ms)
+                  api_aio: [ RUN      ] LibRadosAio.WaitForSafe
+                  api_aio: [       OK ] LibRadosAio.WaitForSafe (9289 ms)
+                  api_aio: [ RUN      ] LibRadosAio.WaitForSafePP
+                  api_aio: [       OK ] LibRadosAio.WaitForSafePP (6268 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTrip
+                  api_aio: [       OK ] LibRadosAio.RoundTrip (5931 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTrip2
+                  api_aio: [       OK ] LibRadosAio.RoundTrip2 (2897 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripPP
+                  api_aio: [       OK ] LibRadosAio.RoundTripPP (3184 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripPP2
+                  api_aio: [       OK ] LibRadosAio.RoundTripPP2 (3047 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripPP3
+                  api_aio: [       OK ] LibRadosAio.RoundTripPP3 (3150 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripSparseReadPP
+                  api_aio: [       OK ] LibRadosAio.RoundTripSparseReadPP (3156 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripAppend
+                  api_aio: [       OK ] LibRadosAio.RoundTripAppend (3053 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripAppendPP
+                  api_aio: [       OK ] LibRadosAio.RoundTripAppendPP (3101 ms)
+                  api_aio: [ RUN      ] LibRadosAio.IsComplete
+                  api_aio: [       OK ] LibRadosAio.IsComplete (3186 ms)
+                  api_aio: [ RUN      ] LibRadosAio.IsCompletePP
+                  api_aio: [       OK ] LibRadosAio.IsCompletePP (3140 ms)
+                  api_aio: [ RUN      ] LibRadosAio.IsSafe
+                  api_aio: [       OK ] LibRadosAio.IsSafe (3125 ms)
+                  api_aio: [ RUN      ] LibRadosAio.IsSafePP
+                  api_aio: [       OK ] LibRadosAio.IsSafePP (3324 ms)
+                  api_aio: [ RUN      ] LibRadosAio.ReturnValue
+                  api_aio: [       OK ] LibRadosAio.ReturnValue (2887 ms)
+                  api_aio: [ RUN      ] LibRadosAio.ReturnValuePP
+                  api_aio: [       OK ] LibRadosAio.ReturnValuePP (3072 ms)
+                  api_aio: [ RUN      ] LibRadosAio.Flush
+                  api_aio: [       OK ] LibRadosAio.Flush (3074 ms)
+                  api_aio: [ RUN      ] LibRadosAio.FlushPP
+                  api_aio: [       OK ] LibRadosAio.FlushPP (3139 ms)
+                  api_aio: [ RUN      ] LibRadosAio.FlushAsync
+                  api_aio: [       OK ] LibRadosAio.FlushAsync (3098 ms)
+                  api_aio: [ RUN      ] LibRadosAio.FlushAsyncPP
+                  api_aio: [       OK ] LibRadosAio.FlushAsyncPP (3056 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripWriteFull
+                  api_aio: [       OK ] LibRadosAio.RoundTripWriteFull (3142 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripWriteFullPP
+                  api_aio: [       OK ] LibRadosAio.RoundTripWriteFullPP (3063 ms)
+                  api_aio: [ RUN      ] LibRadosAio.RoundTripWrxistsPP
+                 api_misc: [       OK ] LibRadosMiscPP.AssertExistsPP (34 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.AssertVersionPP
+                 api_misc: [       OK ] LibRadosMiscPP.AssertVersionPP (89 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.BigAttrPP
+                 api_misc: osd_max_attr_size = 0
+                 api_misc: osd_max_attr_size == 0; skipping test
+                 api_misc: [       OK ] LibRadosMiscPP.BigAttrPP (31075 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.CopyPP
+                 api_misc: [       OK ] LibRadosMiscPP.CopyPP (5284 ms)
+                 api_misc: [ RUN      ] LibRadosMiscPP.CopyScrubPP
+                 api_misc: waiting for initial deep scrubs...
+                 api_misc: done waiting, doing copies
+                 api_misc: waiting for final deep scrubs...
+                 api_misc: done waiting
+                 api_misc: [       OK ] LibRadosMiscPP.CopyScrubPP (62592 ms)
+                 api_misc: [----------] 21 tests from LibRadosMiscPP (129131 ms total)
+                 api_misc: 
+                 api_misc: [----------] 1 test from LibRadosTwoPoolsECPP
+                 api_misc: [ RUN      ] LibRadosTwoPoolsECPP.CopyFrom
+                 api_misc: [       OK ] LibRadosTwoPoolsECPP.CopyFrom (1498 ms)
+                 api_misc: [----------] 1 test from LibRadosTwoPoolsECPP (1498 ms total)
+                 api_misc: 
+                 api_misc: [----------] Global test environment tear-down
+                 api_misc: [==========] 28 tests from 5 test cases ran. (151553 ms total)
+                 api_misc: [  PASSED  ] 28 tests.
+: [----------] 4 tests from LibRadosSnapshotsEC (9591 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 4 tests from LibRadosSnapshotsECPP
+            api_snapshots: [ RUN      ] LibRadosSnapshotsECPP.SnapListPP
+            api_snapshots: [       OK ] LibRadosSnapshotsECPP.SnapListPP (3276 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsECPP.SnapRemovePP
+            api_snapshots: [       OK ] LibRadosSnapshotsECPP.SnapRemovePP (3493 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsECPP.RollbackPP
+            api_snapshots: [       OK ] LibRadosSnapshotsECPP.RollbackPP (3795 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsECPP.SnapGetNamePP
+            api_snapshots: [       OK ] LibRadosSnapshotsECPP.SnapGetNamePP (2308 ms)
+            api_snapshots: [----------] 4 tests from LibRadosSnapshotsECPP (12872 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 2 tests from LibRadosSnapshotsSelfManagedEC
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedEC.Snap
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedEC.Snap (14271 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedEC.Rollback
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedEC.Rollback (6472 ms)
+            api_snapshots: [----------] 2 tests from LibRadosSnapshotsSelfManagedEC (20743 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] 3 tests from LibRadosSnapshotsSelfManagedECPP
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedECPP.SnapPP
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedECPP.SnapPP (13102 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedECPP.RollbackPP
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedECPP.RollbackPP (3549 ms)
+            api_snapshots: [ RUN      ] LibRadosSnapshotsSelfManagedECPP.Bug11677
+            api_snapshots: [       OK ] LibRadosSnapshotsSelfManagedECPP.Bug11677 (6406 ms)
+            api_snapshots: [----------] 3 tests from LibRadosSnapshotsSelfManagedECPP (23057 ms total)
+            api_snapshots: 
+            api_snapshots: [----------] Global test environment tear-down
+            api_snapshots: [==========] 28 tests from 8 test cases ran. (201371 ms total)
+            api_snapshots: [  PASSED  ] 28 tests.
+                 api_tier: [==========] Running 46 tests from 4 test cases.
+                 api_tier: [----------] Global test environment set-up.
+                 api_tier: [----------] 3 tests from LibRadosTierPP
+                 api_tier: [ RUN      ] LibRadosTierPP.Dirty
+                 api_tier: [       OK ] LibRadosTierPP.Dirty (6252 ms)
+                 api_tier: [ RUN      ] LibRadosTierPP.FlushWriteRaces
+                 api_tier: [       OK ] LibRadosTierPP.FlushWriteRaces (20215 ms)
+                 api_tier: [ RUN      ] LibRadosTierPP.HitSetNone
+                 api_tier: [       OK ] LibRadosTierPP.HitSetNone (29 ms)
+                 api_tier: [----------] 3 tests from LibRadosTierPP (26496 ms total)
+                 api_tier: 
+                 api_tier: [----------] 21 tests from LibRadosTwoPoolsPP
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.Overlay
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.Overlay (19026 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.Promote
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.Promote (16607 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.PromoteSnap
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.PromoteSnap (15058 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.PromoteSnapScrub
+                 api_tier: my_snaps [4]
+                 api_tier: my_snaps [5,4]
+                 api_tier: my_snaps [6,5,4]
+                 api_tier: my_snaps [7,6,5,4]
+                 api_tier: promoting some heads
+                 api_tier: promoting from clones for snap 7
+                 api_tier: promoting from clones for snap 6
+                 api_tier: promoting from clones for snap 5
+                 api_tier: promoting from clones for snap 4
+                 api_tier: waiting for scrubs...
+                 api_tier: done waiting
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.PromoteSnapScrub (55016 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.PromoteSnapTrimRace
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.PromoteSnapTrimRace (9304 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.Whiteout
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.Whiteout (15907 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.WhiteoutDeleteCreate
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.WhiteoutDeleteCreate (7218 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.Evict
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.Evict (16476 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.EvictSnap
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.EvictSnap (9201 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.EvictSnap2
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.EvictSnap2 (10503 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.TryFlush
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.TryFlush (7156 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.Flush
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.Flush (7589 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.FlushSnap
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.FlushSnap (12111 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.FlushTryFlushRaces
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.FlushTryFlushRaces (6739 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.TryFlushReadRace
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.TryFlushReadRace (7173 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.HitSetRead
+                 api_tier: hmm, no HitSet yet
+                 api_tier: ok, hit_set contains 222:602f83fe:::foo:head
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.HitSetRead (8242 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.HitSetWrite
+                 api_tier: pg_num = 8
+                 api_tier: pg 0 ls 1520231773,0
+                 api_tier: pg 1 ls 1520231772,0
+                 api_tier: pg 2 ls 1520231772,0
+                 api_tier: pg 3 ls 1520231773,0
+                 api_tier: pg 4 ls 1520231772,0
+                 api_tier: pg 5 ls 1520231772,0
+                 api_tier: pg 6 ls 1520231773,0
+                 api_tier: pg 7 ls 1520231773,0
+                 api_tier: pg_num = 8
+                 api_tier: checking for 224:6cac518f:::0:head
+                 api_tier: checking for 224:02547ec2:::1:head
+                 api_tier: checking for 224:f905c69b:::2:head
+                 api_tier: checking for 224:cfc208b3:::3:head
+                 api_tier: checking for 224:d83876eb:::4:head
+                 api_tier: checking for 224:b29083e3:::5:head
+                 api_tier: checking for 224:c4fdafeb:::6:head
+                 api_tier: checking for 224:5c6b0b28:::7:head
+                 api_tier: checking for 224:bd63b0f1:::8:head
+                 api_tier: checking for 224:e960b815:::9:head
+                 api_tier: checking for 224:52ea6a34:::10:head
+                 api_tier: checking for 224:89d3ae78:::11:head
+                 api_tier: checking for 224:de5d7c5f:::12:head
+                 api_tier: checking for 224:566253c9:::13:head
+                 api_tier: checking for 224:62a1935d:::14:head
+                 api_tier: checking for 224:863748b0:::15:head
+                 api_tier: checking for 224:3958e169:::16:head
+                 api_tier: checking for 224:4d4dabf9:::17:head
+                 api_tier: checking for 224:8391935d:::18:head
+                 api_tier: checking for 224:28883081:::19:head
+                 api_tier: checking for 224:69259c59:::20:head
+                 api_tier: checking for 224:4bdb80b7:::21:head
+                 api_tier: checking for 224:a11c5d71:::22:head
+                 api_tier: checking for 224:271af37b:::23:head
+                 api_tier: checking for 224:95b121be:::24:head
+                 api_tier: checking for 224:58d1031b:::25:head
+                 api_tier: checking for 224:0a050783:::26:head
+                 api_tier: checking for 224:c709704c:::27:head
+                 api_tier: checking for 224:cbe56eaf:::28:head
+                 api_tier: checking for 224:86b4b162:::29:head
+                 api_tier: checking for 224:70d89383:::30:head
+                 api_tier: checking for 224:dd450c7c:::31:head
+                 api_tier: checking for 224:6d5729b1:::32:head
+                 api_tier: checking for 224:c388f3fb:::33:head
+                 api_tier: checking for 224:56cfea31:::34:head
+                 api_tier: checking for 224:9dbc1bf7:::35:head
+                 api_tier: checking for 224:40b74ccd:::36:head
+                 api_tier: checking for 224:4d5aaf42:::37:head
+                 api_tier: checking for 224:920f362c:::38:head
+                 api_tier: checking for 224:6cc53222:::39:head
+                 api_tier: checking for 224:9cad833f:::40:head
+                 api_tier: checking for 224:1ea84d41:::41:head
+                 api_tier: checking for 224:c4480ef6:::42:head
+                 api_tier: checking for 224:a694361e:::43:head
+                 api_tier: checking for 224:d1bd33e9:::44:head
+                 api_tier: checking for 224:ddc2cd5d:::45:head
+                 api_tier: checking for 224:2b782207:::46:head
+                 api_tier: checking for 224:7b187fca:::47:head
+                 api_tier: checking for 224:90ecdf6f:::48:head
+                 api_tier: checking for 224:a5ed95fe:::49:head
+                 api_tier: checking for 224:ea0eaa55:::50:head
+                 api_tier: checking for 224:f33ef17b:::51:head
+                 api_tier: checking for 224:a0d1b2f6:::52:head
+                 api_tier: checking for 224:60c5229e:::53:head
+                 api_tier: checking for 224:edcbc575:::54:head
+                 api_tier: checking for 224:102cf253:::55:head
+                 api_tier: checking for 224:efb7fb0b:::56:head
+                 api_tier: checking for 224:50d0a326:::57:head
+                 api_tier: checking for 224:d4dc5daf:::58:head
+                 api_tier: checking for 224:3a130462:::59:head
+                 api_tier: checking for 224:ec87ed71:::60:head
+                 api_tier: checking for 224:d5bc9454:::61:head
+                 api_tier: checking for 224:3ddfe313:::62:head
+                 api_tier: checking for 224:7c2816b9:::63:head
+                 api_tier: checking for 224:47e00e4d:::64:head
+                 api_tier: checking for 224:c6410c18:::65:head
+                 api_tier: checking for 224:b48ed237:::66:head
+                 api_tier: checking for 224:cd63ad31:::67:head
+                 api_tier: checking for 224:b179e92b:::68:head
+                 api_tier: checking for 224:0d9f741a:::69:head
+                 api_tier: checking for 224:6d3352ae:::70:head
+                 api_tier: checking for 224:c6d5c19e:::71:head
+                 api_tier: checking for 224:bc4729c3:::72:head
+                 api_tier: checking for 224:77e930b9:::73:head
+                 api_tier: checking for 224:0abeecfd:::74:head
+                 api_tier: checking for 224:b7c37e15:::75:head
+                 api_tier: checking for 224:b6378398:::76:head
+                 api_tier: checking for 224:02bd68de:::77:head
+                 api_tier: checking for 224:cc795d2d:::78:head
+                 api_tier: checking for 224:630d4fea:::79:head
+                 api_tier: checking for 224:e0d29ef5:::80:head
+                 api_tier: checking for 224:fd6f13d2:::81:head
+                 api_tier: checking for 224:606461d5:::82:head
+                 api_tier: checking for 224:eadbdc43:::83:head
+                 api_tier: checking for 224:8761d0bb:::84:head
+                 api_tier: checking for 224:9ef0186f:::85:head
+                 api_tier: checking for 224:e0d41294:::86:head
+                 api_tier: checking for 224:961de695:::87:head
+                 api_tier: checking for 224:1423148f:::88:head
+                 api_tier: checking for 224:633a8fa2:::89:head
+                 api_tier: checking for 224:a8653809:::90:head
+                 api_tier: checking for 224:3dac8b33:::91:head
+                 api_tier: checking for 224:35aad435:::92:head
+                 api_tier: checking for 224:f6dcc343:::93:head
+                 api_tier: checking for 224:dbbdad87:::94:head
+                 api_tier: checking for 224:1cb48ce0:::95:head
+                 api_tier: checking for 224:03cd461c:::96:head
+                 api_tier: checking for 224:17a4ea99:::97:head
+                 api_tier: checking for 224:9993c9a7:::98:head
+                 api_tier: checking for 224:6394211c:::99:head
+                 api_tier: checking for 224:94c7ae57:::100:head
+                 api_tier: checking for 224:6fdee5bb:::101:head
+                 api_tier: checking for 224:9a477fd1:::102:head
+                 api_tier: checking for 224:eb850916:::103:head
+                 api_tier: checking for 224:affc56b9:::104:head
+                 api_tier: checking for 224:b42dc814:::105:head
+                 api_tier: checking for 224:f319f8f0:::106:head
+                 api_tier: checking for 224:9a40b9de:::107:head
+                 api_tier: checking for 224:8b524f28:::108:head
+                 api_tier: checking for 224:e3de589f:::109:head
+                 api_tier: checking for 224:90f90a5b:::110:head
+                 api_tier: checking for 224:a7b4f1d7:::111:head
+                 api_tier: checking for 224:af51766e:::112:head
+                 api_tier: checking for 224:b6f90bd1:::113:head
+                 api_tier: checking for 224:e0261208:::114:head
+                 api_tier: checking for 224:c9569ef7:::115:head
+                 api_tier: checking for 224:61bebe50:::116:head
+                 api_tier: checking for 224:fe93412b:::117:head
+                 api_tier: checking for 224:d3d38bee:::118:head
+                 api_tier: checking for 224:3100ba0c:::119:head
+                 api_tier: checking for 224:d0560ada:::120:head
+                 api_tier: checking for 224:f0ea8b35:::121:head
+                 api_tier: checking for 224:766f231a:::122:head
+                 api_tier: checking for 224:a07a2582:::123:head
+                 api_tier: checking for 224:bd7c6b3a:::124:head
+                 api_tier: checking for 224:fb2ddaff:::125:head
+                 api_tier: checking for 224:4408e1fe:::126:head
+                 api_tier: checking for 224:ee1df7a7:::127:head
+                 api_tier: checking for 224:c3002909:::128:head
+                 api_tier: checking for 224:4f48ffa9:::129:head
+                 api_tier: checking for 224:edf38733:::130:head
+                 api_tier: checking for 224:c08425c0:::131:head
+                 api_tier: checking for 224:5f902d98:::132:head
+                 api_tier: checking for 224:41ea2c93:::133:head
+                 api_tier: checking for 224:813cee13:::134:head
+                 api_tier: checking for 224:0131818d:::135:head
+                 api_tier: checking for 224:26ba5a85:::136:head
+                 api_tier: checking for 224:381b8a5a:::137:head
+                 api_tier: checking for 224:28797e47:::138:head
+                 api_tier: checking for 224:bfca7f22:::139:head
+                 api_tier: checking for 224:36807075:::140:head
+                 api_tier: checking for 224:80b03975:::141:head
+                 api_tier: checking for 224:5c15709b:::142:head
+                 api_tier: checking for 224:f39ea15e:::143:head
+                 api_tier: checking for 224:ea992956:::144:head
+                 api_tier: checking for 224:48887b1c:::145:head
+                 api_tier: checking for 224:9f24a9dd:::146:head
+                 api_tier: checking for 224:987f100b:::147:head
+                 api_tier: checking for 224:d2dd3581:::148:head
+                 api_tier: checking for 224:7fed1808:::149:head
+                 api_tier: checking for 224:c80b70e9:::150:head
+                 api_tier: checking for 224:85ed90f9:::151:head
+                 api_tier: checking for 224:36428b24:::152:head
+                 api_tier: checking for 224:d044c34a:::153:head
+                 api_tier: checking for 224:7c18bf58:::154:head
+                 api_tier: checking for 224:d1c21232:::155:head
+                 api_tier: checking for 224:a7a3c575:::156:head
+                 api_tier: checking for 224:87da0633:::157:head
+                 api_tier: checking for 224:d5ac3822:::158:head
+                 api_tier: checking for 224:3f20522d:::159:head
+                 api_tier: checking for 224:6ca26563:::160:head
+                 api_tier: checking for 224:532ce135:::161:head
+                 api_tier: checking for 224:c78863e6:::162:head
+                 api_tier: checking for 224:7462ddf6:::163:head
+                 api_tier: checking for 224:5d165639:::164:head
+                 api_tier: checking for 224:f43765fc:::165:head
+                 api_tier: checking for 224:b4c720e9:::166:head
+                 api_tier: checking for 224:e694b040:::167:head
+                 api_tier: checking for 224:afa38db2:::168:head
+                 api_tier: checking for 224:77ba9f53:::169:head
+                 api_tier: checking for 224:87495034:::170:head
+                 api_tier: checking for 224:7c96bf0e:::171:head
+                 api_tier: checking for 224:dbe346cc:::172:head
+                 api_tier: checking for 224:e943ec24:::173:head
+                 api_tier: checking for 224:f97a9c0c:::174:head
+                 api_tier: checking for 224:6f26e74d:::175:head
+                 api_tier: checking for 224:4f95e106:::176:head
+                 api_tier: checking for 224:0e6f2f8f:::177:head
+                 api_tier: checking for 224:05db05f1:::178:head
+                 api_tier: checking for 224:38a78d66:::179:head
+                 api_tier: checking for 224:d095610b:::180:head
+                 api_tier: checking for 224:a1a9d709:::181:head
+                 api_tier: checking for 224:1e5d39db:::182:head
+                 api_tier: checking for 224:f7df4fb9:::183:head
+                 api_tier: checking for 224:03a7f161:::184:head
+                 api_tier: checking for 224:ba70721e:::185:head
+                 api_tier: checking for 224:28e5662d:::186:head
+                 api_tier: checking for 224:973d52de:::18iteFullPP2
+                  api_aio: [       OK ] LibRadosAio.RoundTripWriteFullPP2 (3194 ms)
+                  api_aio: [ RUN      ] LibRadosAio.SimpleStat
+                  api_aio: [       OK ] LibRadosAio.SimpleStat (3110 ms)
+                  api_aio: [ RUN      ] LibRadosAio.SimpleStatPP
+                  api_aio: [       OK ] LibRadosAio.SimpleStatPP (3107 ms)
+                  api_aio: [ RUN      ] LibRadosAio.SimpleStatNS
+                  api_aio: [       OK ] LibRadosAio.SimpleStatNS (4139 ms)
+                  api_aio: [ RUN      ] LibRadosAio.SimpleStatPPNS
+                  api_aio: [       OK ] LibRadosAio.SimpleStatPPNS (3130 ms)
+                  api_aio: [ RUN      ] LibRadosAio.StatRemove
+                  api_aio: [       OK ] LibRadosAio.StatRemove (8596 ms)
+                  api_aio: [ RUN      ] LibRadosAio.StatRemovePP
+                  api_aio: [       OK ] LibRadosAio.StatRemovePP (3093 ms)
+                  api_aio: [ RUN      ] LibRadosAio.OmapPP
+                  api_aio: [       OK ] LibRadosAio.OmapPP (3139 ms)
+                  api_aio: [ RUN      ] LibRadosAio.MultiWrite
+                  api_aio: [       OK ] LibRadosAio.MultiWrite (3069 ms)
+                  api_aio: [ RUN      ] LibRadosAio.MultiWritePP
+                  api_aio: [       OK ] LibRadosAio.MultiWritePP (3103 ms)
+                  api_aio: [----------] 37 tests from LibRadosAio (171560 ms total)
+                  api_aio: 
+                  api_aio: [----------] 34 tests from LibRadosAioEC
+                  api_aio: [ RUN      ] LibRadosAioEC.SimpleWrite
+                  api_aio: [       OK ] LibRadosAioEC.SimpleWrite (6124 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.SimpleWritePP
+                  api_aio: [       OK ] LibRadosAioEC.SimpleWritePP (12400 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.WaitForSafe
+                  api_aio: [       OK ] LibRadosAioEC.WaitForSafe (7151 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.WaitForSafePP
+                  api_aio: [       OK ] LibRadosAioEC.WaitForSafePP (7207 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTrip
+                  api_aio: [       OK ] LibRadosAioEC.RoundTrip (7178 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTrip2
+                  api_aio: [       OK ] LibRadosAioEC.RoundTrip2 (7630 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripPP
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripPP (7145 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripPP2
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripPP2 (7186 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripPP3
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripPP3 (2617 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripSparseReadPP
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripSparseReadPP (7195 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripAppend
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripAppend (7176 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripAppendPP
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripAppendPP (7196 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.IsComplete
+                  api_aio: [       OK ] LibRadosAioEC.IsComplete (7178 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.IsCompletePP
+                  api_aio: [       OK ] LibRadosAioEC.IsCompletePP (7157 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.IsSafe
+                  api_aio: [       OK ] LibRadosAioEC.IsSafe (7215 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.IsSafePP
+                  api_aio: [       OK ] LibRadosAioEC.IsSafePP (7268 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.ReturnValue
+                  api_aio: [       OK ] LibRadosAioEC.ReturnValue (7141 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.ReturnValuePP
+                  api_aio: [       OK ] LibRadosAioEC.ReturnValuePP 7:head
+                 api_tier: checking for 224:4303eb1c:::188:head
+                 api_tier: checking for 224:b990b48e:::189:head
+                 api_tier: checking for 224:29b8165b:::190:head
+                 api_tier: checking for 224:3547f197:::191:head
+                 api_tier: checking for 224:7e260936:::192:head
+                 api_tier: checking for 224:1abec7b1:::193:head
+                 api_tier: checking for 224:10fdda93:::194:head
+                 api_tier: checking for 224:15817eea:::195:head
+                 api_tier: checking for 224:770bab57:::196:head
+                 api_tier: checking for 224:ed9e13e7:::197:head
+                 api_tier: checking for 224:71471a8f:::198:head
+                 api_tier: checking for 224:10fb1d02:::199:head
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.HitSetWrite (8187 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.HitSetTrim
+                 api_tier:  got ls 1520231782,0
+                 api_tier: first is 1520231782
+                 api_tier:  got ls 1520231782,0
+                 api_tier:  got ls 1520231782,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,1520231787,1520231788,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,1520231787,1520231788,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,1520231787,1520231788,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,1520231787,1520231788,1520231790,1520231791,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,1520231787,1520231788,1520231790,1520231791,0
+                 api_tier:  got ls 1520231782,1520231784,1520231785,1520231787,1520231788,1520231790,1520231791,0
+                 api_tier:  got ls 1520231785,1520231787,1520231788,1520231790,1520231791,1520231793,1520231794,0
+                 api_tier: first now 1520231785, trimmed
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.HitSetTrim (19581 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.PromoteOn2ndRead
+                 api_tier: foo0
+                 api_tier: verifying foo0 is eventually promoted
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.PromoteOn2ndRead (13333 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.ProxyRead
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.ProxyRead (16487 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsPP.CachePin
+                 api_tier: [       OK ] LibRadosTwoPoolsPP.CachePin (21603 ms)
+                 api_tier: [----------] 21 tests from LibRadosTwoPoolsPP (302518 ms total)
+                 api_tier: 
+                 api_tier: [----------] 4 tests from LibRadosTierECPP
+                 api_tier: [ RUN      ] LibRadosTierECPP.Dirty
+                 api_tier: [       OK ] LibRadosTierECPP.Dirty (964 ms)
+                 api_tier: [ RUN      ] LibRadosTierECPP.FlushWriteRaces
+                 api_tier: [       OK ] LibRadosTierECPP.FlushWriteRaces (9320 ms)
+                 api_tier: [ RUN      ] LibRadosTierECPP.CallForcesPromote
+                 api_tier: [       OK ] LibRadosTierECPP.CallForcesPromote (15427 ms)
+                 api_tier: [ RUN      ] LibRadosTierECPP.HitSetNone
+                 api_tier: [       OK ] LibRadosTierECPP.HitSetNone (28 ms)
+                 api_tier: [----------] 4 tests from LibRadosTierECPP (25739 ms total)
+                 api_tier: 
+                 api_tier: [----------] 18 tests from LibRadosTwoPoolsECPP
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.Overlay
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.Overlay (7242 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.Promote
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.Promote (7217 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.PromoteSnap(7201 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.Flush
+                  api_aio: [       OK ] LibRadosAioEC.Flush (7230 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.FlushPP
+                  api_aio: [       OK ] LibRadosAioEC.FlushPP (7197 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.FlushAsync
+                  api_aio: [       OK ] LibRadosAioEC.FlushAsync (7151 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.FlushAsyncPP
+                  api_aio: [       OK ] LibRadosAioEC.FlushAsyncPP (7268 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripWriteFull
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripWriteFull (7191 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripWriteFullPP
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripWriteFullPP (7175 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.RoundTripWriteFullPP2
+                  api_aio: [       OK ] LibRadosAioEC.RoundTripWriteFullPP2 (3097 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.SimpleStat
+                  api_aio: [       OK ] LibRadosAioEC.SimpleStat (6379 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.SimpleStatPP
+                  api_aio: [       OK ] LibRadosAioEC.SimpleStatPP (7140 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.SimpleStatNS
+                  api_aio: [       OK ] LibRadosAioEC.SimpleStatNS (8593 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.SimpleStatPPNS
+                  api_aio: [       OK ] LibRadosAioEC.SimpleStatPPNS (7621 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.StatRemove
+                  api_aio: [       OK ] LibRadosAioEC.StatRemove (7165 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.StatRemovePP
+                  api_aio: [       OK ] LibRadosAioEC.StatRemovePP (7255 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.OmapPP
+                  api_aio: [       OK ] LibRadosAioEC.OmapPP (5127 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.MultiWrite
+                  api_aio: [       OK ] LibRadosAioEC.MultiWrite (7234 ms)
+                  api_aio: [ RUN      ] LibRadosAioEC.MultiWritePP
+                  api_aio: [       OK ] LibRadosAioEC.MultiWritePP (7213 ms)
+                  api_aio: [----------] 34 tests from LibRadosAioEC (239403 ms total)
+                  api_aio: 
+                  api_aio: [----------] Global test environment tear-down
+                  api_aio: [==========] 71 tests from 2 test cases ran. (410964 ms total)
+                  api_aio: [  PASSED  ] 71 tests.
++ for p in '$pids'
++ wait 21442
++ for p in '$pids'
++ wait 21447
++ for p in '$pids'
++ wait 21450
++ for p in '$pids'
++ wait 21460
++ for p in '$pids'
++ wait 21462
+
+                 api_tier: waiting for scrub...
+                 api_tier: done waiting
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.PromoteSnap (25784 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.PromoteSnapTrimRace
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.PromoteSnapTrimRace (9543 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.Whiteout
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.Whiteout (8328 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.Evict
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.Evict (9340 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.EvictSnap
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.EvictSnap (9378 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.TryFlush
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.TryFlush (10356 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.FailedFlush
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.FailedFlush (14442 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.Flush
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.Flush (10366 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.FlushSnap
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.FlushSnap (14469 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.FlushTryFlushRaces
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.FlushTryFlushRaces (7249 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.TryFlushReadRace
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.TryFlushReadRace (7258 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.HitSetRead
+                 api_tier: hmm, no HitSet yet
+                 api_tier: ok, hit_set contains 270:602f83fe:::foo:head
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.HitSetRead (7263 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.HitSetTrim
+                 api_tier:  got ls 1520232039,0
+                 api_tier: first is 1520232039
+                 api_tier:  got ls 1520232039,0
+                 api_tier:  got ls 1520232039,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,1520232044,1520232045,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,1520232044,1520232045,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,1520232044,1520232045,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,1520232044,1520232045,1520232047,1520232048,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,1520232044,1520232045,1520232047,1520232048,0
+                 api_tier:  got ls 1520232039,1520232041,1520232042,1520232044,1520232045,1520232047,1520232048,0
+                 api_tier:  got ls 1520232042,1520232044,1520232045,1520232047,1520232048,1520232050,1520232051,0
+                 api_tier: first now 1520232042, trimmed
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.HitSetTrim (19497 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.PromoteOn2ndRead
+                 api_tier: foo0
+                 api_tier: verifying foo0 is eventually promoted
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.PromoteOn2ndRead (18581 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.ProxyRead
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.ProxyRead (16945 ms)
+                 api_tier: [ RUN      ] LibRadosTwoPoolsECPP.CachePin
+                 api_tier: [       OK ] LibRadosTwoPoolsECPP.CachePin (21939 ms)
+                 api_tier: [----------] 18 tests from LibRadosTwoPoolsECPP (225198 ms total)
+                 api_tier: 
+                 api_tier: [----------] Global test environment tear-down
+                 api_tier: [==========] 46 tests from 4 test cases ran. (600986 ms total)
+                 api_tier: [  PASSED  ] 46 tests.
++ for p in '$pids'
++ wait 21470
++ for p in '$pids'
++ wait 21473
++ for p in '$pids'
++ wait 21475
++ for p in '$pids'
++ wait 21481
++ for p in '$pids'
++ wait 21496
++ for p in '$pids'
++ wait 21523
++ for p in '$pids'
++ wait 21533
++ for p in '$pids'
++ wait 21552
++ echo 'error in 21552'
+error in 21552
++ ret=1
++ for p in '$pids'
++ wait 21586
++ for p in '$pids'
++ wait 21615
++ for p in '$pids'
++ wait 21677
++ for p in '$pids'
++ wait 21696
++ exit 1
++ cleanup
++ pkill -P 21438
++ true

@@ -1,0 +1,2463 @@
+RUN_EXPECT_SUCC:  /usr/bin/rados mkpool trs_pool
+successfully created pool trs_pool
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool export /tmp/test_rados_tool.tFT7ORpuF5/expb
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put foo /etc/fstab
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put foo2 /etc/fstab
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put bar /etc/fstab
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool export /tmp/test_rados_tool.tFT7ORpuF5/expa
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool rm bar
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr foo rados.toothbrush toothbrush
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr foo rados.toothpaste crest
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval foo rados.floss myfloss
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr foo2 rados.toothbrush green
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapheader foo2 foo2.header
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool export /tmp/test_rados_tool.tFT7ORpuF5/expc
+RUN:  /usr/bin/rados rmpool trs_pool trs_pool --yes-i-really-really-mean-it
+successfully deleted pool trs_pool
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool --create import /tmp/test_rados_tool.tFT7ORpuF5/expa
+Importing pool
+Write #-9223372036854775808:00000000:::foo2:head#
+Write #-9223372036854775808:00000000:::bar:head#
+Write #-9223372036854775808:00000000:::foo:head#
+RUN_EXPECT_SUCC:  /usr/bin/rados rmpool trs_pool trs_pool --yes-i-really-really-mean-it
+successfully deleted pool trs_pool
+RUN_EXPECT_FAIL:  /usr/bin/rados -p trs_pool import /tmp/test_rados_tool.tFT7ORpuF5/expa
+error opening pool trs_pool: (2) No such file or directory
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool --create import /tmp/test_rados_tool.tFT7ORpuF5/expa
+Importing pool
+Write #-9223372036854775808:00000000:::foo2:head#
+Write #-9223372036854775808:00000000:::bar:head#
+Write #-9223372036854775808:00000000:::foo:head#
+RUN_EXPECT_FAIL:  /usr/bin/rados -p trs_pool import /tmp/test_rados_tool.tFT7ORpuF5/dir_nonexistent
+Error opening '/tmp/test_rados_tool.tFT7ORpuF5/dir_nonexistent': (1) Operation not permitted
+RUN_EXPECT_SUCC:  /usr/bin/rados purge trs_pool --yes-i-really-really-mean-it
+Warning: using slow linear search
+Removed 3 objects
+successfully purged pool trs_pool
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool export /tmp/test_rados_tool.tFT7ORpuF5/empty
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool import /tmp/test_rados_tool.tFT7ORpuF5/expc
+Importing pool
+Write #-9223372036854775808:00000000:::foo2:head#
+Write #-9223372036854775808:00000000:::foo:head#
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool import /tmp/test_rados_tool.tFT7ORpuF5/expc
+Importing pool
+***Overwrite*** #-9223372036854775808:00000000:::foo2:head#
+***Overwrite*** #-9223372036854775808:00000000:::foo:head#
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr foo rados.toothbrush dentist
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool import --no-overwrite /tmp/test_rados_tool.tFT7ORpuF5/expc
+Importing pool
+Skipping existing #-9223372036854775808:00000000:::foo2:head#
+Skipping existing #-9223372036854775808:00000000:::foo:head#
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool import /tmp/test_rados_tool.tFT7ORpuF5/expc
+Importing pool
+***Overwrite*** #-9223372036854775808:00000000:::foo2:head#
+***Overwrite*** #-9223372036854775808:00000000:::foo:head#
+RUN:  /usr/bin/rados rmpool trs_pool trs_pool --yes-i-really-really-mean-it
+successfully deleted pool trs_pool
+RUN:  /usr/bin/rados rmpool trs_pool.2 trs_pool.2 --yes-i-really-really-mean-it
+pool trs_pool.2 could not be removed
+error 2: (2) No such file or directory
+RUN_EXPECT_SUCC:  /usr/bin/rados mkpool trs_pool
+successfully created pool trs_pool
+RUN_EXPECT_SUCC:  /usr/bin/rados mkpool trs_pool.2
+successfully created pool trs_pool.2
+1+0 records in
+1+0 records out
+1048576 bytes (1.0 MB) copied, 0.0990286 s, 10.6 MB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put f.1 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.1662e-05 s, 96.0 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.1 attr.1 0000000    c405    0dd1                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1.attr.1 /usr/bin/rados -p trs_pool getxattr f.1 attr.1
+0000000    c405    0dd1                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.9877e-05 s, 100 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.1 attr.2 0000000    09ca    1f63                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1.attr.2 /usr/bin/rados -p trs_pool getxattr f.1 attr.2
+0000000    09ca    1f63                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 6.1264e-05 s, 65.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.1 attr.3 0000000    1b2d    5698                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1.attr.3 /usr/bin/rados -p trs_pool getxattr f.1 attr.3
+0000000    1b2d    5698                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.5363e-05 s, 113 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.1 attr.4 0000000    4f1f    9d61                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1.attr.4 /usr/bin/rados -p trs_pool getxattr f.1 attr.4
+0000000    4f1f    9d61                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 5.5884e-05 s, 71.6 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapheader f.1 0000000    cc32    a184                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1.omap.header /usr/bin/rados -p trs_pool getomapheader f.1
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 63 63 33 32 20  |0000000    cc32 |
+00000010  20 20 20 61 31 38 34 20  20 20 20 20 20 20 20 20  |   a184         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 5.744e-05 s, 69.6 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.1 key.1 0000000    5eb6    125f                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 5.4094e-05 s, 73.9 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.1 key.2 0000000    17c9    b5a0                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.9547e-05 s, 101 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.1 key.3 0000000    7398    df9c                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.0353e-05 s, 99.1 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.1 key.4 0000000    ea44    4481                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.1.omap.vals /usr/bin/rados -p trs_pool listomapvals f.1
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 35 65 62 36 20  |0000000    5eb6 |
+00000010  20 20 20 31 32 35 66 20  20 20 20 20 20 20 20 20  |   125f         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 31 37 63 39 20  |0000000    17c9 |
+00000010  20 20 20 62 35 61 30 20  20 20 20 20 20 20 20 20  |   b5a0         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 37 33 39 38 20  |0000000    7398 |
+00000010  20 20 20 64 66 39 63 20  20 20 20 20 20 20 20 20  |   df9c         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 65 61 34 34 20  |0000000    ea44 |
+00000010  20 20 20 34 34 38 31 20  20 20 20 20 20 20 20 20  |   4481         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+2+0 records in
+2+0 records out
+2097152 bytes (2.1 MB) copied, 0.219355 s, 9.6 MB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put f.2 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 9.3268e-05 s, 42.9 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.2 attr.1 0000000    8e4a    0b6a                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2.attr.1 /usr/bin/rados -p trs_pool getxattr f.2 attr.1
+0000000    8e4a    0b6a                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 8.0989e-05 s, 49.4 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.2 attr.2 0000000    fbdd    082c                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2.attr.2 /usr/bin/rados -p trs_pool getxattr f.2 attr.2
+0000000    fbdd    082c                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 8.4647e-05 s, 47.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.2 attr.3 0000000    be12    28b8                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2.attr.3 /usr/bin/rados -p trs_pool getxattr f.2 attr.3
+0000000    be12    28b8                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 5.5521e-05 s, 72.0 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.2 attr.4 0000000    8be6    40fd                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2.attr.4 /usr/bin/rados -p trs_pool getxattr f.2 attr.4
+0000000    8be6    40fd                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.9062e-05 s, 81.5 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapheader f.2 0000000    fb28    7478                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2.omap.header /usr/bin/rados -p trs_pool getomapheader f.2
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 66 62 32 38 20  |0000000    fb28 |
+00000010  20 20 20 37 34 37 38 20  20 20 20 20 20 20 20 20  |   7478         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 7.6419e-05 s, 52.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.2 key.1 0000000    6d36    60ee                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 7.5034e-05 s, 53.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.2 key.2 0000000    5eab    0588                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 8.8049e-05 s, 45.4 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.2 key.3 0000000    1dbd    08fd                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 7.3264e-05 s, 54.6 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.2 key.4 0000000    ba9f    8f96                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.2.omap.vals /usr/bin/rados -p trs_pool listomapvals f.2
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 36 64 33 36 20  |0000000    6d36 |
+00000010  20 20 20 36 30 65 65 20  20 20 20 20 20 20 20 20  |   60ee         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 35 65 61 62 20  |0000000    5eab |
+00000010  20 20 20 30 35 38 38 20  20 20 20 20 20 20 20 20  |   0588         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 31 64 62 64 20  |0000000    1dbd |
+00000010  20 20 20 30 38 66 64 20  20 20 20 20 20 20 20 20  |   08fd         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 62 61 39 66 20  |0000000    ba9f |
+00000010  20 20 20 38 66 39 36 20  20 20 20 20 20 20 20 20  |   8f96         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+3+0 records in
+3+0 records out
+3145728 bytes (3.1 MB) copied, 0.278733 s, 11.3 MB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put f.3 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 5.6641e-05 s, 70.6 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.3 attr.1 0000000    a182    8e07                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3.attr.1 /usr/bin/rados -p trs_pool getxattr f.3 attr.1
+0000000    a182    8e07                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.8825e-05 s, 103 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.3 attr.2 0000000    fd89    2e30                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3.attr.2 /usr/bin/rados -p trs_pool getxattr f.3 attr.2
+0000000    fd89    2e30                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 8.0666e-05 s, 49.6 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.3 attr.3 0000000    be54    2b8d                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3.attr.3 /usr/bin/rados -p trs_pool getxattr f.3 attr.3
+0000000    be54    2b8d                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 5.2865e-05 s, 75.7 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.3 attr.4 0000000    d85f    ff5f                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3.attr.4 /usr/bin/rados -p trs_pool getxattr f.3 attr.4
+0000000    d85f    ff5f                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.4703e-05 s, 89.5 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapheader f.3 0000000    0dfd    7752                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3.omap.header /usr/bin/rados -p trs_pool getomapheader f.3
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 30 64 66 64 20  |0000000    0dfd |
+00000010  20 20 20 37 37 35 32 20  20 20 20 20 20 20 20 20  |   7752         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 7.6284e-05 s, 52.4 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.3 key.1 0000000    4713    638b                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.8996e-05 s, 103 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.3 key.2 0000000    6f2b    5c53                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.8606e-05 s, 82.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.3 key.3 0000000    a5aa    d6e6                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 7.5757e-05 s, 52.8 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.3 key.4 0000000    6b1a    4267                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.3.omap.vals /usr/bin/rados -p trs_pool listomapvals f.3
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 34 37 31 33 20  |0000000    4713 |
+00000010  20 20 20 36 33 38 62 20  20 20 20 20 20 20 20 20  |   638b         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 36 66 32 62 20  |0000000    6f2b |
+00000010  20 20 20 35 63 35 33 20  20 20 20 20 20 20 20 20  |   5c53         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 61 35 61 61 20  |0000000    a5aa |
+00000010  20 20 20 64 36 65 36 20  20 20 20 20 20 20 20 20  |   d6e6         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 36 62 31 61 20  |0000000    6b1a |
+00000010  20 20 20 34 32 36 37 20  20 20 20 20 20 20 20 20  |   4267         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+4+0 records in
+4+0 records out
+4194304 bytes (4.2 MB) copied, 0.332201 s, 12.6 MB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put f.4 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.5422e-05 s, 113 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.4 attr.1 0000000    7f6e    98f4                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4.attr.1 /usr/bin/rados -p trs_pool getxattr f.4 attr.1
+0000000    7f6e    98f4                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.9869e-05 s, 80.2 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.4 attr.2 0000000    d91f    e63e                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4.attr.2 /usr/bin/rados -p trs_pool getxattr f.4 attr.2
+0000000    d91f    e63e                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 0.000122073 s, 32.8 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.4 attr.3 0000000    e212    1ccc                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4.attr.3 /usr/bin/rados -p trs_pool getxattr f.4 attr.3
+0000000    e212    1ccc                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 6.1474e-05 s, 65.1 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.4 attr.4 0000000    27f3    cd77                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4.attr.4 /usr/bin/rados -p trs_pool getxattr f.4 attr.4
+0000000    27f3    cd77                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.9755e-05 s, 80.4 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapheader f.4 0000000    cf78    8e75                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4.omap.header /usr/bin/rados -p trs_pool getomapheader f.4
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 63 66 37 38 20  |0000000    cf78 |
+00000010  20 20 20 38 65 37 35 20  20 20 20 20 20 20 20 20  |   8e75         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.8726e-05 s, 103 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.4 key.1 0000000    bc6d    7230                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.636e-05 s, 86.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.4 key.2 0000000    08ef    0179                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.8707e-05 s, 103 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.4 key.3 0000000    d9aa    e2d7                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.6283e-05 s, 110 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.4 key.4 0000000    5135    d26a                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.4.omap.vals /usr/bin/rados -p trs_pool listomapvals f.4
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 62 63 36 64 20  |0000000    bc6d |
+00000010  20 20 20 37 32 33 30 20  20 20 20 20 20 20 20 20  |   7230         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 30 38 65 66 20  |0000000    08ef |
+00000010  20 20 20 30 31 37 39 20  20 20 20 20 20 20 20 20  |   0179         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 64 39 61 61 20  |0000000    d9aa |
+00000010  20 20 20 65 32 64 37 20  20 20 20 20 20 20 20 20  |   e2d7         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 35 31 33 35 20  |0000000    5135 |
+00000010  20 20 20 64 32 36 61 20  20 20 20 20 20 20 20 20  |   d26a         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+5+0 records in
+5+0 records out
+5242880 bytes (5.2 MB) copied, 0.503719 s, 10.4 MB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool put f.5 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 3.9418e-05 s, 101 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.5 attr.1 0000000    1170    8b90                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5.attr.1 /usr/bin/rados -p trs_pool getxattr f.5 attr.1
+0000000    1170    8b90                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.4055e-05 s, 90.8 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.5 attr.2 0000000    f950    9a61                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5.attr.2 /usr/bin/rados -p trs_pool getxattr f.5 attr.2
+0000000    f950    9a61                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.3894e-05 s, 91.1 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.5 attr.3 0000000    f2c7    1a58                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5.attr.3 /usr/bin/rados -p trs_pool getxattr f.5 attr.3
+0000000    f2c7    1a58                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 7.2392e-05 s, 55.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setxattr f.5 attr.4 0000000    dbdb    0ba7                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5.attr.4 /usr/bin/rados -p trs_pool getxattr f.5 attr.4
+0000000    dbdb    0ba7                                                
+00000041+0 records in
+1+0 records out
+4 bytes (4 B) copied, 6.7502e-05 s, 59.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapheader f.5 0000000    8eb5    f936                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5.omap.header /usr/bin/rados -p trs_pool getomapheader f.5
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 38 65 62 35 20  |0000000    8eb5 |
+00000010  20 20 20 66 39 33 36 20  20 20 20 20 20 20 20 20  |   f936         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 6.4078e-05 s, 62.4 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.5 key.1 0000000    fd4e    5947                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 6.465e-05 s, 61.9 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.5 key.2 0000000    34e7    c2a7                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 9.0528e-05 s, 44.2 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.5 key.3 0000000    a1d4    5637                                                
+0000004
+1+0 records in
+1+0 records out
+4 bytes (4 B) copied, 4.6339e-05 s, 86.3 kB/s
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool setomapval f.5 key.4 0000000    bc5f    d444                                                
+0000004
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_src/f.5.omap.vals /usr/bin/rados -p trs_pool listomapvals f.5
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 66 64 34 65 20  |0000000    fd4e |
+00000010  20 20 20 35 39 34 37 20  20 20 20 20 20 20 20 20  |   5947         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 33 34 65 37 20  |0000000    34e7 |
+00000010  20 20 20 63 32 61 37 20  20 20 20 20 20 20 20 20  |   c2a7         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 61 31 64 34 20  |0000000    a1d4 |
+00000010  20 20 20 35 36 33 37 20  20 20 20 20 20 20 20 20  |   5637         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 62 63 35 66 20  |0000000    bc5f |
+00000010  20 20 20 64 34 34 34 20  20 20 20 20 20 20 20 20  |   d444         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  /usr/bin/rados cppool trs_pool trs_pool.2
+trs_pool:f.5 => trs_pool.2:f.5
+trs_pool:f.1 => trs_pool.2:f.1
+trs_pool:f.3 => trs_pool.2:f.3
+trs_pool:f.4 => trs_pool.2:f.4
+trs_pool:f.2 => trs_pool.2:f.2
+successfully copied pool trs_pool
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool.2 get f.1 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1.attr.1 /usr/bin/rados -p trs_pool.2 getxattr f.1 attr.1
+0000000    c405    0dd1                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1.attr.2 /usr/bin/rados -p trs_pool.2 getxattr f.1 attr.2
+0000000    09ca    1f63                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1.attr.3 /usr/bin/rados -p trs_pool.2 getxattr f.1 attr.3
+0000000    1b2d    5698                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1.attr.4 /usr/bin/rados -p trs_pool.2 getxattr f.1 attr.4
+0000000    4f1f    9d61                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1.omap.header /usr/bin/rados -p trs_pool.2 getomapheader f.1
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 63 63 33 32 20  |0000000    cc32 |
+00000010  20 20 20 61 31 38 34 20  20 20 20 20 20 20 20 20  |   a184         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.1.omap.vals /usr/bin/rados -p trs_pool.2 listomapvals f.1
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 35 65 62 36 20  |0000000    5eb6 |
+00000010  20 20 20 31 32 35 66 20  20 20 20 20 20 20 20 20  |   125f         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 31 37 63 39 20  |0000000    17c9 |
+00000010  20 20 20 62 35 61 30 20  20 20 20 20 20 20 20 20  |   b5a0         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 37 33 39 38 20  |0000000    7398 |
+00000010  20 20 20 64 66 39 63 20  20 20 20 20 20 20 20 20  |   df9c         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 65 61 34 34 20  |0000000    ea44 |
+00000010  20 20 20 34 34 38 31 20  20 20 20 20 20 20 20 20  |   4481         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool.2 get f.2 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2.attr.1 /usr/bin/rados -p trs_pool.2 getxattr f.2 attr.1
+0000000    8e4a    0b6a                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2.attr.2 /usr/bin/rados -p trs_pool.2 getxattr f.2 attr.2
+0000000    fbdd    082c                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2.attr.3 /usr/bin/rados -p trs_pool.2 getxattr f.2 attr.3
+0000000    be12    28b8                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2.attr.4 /usr/bin/rados -p trs_pool.2 getxattr f.2 attr.4
+0000000    8be6    40fd                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2.omap.header /usr/bin/rados -p trs_pool.2 getomapheader f.2
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 66 62 32 38 20  |0000000    fb28 |
+00000010  20 20 20 37 34 37 38 20  20 20 20 20 20 20 20 20  |   7478         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.2.omap.vals /usr/bin/rados -p trs_pool.2 listomapvals f.2
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 36 64 33 36 20  |0000000    6d36 |
+00000010  20 20 20 36 30 65 65 20  20 20 20 20 20 20 20 20  |   60ee         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 35 65 61 62 20  |0000000    5eab |
+00000010  20 20 20 30 35 38 38 20  20 20 20 20 20 20 20 20  |   0588         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 31 64 62 64 20  |0000000    1dbd |
+00000010  20 20 20 30 38 66 64 20  20 20 20 20 20 20 20 20  |   08fd         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 62 61 39 66 20  |0000000    ba9f |
+00000010  20 20 20 38 66 39 36 20  20 20 20 20 20 20 20 20  |   8f96         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool.2 get f.3 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3.attr.1 /usr/bin/rados -p trs_pool.2 getxattr f.3 attr.1
+0000000    a182    8e07                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3.attr.2 /usr/bin/rados -p trs_pool.2 getxattr f.3 attr.2
+0000000    fd89    2e30                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3.attr.3 /usr/bin/rados -p trs_pool.2 getxattr f.3 attr.3
+0000000    be54    2b8d                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3.attr.4 /usr/bin/rados -p trs_pool.2 getxattr f.3 attr.4
+0000000    d85f    ff5f                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3.omap.header /usr/bin/rados -p trs_pool.2 getomapheader f.3
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 30 64 66 64 20  |0000000    0dfd |
+00000010  20 20 20 37 37 35 32 20  20 20 20 20 20 20 20 20  |   7752         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.3.omap.vals /usr/bin/rados -p trs_pool.2 listomapvals f.3
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 34 37 31 33 20  |0000000    4713 |
+00000010  20 20 20 36 33 38 62 20  20 20 20 20 20 20 20 20  |   638b         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 36 66 32 62 20  |0000000    6f2b |
+00000010  20 20 20 35 63 35 33 20  20 20 20 20 20 20 20 20  |   5c53         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 61 35 61 61 20  |0000000    a5aa |
+00000010  20 20 20 64 36 65 36 20  20 20 20 20 20 20 20 20  |   d6e6         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 36 62 31 61 20  |0000000    6b1a |
+00000010  20 20 20 34 32 36 37 20  20 20 20 20 20 20 20 20  |   4267         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool.2 get f.4 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4.attr.1 /usr/bin/rados -p trs_pool.2 getxattr f.4 attr.1
+0000000    7f6e    98f4                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4.attr.2 /usr/bin/rados -p trs_pool.2 getxattr f.4 attr.2
+0000000    d91f    e63e                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4.attr.3 /usr/bin/rados -p trs_pool.2 getxattr f.4 attr.3
+0000000    e212    1ccc                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4.attr.4 /usr/bin/rados -p trs_pool.2 getxattr f.4 attr.4
+0000000    27f3    cd77                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4.omap.header /usr/bin/rados -p trs_pool.2 getomapheader f.4
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 63 66 37 38 20  |0000000    cf78 |
+00000010  20 20 20 38 65 37 35 20  20 20 20 20 20 20 20 20  |   8e75         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.4.omap.vals /usr/bin/rados -p trs_pool.2 listomapvals f.4
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 62 63 36 64 20  |0000000    bc6d |
+00000010  20 20 20 37 32 33 30 20  20 20 20 20 20 20 20 20  |   7230         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 30 38 65 66 20  |0000000    08ef |
+00000010  20 20 20 30 31 37 39 20  20 20 20 20 20 20 20 20  |   0179         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 64 39 61 61 20  |0000000    d9aa |
+00000010  20 20 20 65 32 64 37 20  20 20 20 20 20 20 20 20  |   e2d7         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 35 31 33 35 20  |0000000    5135 |
+00000010  20 20 20 64 32 36 61 20  20 20 20 20 20 20 20 20  |   d26a         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  /usr/bin/rados -p trs_pool.2 get f.5 /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5.attr.1 /usr/bin/rados -p trs_pool.2 getxattr f.5 attr.1
+0000000    1170    8b90                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5.attr.2 /usr/bin/rados -p trs_pool.2 getxattr f.5 attr.2
+0000000    f950    9a61                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5.attr.3 /usr/bin/rados -p trs_pool.2 getxattr f.5 attr.3
+0000000    f2c7    1a58                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5.attr.4 /usr/bin/rados -p trs_pool.2 getxattr f.5 attr.4
+0000000    dbdb    0ba7                                                
+0000004RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5.omap.header /usr/bin/rados -p trs_pool.2 getomapheader f.5
+header (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 38 65 62 35 20  |0000000    8eb5 |
+00000010  20 20 20 66 39 33 36 20  20 20 20 20 20 20 20 20  |   f936         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  --tee /tmp/test_rados_tool.tFT7ORpuF5/dir_cp_dst/f.5.omap.vals /usr/bin/rados -p trs_pool.2 listomapvals f.5
+key.1
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 66 64 34 65 20  |0000000    fd4e |
+00000010  20 20 20 35 39 34 37 20  20 20 20 20 20 20 20 20  |   5947         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.2
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 33 34 65 37 20  |0000000    34e7 |
+00000010  20 20 20 63 32 61 37 20  20 20 20 20 20 20 20 20  |   c2a7         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.3
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 61 31 64 34 20  |0000000    a1d4 |
+00000010  20 20 20 35 36 33 37 20  20 20 20 20 20 20 20 20  |   5637         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+key.4
+value (79 bytes) :
+00000000  30 30 30 30 30 30 30 20  20 20 20 62 63 35 66 20  |0000000    bc5f |
+00000010  20 20 20 64 34 34 34 20  20 20 20 20 20 20 20 20  |   d444         |
+00000020  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000030  20 20 20 20 20 20 20 20  20 20 20 20 20 20 20 20  |                |
+00000040  20 20 20 20 20 20 20 0a  30 30 30 30 30 30 34     |       .0000004|
+0000004f
+
+RUN_EXPECT_SUCC:  /usr/bin/rados --block-size 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --block-size 4k df
+Invalid value for block-size: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --concurrent-ios 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --concurrent-ios 4k df
+Invalid value for concurrent-ios: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --min-object-size 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --min-object-size 4k df
+Invalid value for min-object-size: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --max-object-size 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --max-object-size 4k df
+Invalid value for max-object-size: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --min-op-len 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --min-op-len 4k df
+Invalid value for min-op-len: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --max-op-len 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --max-op-len 4k df
+Invalid value for max-op-len: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --max-ops 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --max-ops 4k df
+Invalid value for max-ops: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --max-backlog 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --max-backlog 4k df
+Invalid value for max-backlog: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --target-throughput 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --target-throughput 4k df
+Invalid value for target-throughput: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --read-percent 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --read-percent 4k df
+Invalid value for read-percent: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --num-objects 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --num-objects 4k df
+Invalid value for num-objects: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados --run-length 4 df
+pool name                 KB      objects       clones     degraded      unfound           rd        rd KB           wr        wr KB
+rbd                        0            0            0            0            0            0            0            0            0
+trs_pool                1024            1            0            0            0            0            0            2         1024
+trs_pool.2                 0            0            0            0            0            0            0            0            0
+  total used          167544            1
+  total avail       94155096
+  total space       94322640
+RUN_EXPECT_FAIL:  /usr/bin/rados --run-length 4k df
+Invalid value for run-length: The option value '4k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados lock list f.1 --lock-duration 4 --pool trs_pool
+{"objname":"f.1","locks":[]}
+RUN_EXPECT_FAIL:  /usr/bin/rados lock list f.1 --lock-duration 4k --pool trs_pool
+Invalid value for lock-duration: The option value '4k' seems to be invalid
+error 22: (22) Invalid argument
+RUN_EXPECT_SUCC:  /usr/bin/rados mksnap snap1 --pool trs_pool
+created pool trs_pool snap snap1
+RUN_EXPECT_SUCC:  /usr/bin/rados ls --pool trs_pool --snapid=1
+selected snap 1 'snap1'
+f.5
+f.1
+f.3
+f.4
+f.2
+RUN_EXPECT_FAIL:  /usr/bin/rados ls --pool trs_pool --snapid=1k
+Invalid value for snapid: The option value '1k' seems to be invalid
+RUN_EXPECT_SUCC:  /usr/bin/rados chown 1 --pool trs_pool
+changed auid on pool trs_pool to 1
+RUN_EXPECT_FAIL:  /usr/bin/rados chown 1k --pool trs_pool
+Invalid value for new-auid: '1k'
+RUN_EXPECT_SUCC:  /usr/bin/rados truncate f.1 0 --pool trs_pool
+RUN_EXPECT_FAIL:  /usr/bin/rados truncate f.1 0k --pool trs_pool
+Invalid value for size: '0k'
+RUN:  /usr/bin/rados rmpool delete_me_mkpool_test delete_me_mkpool_test --yes-i-really-really-mean-it
+pool delete_me_mkpool_test could not be removed
+error 2: (2) No such file or directory
+RUN_EXPECT_SUCC:  /usr/bin/rados mkpool delete_me_mkpool_test 0 0
+setting auid:0
+using crush rule 0
+successfully created pool delete_me_mkpool_test
+RUN_EXPECT_FAIL:  /usr/bin/rados mkpool delete_me_mkpool_test2 0k 0
+Invalid value for auid: '0k'
+RUN_EXPECT_FAIL:  /usr/bin/rados mkpool delete_me_mkpool_test3 0 0k
+setting auid:0
+Invalid value for crush-rule: '0k'
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 1 write
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 1 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_15967
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      16        95        79   315.482       316    0.189524    0.187318
+Total time run:         1.149386
+Total writes made:      96
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     334.091
+Stddev Bandwidth:       0
+Max bandwidth (MB/sec): 316
+Min bandwidth (MB/sec): 316
+Average IOPS:           83
+Stddev IOPS:            0
+Max IOPS:               79
+Min IOPS:               79
+Average Latency(s):     0.19121
+Stddev Latency(s):      0.0420192
+Max latency(s):         0.312426
+Min latency(s):         0.102702
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :0.061505
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 1k write
+Invalid value for seconds: '1k'
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 1 write --format json --output /tmp/test_rados_tool.tFT7ORpuF5/bench.json
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :1.321728
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 1 write --output /tmp/test_rados_tool.tFT7ORpuF5/bench.json
+-o|--output option can be used only with '--format' option
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --format json --no-cleanup
+{"concurrent_ios":"16","object_size":"4194304","op_size":"4194304","seconds_to_run":"5","max_objects":"0","object_prefix":"benchmark_data_centos7-ceph-1_16039","datas":[{"sec":"0","cur_ops":"0","started":"0","finished":"0","avg_bw":"0.000000","cur_bw":"0.000000","last_lat":"0.000000","avg_lat":"0.000000"},{"sec":"1","cur_ops":"16","started":"102","finished":"86","avg_bw":"343.274073","cur_bw":"344.000000","last_lat":"0.151768","avg_lat":"0.177604"},{"sec":"2","cur_ops":"16","started":"130","finished":"114","avg_bw":"227.744477","cur_bw":"112.000000","last_lat":"0.159269","avg_lat":"0.175332"},{"sec":"3","cur_ops":"16","started":"174","finished":"158","avg_bw":"210.362088","cur_bw":"176.000000","last_lat":"0.152034","avg_lat":"0.293641"},{"sec":"4","cur_ops":"16","started":"199","finished":"183","avg_bw":"182.796052","cur_bw":"100.000000","last_lat":"0.159458","avg_lat":"0.277613"},{"sec":"5","cur_ops":"16","started":"199","finished":"183","avg_bw":"146.264828","cur_bw":"146.264828","last_lat":"146.264828","avg_lat":"0.277613"}],"total_time_run":"5.493114","total_writes_made":"200","write_size":"4194304","object_size":"4194304","bandwidth":"145.636875","stddev_bandwidth":"127.172324","max_bandwidth":"344.000000","min_bandwidth":"0.000000","average_iops":"36","stddev_iops":"31","max_iops":"86","min_iops":"0","average_latency":"0.439094","stddev_latency":"0.613762","max_latency:":"2.342427","min_latency":"0.066135"}
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 1 rand --format json
+{"datas":[{"sec":"0","cur_ops":"0","started":"0","finished":"0","avg_bw":"0.000000","cur_bw":"0.000000","last_lat":"0.000000","avg_lat":"0.000000"},{"sec":"1","cur_ops":"16","started":"458","finished":"442","avg_bw":"1766.673574","cur_bw":"1768.000000","last_lat":"0.010583","avg_lat":"0.034412"}],"total_time_run":"1.054644","total_reads_made":"459","read_size":"4194304","object_size":"4194304","bandwidth":"1740.871100","average_iops":"435","stddev_iops":"0","max_iops":"442","min_iops":"442","average_latency":"0.035673","max_latency":"0.124419","min_latency":"0.005872"}
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 1 seq --format json
+{"datas":[{"sec":"0","cur_ops":"0","started":"0","finished":"0","avg_bw":"0.000000","cur_bw":"0.000000","last_lat":"0.000000","avg_lat":"0.000000"}],"total_time_run":"0.638493","total_reads_made":"200","read_size":"4194304","object_size":"4194304","bandwidth":"1252.950923","average_iops":"313","stddev_iops":"0","max_iops":"0","min_iops":"2147483647","average_latency":"0.049796","max_latency":"0.158930","min_latency":"0.006540"}
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-omap
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16107
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      16        52        36   143.975       144    0.558661    0.291205
+    2      16        53        37   73.9718         4     1.21141    0.316075
+    3      16        53        37   49.3175         0           -    0.316075
+    4      16        54        38   37.9894         2     3.54851    0.401139
+    5      16        61        45   35.9901        28     3.56071    0.901942
+    6      15        62        47   31.3252         8     4.60862     1.05956
+Total time run:         6.841730
+Total writes made:      62
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     36.2481
+Stddev Bandwidth:       56.2814
+Max bandwidth (MB/sec): 144
+Min bandwidth (MB/sec): 0
+Average IOPS:           9
+Stddev IOPS:            14
+Max IOPS:               36
+Min IOPS:               0
+Average Latency(s):     1.7401
+Stddev Latency(s):      1.96102
+Max latency(s):         6.15015
+Min latency(s):         0.0817391
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :0.548500
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-object
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16129
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      16        62        46   183.437       184    0.114302    0.317951
+    2      16       129       113   225.634       268    0.220286    0.239581
+    3      16       129       113   150.496         0           -    0.239581
+    4      16       192       176   175.844       126    0.146169    0.345129
+    5      16       194       178   142.295         8    0.436345    0.346203
+Total time run:         5.815583
+Total writes made:      195
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     134.122
+Stddev Bandwidth:       115.044
+Max bandwidth (MB/sec): 268
+Min bandwidth (MB/sec): 0
+Average IOPS:           33
+Stddev IOPS:            28
+Max IOPS:               67
+Min IOPS:               0
+Average Latency(s):     0.476819
+Stddev Latency(s):      0.570061
+Max latency(s):         2.054
+Min latency(s):         0.0787833
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :1.037182
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-xattr
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16152
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      16        41        25   99.9773       100    0.255838    0.193443
+    2      16        41        25   49.9891         0           -    0.193443
+    3      16        44        28   37.3255         6     2.60991    0.454193
+    4      16        70        54   53.9898       104    0.174502     1.10351
+    5      16        82        66   52.7906        48     1.21121     1.09458
+    6      16        83        67   44.6589         4     1.52543     1.10101
+    7      16        83        67   38.2793         0           -     1.10101
+    8      16        83        67   33.4943         0           -     1.10101
+Total time run:         8.127267
+Total writes made:      83
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     40.8501
+Stddev Bandwidth:       45.6563
+Max bandwidth (MB/sec): 104
+Min bandwidth (MB/sec): 0
+Average IOPS:           10
+Stddev IOPS:            11
+Max IOPS:               26
+Min IOPS:               0
+Average Latency(s):     1.55974
+Stddev Latency(s):      1.39528
+Max latency(s):         4.40692
+Min latency(s):         0.0677693
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :0.877255
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-xattr --write-object
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16184
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      15        24         9   35.9976        36    0.361477     0.30392
+    2      15        24         9   17.9971         0           -     0.30392
+    3      15        27        12   15.9972         6     2.62749    0.884591
+    4      15        41        26   25.9954        56     3.51168     2.04557
+    5      15        42        27    21.596         4     4.21324     2.12585
+    6      15        42        27   17.9968         0           -     2.12585
+    7      15        42        27   15.4258         0           -     2.12585
+    8      16        43        27   13.4975         0           -     2.12585
+Total time run:         8.172510
+Total writes made:      43
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     21.0462
+Stddev Bandwidth:       21.3257
+Max bandwidth (MB/sec): 56
+Min bandwidth (MB/sec): 0
+Average IOPS:           5
+Stddev IOPS:            5
+Max IOPS:               14
+Min IOPS:               0
+Average Latency(s):     2.99411
+Stddev Latency(s):      1.67441
+Max latency(s):         5.54357
+Min latency(s):         0.259609
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :0.045187
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-xattr --write-omap
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16208
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      15        22         7   27.9976        28    0.482465    0.480053
+    2      15        35        20   39.9364        52     1.46956     1.07222
+    3      15        47        32    42.619        48      1.2844     1.23015
+    4      15        50        35   34.9687        12     2.33527     1.32079
+    5      16        55        39   31.1767        16     2.19604     1.41832
+    6       6        55        49   32.6382        40     1.98134     1.61424
+Total time run:         6.022324
+Total writes made:      55
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     36.5307
+Stddev Bandwidth:       16.6693
+Max bandwidth (MB/sec): 52
+Min bandwidth (MB/sec): 12
+Average IOPS:           9
+Stddev IOPS:            4
+Max IOPS:               13
+Min IOPS:               3
+Average Latency(s):     1.72304
+Stddev Latency(s):      0.840784
+Max latency(s):         3.21566
+Min latency(s):         0.478195
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :0.457060
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-omap --write-object
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16230
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      14        14         0         0         0           -           0
+    2      15        34        19   37.9839        38    0.799617     1.11737
+    3      15        46        31   41.3196        48     1.13801     1.05097
+    4      15        61        46   45.9867        60    0.925068     1.15033
+    5      15        76        61   48.7875        60    0.629179     1.15193
+    6      15        76        61   40.6249         0           -     1.15193
+Total time run:         6.284817
+Total writes made:      77
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     49.007
+Stddev Bandwidth:       27.84
+Max bandwidth (MB/sec): 60
+Min bandwidth (MB/sec): 0
+Average IOPS:           12
+Stddev IOPS:            6
+Max IOPS:               15
+Min IOPS:               0
+Average Latency(s):     1.27263
+Stddev Latency(s):      0.417466
+Max latency(s):         2.67444
+Min latency(s):         0.502368
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :1.370488
+RUN_EXPECT_SUCC:  /usr/bin/rados --pool trs_pool bench 5 write --write-xattr --write-omap --write-object
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 5 seconds or 0 objects
+Object prefix: benchmark_data_centos7-ceph-1_16252
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       8         8         0         0         0           -           0
+    1      15        16         1   3.99657         4    0.857636    0.857636
+    2      15        27        12   23.9665        44     1.60411     1.40297
+    3      15        36        21   27.9718        36     1.85289     1.63124
+    4      15        39        24   23.9805        12     2.17446     1.68294
+    5      15        47        32   25.5791        32     1.83494     1.83217
+    6       8        48        40   26.6478        32     1.36589     1.88938
+Total time run:         6.686908
+Total writes made:      48
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     28.7128
+Stddev Bandwidth:       15.3188
+Max bandwidth (MB/sec): 44
+Min bandwidth (MB/sec): 4
+Average IOPS:           7
+Stddev IOPS:            3
+Max IOPS:               11
+Min IOPS:               1
+Average Latency(s):     1.92292
+Stddev Latency(s):      0.445879
+Max latency(s):         2.6255
+Min latency(s):         0.857636
+Cleaning up (deleting benchmark objects)
+Clean up completed and total clean up time :1.368527
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-omap
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-object
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-xattr
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-xattr --write-object
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-xattr --write-omap
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-omap --write-object
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_FAIL:  /usr/bin/rados --pool trs_pool bench 5 read --write-xattr --write-omap --write-object
+usage: rados [options] [commands]
+POOL COMMANDS
+   lspools                          list pools
+   mkpool <pool-name> [123[ 4]]     create pool <pool-name>'
+                                    [with auid 123[and using crush rule 4]]
+   cppool <pool-name> <dest-pool>   copy content of a pool
+   rmpool <pool-name> [<pool-name> --yes-i-really-really-mean-it]
+                                    remove pool <pool-name>'
+   purge <pool-name> --yes-i-really-really-mean-it
+                                    remove all objects from pool <pool-name> without removing it
+   df                               show per-pool and total usage
+   ls                               list objects in pool
+
+   chown 123                        change the pool owner to auid 123
+
+POOL SNAP COMMANDS
+   lssnap                           list snaps
+   mksnap <snap-name>               create snap <snap-name>
+   rmsnap <snap-name>               remove snap <snap-name>
+
+OBJECT COMMANDS
+   get <obj-name> [outfile]         fetch object
+   put <obj-name> [infile]          write object
+   truncate <obj-name> length       truncate object
+   create <obj-name>                create object
+   rm <obj-name> ...[--force-full]  [force no matter full or not]remove object(s)
+   cp <obj-name> [target-obj]       copy object
+   clonedata <src-obj> <dst-obj>    clone object data
+   listxattr <obj-name>
+   getxattr <obj-name> attr
+   setxattr <obj-name> attr val
+   rmxattr <obj-name> attr
+   stat objname                     stat the named object
+   mapext <obj-name>
+   rollback <obj-name> <snap-name>  roll back object to snap <snap-name>
+
+   listsnaps <obj-name>             list the snapshots of this object
+   bench <seconds> write|seq|rand [-t concurrent_operations] [--no-cleanup] [--run-name run_name]
+                                    default is 16 concurrent IOs and 4 MB ops
+                                    default is to clean up after write benchmark
+                                    default run-name is 'benchmark_last_metadata'
+   cleanup [--run-name run_name] [--prefix prefix]
+                                    clean up a previous benchmark operation
+                                    default run-name is 'benchmark_last_metadata'
+   load-gen [options]               generate load on the cluster
+   listomapkeys <obj-name>          list the keys in the object map
+   listomapvals <obj-name>          list the keys and vals in the object map 
+   getomapval <obj-name> <key> [file] show the value for the specified key
+                                    in the object's object map
+   setomapval <obj-name> <key> <val>
+   rmomapkey <obj-name> <key>
+   getomapheader <obj-name> [file]
+   setomapheader <obj-name> <val>
+   tmap-to-omap <obj-name>          convert tmap keys/values to omap
+   watch <obj-name>                 add watcher on this object
+   notify <obj-name> <message>      notify watcher of this object with message
+   listwatchers <obj-name>          list the watchers of this object
+   set-alloc-hint <obj-name> <expected-object-size> <expected-write-size>
+                                    set allocation hint for an object
+
+IMPORT AND EXPORT
+   export [filename]
+       Serialize pool contents to a file or standard out.
+   import [--dry-run] [--no-overwrite] < filename | - >
+       Load pool contents from a file or standard in
+
+ADVISORY LOCKS
+   lock list <obj-name>
+       List all advisory locks on an object
+   lock get <obj-name> <lock-name>
+       Try to acquire a lock
+   lock break <obj-name> <lock-name> <locker-name>
+       Try to break a lock acquired by another client
+   lock info <obj-name> <lock-name>
+       Show lock information
+   options:
+       --lock-tag                   Lock tag, all locks operation should use
+                                    the same tag
+       --lock-cookie                Locker cookie
+       --lock-description           Description of lock
+       --lock-duration              Lock duration (in seconds)
+       --lock-type                  Lock type (shared, exclusive)
+
+SCRUB AND REPAIR:
+   list-inconsistent-pg <pool>      list inconsistent PGs in given pool
+   list-inconsistent-obj <pgid>     list inconsistent objects in given pg
+   list-inconsistent-snapset <pgid> list inconsistent snapsets in the given pg
+
+CACHE POOLS: (for testing/development only)
+   cache-flush <obj-name>           flush cache pool object (blocking)
+   cache-try-flush <obj-name>       flush cache pool object (non-blocking)
+   cache-evict <obj-name>           evict cache pool object
+   cache-flush-evict-all            flush+evict all objects
+   cache-try-flush-evict-all        try-flush+evict all objects
+
+GLOBAL OPTIONS:
+   --object_locator object_locator
+        set object_locator for operation
+   -p pool
+   --pool=pool
+        select given pool by name
+   --target-pool=pool
+        select target pool by name
+   -b op_size
+        set the block size for put/get ops and for write benchmarking
+   -o object_size
+        set the object size for put/get ops and for write benchmarking
+   --max-objects
+        set the max number of objects for write benchmarking
+   -s name
+   --snap name
+        select given snap name for (read) IO
+   -i infile
+   --create
+        create the pool or directory that was specified
+   -N namespace
+   --namespace=namespace
+        specify the namespace to use for the object
+   --all
+        Use with ls to list objects in all namespaces
+        Put in CEPH_ARGS environment variable to make this the default
+   --default
+        Use with ls to list objects in default namespace
+        Takes precedence over --all in case --all is in environment
+   --target-locator
+        Use with cp to specify the locator of the new object
+   --target-nspace
+        Use with cp to specify the namespace of the new object
+   --striper
+        Use radostriper interface rather than pure rados
+        Available for stat, get, put, truncate, rm, ls and 
+        all xattr related operations
+
+BENCH OPTIONS:
+   -t N
+   --concurrent-ios=N
+        Set number of concurrent I/O operations
+   --show-time
+        prefix output with date/time
+   --no-verify
+        do not verify contents of read objects
+   --write-object
+        write contents to the objects
+   --write-omap
+        write contents to the omap
+   --write-xattr
+        write contents to the extended attributes
+
+LOAD GEN OPTIONS:
+   --num-objects                    total number of objects
+   --min-object-size                min object size
+   --max-object-size                max object size
+   --min-op-len                     min io size of operations
+   --max-op-len                     max io size of operations
+   --max-ops                        max number of operations
+   --max-backlog                    max backlog size
+   --read-percent                   percent of operations that are read
+   --target-throughput              target throughput (in bytes)
+   --run-length                     total time (in seconds)
+CACHE POOLS OPTIONS:
+   --with-clones                    include clones when doing flush or evict
+OMAP OPTIONS:
+    --omap-key-file file            read the omap key from a file
+RUN_EXPECT_NOSIGNAL:  /usr/bin/rados --pool trs_pool bench 1 rand
+Must write data before running a read benchmark!
+error during benchmark: -2
+error 2: (2) No such file or directory
+RUN_EXPECT_NOSIGNAL:  /usr/bin/rados --pool trs_pool bench 1 seq
+Must write data before running a read benchmark!
+error during benchmark: -2
+error 2: (2) No such file or directory
+error removing trs_pool>test_rados_obj: (2) No such file or directory
+error removing trs_pool>test_rados_obj: (2) No such file or directory
+10
+5
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000147801 s, 866 kB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000171354 s, 747 kB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000124728 s, 1.0 MB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000130411 s, 982 kB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000118825 s, 1.1 MB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000194697 s, 657 kB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.00427537 s, 29.9 kB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000115108 s, 1.1 MB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000139429 s, 918 kB/s
+0
+1+0 records in
+1+0 records out
+128 bytes (128 B) copied, 0.000226183 s, 566 kB/s
+0
+pool '5ffc3802-ab81-4a79-ab81-77f0d21b37f4' created
+set-quota max_objects = 1 for pool 5ffc3802-ab81-4a79-ab81-77f0d21b37f4
+pool 86 '5ffc3802-ab81-4a79-ab81-77f0d21b37f4' replicated size 3 min_size 2 crush_ruleset 0 object_hash rjenkins pg_num 1 pgp_num 1 last_change 358 flags hashpspool,full max_objects 1 stripe_width 0
+successfully deleted pool 5ffc3802-ab81-4a79-ab81-77f0d21b37f4
+SUCCESS!

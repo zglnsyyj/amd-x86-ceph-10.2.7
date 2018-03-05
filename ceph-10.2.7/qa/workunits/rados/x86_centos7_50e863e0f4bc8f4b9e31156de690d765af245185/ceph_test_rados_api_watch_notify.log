@@ -1,0 +1,45 @@
+Running main() from gmock_main.cc
+[==========] Running 24 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 9 tests from LibRadosWatchNotify
+[ RUN      ] LibRadosWatchNotify.WatchNotify
+watch_notify_test_cb
+[       OK ] LibRadosWatchNotify.WatchNotify (24152 ms)
+[ RUN      ] LibRadosWatchNotify.Watch2Delete
+waiting up to 300 for disconnect notification ...
+watch_notify2_test_errcb cookie 140661084344176 err -107
+[       OK ] LibRadosWatchNotify.Watch2Delete (1104 ms)
+[ RUN      ] LibRadosWatchNotify.AioWatchDelete
+waiting up to 300 for disconnect notification ...
+watch_notify2_test_errcb cookie 140661084361328 err -107
+[       OK ] LibRadosWatchNotify.AioWatchDelete (1103 ms)
+[ RUN      ] LibRadosWatchNotify.Watch2Timeout
+waiting up to 900 for osd to time us out ...
+watch_notify2_test_errcb cookie 140661084365904 err -107
+watch_notify2_test_cb from 1008753 notify_id 18923625906178 cookie 140661084365904
+[       OK ] LibRadosWatchNotify.Watch2Timeout (31123 ms)
+[ RUN      ] LibRadosWatchNotify.WatchNotify2
+watch_notify2_test_cb from 1008753 notify_id 18923625906177 cookie 140661084375424
+[       OK ] LibRadosWatchNotify.WatchNotify2 (158 ms)
+[ RUN      ] LibRadosWatchNotify.AioWatchNotify2
+watch_notify2_test_cb from 1008753 notify_id 18927920873474 cookie 140661084385536
+[       OK ] LibRadosWatchNotify.AioWatchNotify2 (113 ms)
+[ RUN      ] LibRadosWatchNotify.AioNotify
+watch_notify2_test_cb from 1008753 notify_id 18927920873916 cookie 140661084380928
+[       OK ] LibRadosWatchNotify.AioNotify (110 ms)
+[ RUN      ] LibRadosWatchNotify.WatchNotify2Multi
+watch_notify2_test_cb from 1008753 notify_id 18927920873475 cookie 140661084371792
+watch_notify2_test_cb from 1008753 notify_id 18927920873475 cookie 140661084383168
+[       OK ] LibRadosWatchNotify.WatchNotify2Multi (291 ms)
+[ RUN      ] LibRadosWatchNotify.WatchNotify2Timeout
+watch_notify2_test_cb from 1008753 notify_id 18927920873475 cookie 140661084383168
+watch_notify2_test_cb from 1008753 notify_id 18932215840772 cookie 140661084383168
+[       OK ] LibRadosWatchNotify.WatchNotify2Timeout (14354 ms)
+[----------] 9 tests from LibRadosWatchNotify (72509 ms total)
+
+[----------] 1 test from LibRadosWatchNotifyEC
+test/librados/TestCase.cc:451: Failure
+Value of: create_one_ec_pool(pool_name, &s_cluster)
+  Actual: "rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[ RUN      ] LibRadosWatchNotifyEC.WatchNotify

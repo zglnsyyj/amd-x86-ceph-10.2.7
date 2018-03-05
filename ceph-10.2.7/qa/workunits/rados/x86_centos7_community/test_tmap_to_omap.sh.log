@@ -1,0 +1,39 @@
++ pool=pool-25774
++ rados mkpool pool-25774
+successfully created pool pool-25774
++ rados -p pool-25774 tmap set foo key1 value1
++ rados -p pool-25774 tmap set foo key2 value2
++ rados -p pool-25774 tmap set foo key2 value2
++ rados -p pool-25774 tmap dump foo
++ grep key1
+key 'key1' (6 bytes):
++ rados -p pool-25774 tmap dump foo
++ grep key2
+key 'key2' (6 bytes):
++ rados -p pool-25774 tmap-to-omap foo
++ expect_false rados -p pool-25774 tmap dump foo
++ set -x
++ rados -p pool-25774 tmap dump foo
+error decoding tmap pool-25774/foo
++ return 0
++ expect_false rados -p pool-25774 tmap dump foo
++ set -x
++ rados -p pool-25774 tmap dump foo
+error decoding tmap pool-25774/foo
++ return 0
++ rados -p pool-25774 listomapkeys foo
++ grep key1
+key1
++ rados -p pool-25774 listomapkeys foo
++ grep key2
+key2
++ rados -p pool-25774 getomapval foo key1
++ grep value1
+00000000  76 61 6c 75 65 31                                 |value1|
++ rados -p pool-25774 getomapval foo key2
++ grep value2
+00000000  76 61 6c 75 65 32                                 |value2|
++ rados rmpool pool-25774 pool-25774 --yes-i-really-really-mean-it
+successfully deleted pool pool-25774
++ echo OK
+OK

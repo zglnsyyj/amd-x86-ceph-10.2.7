@@ -1,0 +1,465 @@
+[==========] Running 46 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 3 tests from LibRadosTierPP
+[ RUN      ] LibRadosTierPP.Dirty
+[       OK ] LibRadosTierPP.Dirty (47857 ms)
+[ RUN      ] LibRadosTierPP.FlushWriteRaces
+[       OK ] LibRadosTierPP.FlushWriteRaces (8083 ms)
+[ RUN      ] LibRadosTierPP.HitSetNone
+[       OK ] LibRadosTierPP.HitSetNone (96 ms)
+[----------] 3 tests from LibRadosTierPP (56036 ms total)
+
+[----------] 21 tests from LibRadosTwoPoolsPP
+[ RUN      ] LibRadosTwoPoolsPP.Overlay
+[       OK ] LibRadosTwoPoolsPP.Overlay (24298 ms)
+[ RUN      ] LibRadosTwoPoolsPP.Promote
+[       OK ] LibRadosTwoPoolsPP.Promote (6729 ms)
+[ RUN      ] LibRadosTwoPoolsPP.PromoteSnap
+[       OK ] LibRadosTwoPoolsPP.PromoteSnap (9652 ms)
+[ RUN      ] LibRadosTwoPoolsPP.PromoteSnapScrub
+my_snaps [4]
+my_snaps [5,4]
+my_snaps [6,5,4]
+my_snaps [7,6,5,4]
+promoting some heads
+promoting from clones for snap 7
+promoting from clones for snap 6
+test/librados/tier.cc:504: Failure
+Value of: ioctx.read(o, bl, 1, 0)
+  Actual: -5
+Expected: 1
+[  FAILED  ] LibRadosTwoPoolsPP.PromoteSnapScrub (30790 ms)
+[ RUN      ] LibRadosTwoPoolsPP.PromoteSnapTrimRace
+[       OK ] LibRadosTwoPoolsPP.PromoteSnapTrimRace (8620 ms)
+[ RUN      ] LibRadosTwoPoolsPP.Whiteout
+test/librados/tier.cc:666: Failure
+Value of: it != cache_ioctx.nobjects_end()
+  Actual: false
+Expected: true
+[  FAILED  ] LibRadosTwoPoolsPP.Whiteout (6931 ms)
+[ RUN      ] LibRadosTwoPoolsPP.WhiteoutDeleteCreate
+[       OK ] LibRadosTwoPoolsPP.WhiteoutDeleteCreate (6761 ms)
+[ RUN      ] LibRadosTwoPoolsPP.Evict
+[       OK ] LibRadosTwoPoolsPP.Evict (6926 ms)
+[ RUN      ] LibRadosTwoPoolsPP.EvictSnap
+[       OK ] LibRadosTwoPoolsPP.EvictSnap (20074 ms)
+[ RUN      ] LibRadosTwoPoolsPP.EvictSnap2
+[       OK ] LibRadosTwoPoolsPP.EvictSnap2 (7867 ms)
+[ RUN      ] LibRadosTwoPoolsPP.TryFlush
+[       OK ] LibRadosTwoPoolsPP.TryFlush (13524 ms)
+[ RUN      ] LibRadosTwoPoolsPP.Flush
+[       OK ] LibRadosTwoPoolsPP.Flush (6745 ms)
+[ RUN      ] LibRadosTwoPoolsPP.FlushSnap
+test/librados/tier.cc:1642: Failure
+Value of: completion->get_return_value()
+  Actual: -16
+Expected: 0
+[  FAILED  ] LibRadosTwoPoolsPP.FlushSnap (8960 ms)
+[ RUN      ] LibRadosTwoPoolsPP.FlushTryFlushRaces
+[       OK ] LibRadosTwoPoolsPP.FlushTryFlushRaces (14804 ms)
+[ RUN      ] LibRadosTwoPoolsPP.TryFlushReadRace
+[       OK ] LibRadosTwoPoolsPP.TryFlushReadRace (7174 ms)
+[ RUN      ] LibRadosTwoPoolsPP.HitSetRead
+hmm, no HitSet yet
+hmm, no HitSet yet
+ok, hit_set contains 196:602f83fe:::foo:head
+[       OK ] LibRadosTwoPoolsPP.HitSetRead (8944 ms)
+[ RUN      ] LibRadosTwoPoolsPP.HitSetWrite
+pg_num = 8
+pg 0 ls 1520233302,0
+pg 1 ls 1520233300,0
+pg 2 ls 1520233302,0
+pg 3 ls 1520233302,0
+pg 4 ls 1520233302,0
+pg 5 ls 1520233302,0
+pg 6 ls 1520233302,0
+pg 7 ls 1520233302,0
+pg_num = 8
+checking for 197:6cac518f:::0:head
+checking for 197:02547ec2:::1:head
+checking for 197:f905c69b:::2:head
+checking for 197:cfc208b3:::3:head
+checking for 197:d83876eb:::4:head
+checking for 197:b29083e3:::5:head
+checking for 197:c4fdafeb:::6:head
+checking for 197:5c6b0b28:::7:head
+checking for 197:bd63b0f1:::8:head
+checking for 197:e960b815:::9:head
+checking for 197:52ea6a34:::10:head
+checking for 197:89d3ae78:::11:head
+checking for 197:de5d7c5f:::12:head
+checking for 197:566253c9:::13:head
+checking for 197:62a1935d:::14:head
+checking for 197:863748b0:::15:head
+checking for 197:3958e169:::16:head
+checking for 197:4d4dabf9:::17:head
+checking for 197:8391935d:::18:head
+checking for 197:28883081:::19:head
+checking for 197:69259c59:::20:head
+checking for 197:4bdb80b7:::21:head
+checking for 197:a11c5d71:::22:head
+checking for 197:271af37b:::23:head
+checking for 197:95b121be:::24:head
+checking for 197:58d1031b:::25:head
+checking for 197:0a050783:::26:head
+checking for 197:c709704c:::27:head
+checking for 197:cbe56eaf:::28:head
+checking for 197:86b4b162:::29:head
+checking for 197:70d89383:::30:head
+checking for 197:dd450c7c:::31:head
+checking for 197:6d5729b1:::32:head
+checking for 197:c388f3fb:::33:head
+checking for 197:56cfea31:::34:head
+checking for 197:9dbc1bf7:::35:head
+checking for 197:40b74ccd:::36:head
+checking for 197:4d5aaf42:::37:head
+checking for 197:920f362c:::38:head
+checking for 197:6cc53222:::39:head
+checking for 197:9cad833f:::40:head
+checking for 197:1ea84d41:::41:head
+checking for 197:c4480ef6:::42:head
+checking for 197:a694361e:::43:head
+checking for 197:d1bd33e9:::44:head
+checking for 197:ddc2cd5d:::45:head
+checking for 197:2b782207:::46:head
+checking for 197:7b187fca:::47:head
+checking for 197:90ecdf6f:::48:head
+checking for 197:a5ed95fe:::49:head
+checking for 197:ea0eaa55:::50:head
+checking for 197:f33ef17b:::51:head
+checking for 197:a0d1b2f6:::52:head
+checking for 197:60c5229e:::53:head
+checking for 197:edcbc575:::54:head
+checking for 197:102cf253:::55:head
+checking for 197:efb7fb0b:::56:head
+checking for 197:50d0a326:::57:head
+checking for 197:d4dc5daf:::58:head
+checking for 197:3a130462:::59:head
+checking for 197:ec87ed71:::60:head
+checking for 197:d5bc9454:::61:head
+checking for 197:3ddfe313:::62:head
+checking for 197:7c2816b9:::63:head
+checking for 197:47e00e4d:::64:head
+checking for 197:c6410c18:::65:head
+checking for 197:b48ed237:::66:head
+checking for 197:cd63ad31:::67:head
+checking for 197:b179e92b:::68:head
+checking for 197:0d9f741a:::69:head
+checking for 197:6d3352ae:::70:head
+checking for 197:c6d5c19e:::71:head
+checking for 197:bc4729c3:::72:head
+checking for 197:77e930b9:::73:head
+checking for 197:0abeecfd:::74:head
+checking for 197:b7c37e15:::75:head
+checking for 197:b6378398:::76:head
+checking for 197:02bd68de:::77:head
+checking for 197:cc795d2d:::78:head
+checking for 197:630d4fea:::79:head
+checking for 197:e0d29ef5:::80:head
+checking for 197:fd6f13d2:::81:head
+checking for 197:606461d5:::82:head
+checking for 197:eadbdc43:::83:head
+checking for 197:8761d0bb:::84:head
+checking for 197:9ef0186f:::85:head
+checking for 197:e0d41294:::86:head
+checking for 197:961de695:::87:head
+checking for 197:1423148f:::88:head
+checking for 197:633a8fa2:::89:head
+checking for 197:a8653809:::90:head
+checking for 197:3dac8b33:::91:head
+checking for 197:35aad435:::92:head
+checking for 197:f6dcc343:::93:head
+checking for 197:dbbdad87:::94:head
+checking for 197:1cb48ce0:::95:head
+checking for 197:03cd461c:::96:head
+checking for 197:17a4ea99:::97:head
+checking for 197:9993c9a7:::98:head
+checking for 197:6394211c:::99:head
+checking for 197:94c7ae57:::100:head
+checking for 197:6fdee5bb:::101:head
+checking for 197:9a477fd1:::102:head
+checking for 197:eb850916:::103:head
+checking for 197:affc56b9:::104:head
+checking for 197:b42dc814:::105:head
+checking for 197:f319f8f0:::106:head
+checking for 197:9a40b9de:::107:head
+checking for 197:8b524f28:::108:head
+checking for 197:e3de589f:::109:head
+checking for 197:90f90a5b:::110:head
+checking for 197:a7b4f1d7:::111:head
+checking for 197:af51766e:::112:head
+checking for 197:b6f90bd1:::113:head
+checking for 197:e0261208:::114:head
+checking for 197:c9569ef7:::115:head
+checking for 197:61bebe50:::116:head
+checking for 197:fe93412b:::117:head
+checking for 197:d3d38bee:::118:head
+checking for 197:3100ba0c:::119:head
+checking for 197:d0560ada:::120:head
+checking for 197:f0ea8b35:::121:head
+checking for 197:766f231a:::122:head
+checking for 197:a07a2582:::123:head
+checking for 197:bd7c6b3a:::124:head
+checking for 197:fb2ddaff:::125:head
+checking for 197:4408e1fe:::126:head
+checking for 197:ee1df7a7:::127:head
+checking for 197:c3002909:::128:head
+checking for 197:4f48ffa9:::129:head
+checking for 197:edf38733:::130:head
+checking for 197:c08425c0:::131:head
+checking for 197:5f902d98:::132:head
+checking for 197:41ea2c93:::133:head
+checking for 197:813cee13:::134:head
+checking for 197:0131818d:::135:head
+checking for 197:26ba5a85:::136:head
+checking for 197:381b8a5a:::137:head
+checking for 197:28797e47:::138:head
+checking for 197:bfca7f22:::139:head
+checking for 197:36807075:::140:head
+checking for 197:80b03975:::141:head
+checking for 197:5c15709b:::142:head
+checking for 197:f39ea15e:::143:head
+checking for 197:ea992956:::144:head
+checking for 197:48887b1c:::145:head
+checking for 197:9f24a9dd:::146:head
+checking for 197:987f100b:::147:head
+checking for 197:d2dd3581:::148:head
+checking for 197:7fed1808:::149:head
+checking for 197:c80b70e9:::150:head
+checking for 197:85ed90f9:::151:head
+checking for 197:36428b24:::152:head
+checking for 197:d044c34a:::153:head
+checking for 197:7c18bf58:::154:head
+checking for 197:d1c21232:::155:head
+checking for 197:a7a3c575:::156:head
+checking for 197:87da0633:::157:head
+checking for 197:d5ac3822:::158:head
+checking for 197:3f20522d:::159:head
+checking for 197:6ca26563:::160:head
+checking for 197:532ce135:::161:head
+checking for 197:c78863e6:::162:head
+checking for 197:7462ddf6:::163:head
+checking for 197:5d165639:::164:head
+checking for 197:f43765fc:::165:head
+checking for 197:b4c720e9:::166:head
+checking for 197:e694b040:::167:head
+checking for 197:afa38db2:::168:head
+checking for 197:77ba9f53:::169:head
+checking for 197:87495034:::170:head
+checking for 197:7c96bf0e:::171:head
+checking for 197:dbe346cc:::172:head
+checking for 197:e943ec24:::173:head
+checking for 197:f97a9c0c:::174:head
+checking for 197:6f26e74d:::175:head
+checking for 197:4f95e106:::176:head
+checking for 197:0e6f2f8f:::177:head
+checking for 197:05db05f1:::178:head
+checking for 197:38a78d66:::179:head
+checking for 197:d095610b:::180:head
+checking for 197:a1a9d709:::181:head
+checking for 197:1e5d39db:::182:head
+checking for 197:f7df4fb9:::183:head
+checking for 197:03a7f161:::184:head
+checking for 197:ba70721e:::185:head
+checking for 197:28e5662d:::186:head
+checking for 197:973d52de:::187:head
+checking for 197:4303eb1c:::188:head
+checking for 197:b990b48e:::189:head
+checking for 197:29b8165b:::190:head
+checking for 197:3547f197:::191:head
+checking for 197:7e260936:::192:head
+checking for 197:1abec7b1:::193:head
+checking for 197:10fdda93:::194:head
+checking for 197:15817eea:::195:head
+checking for 197:770bab57:::196:head
+checking for 197:ed9e13e7:::197:head
+checking for 197:71471a8f:::198:head
+checking for 197:10fb1d02:::199:head
+[       OK ] LibRadosTwoPoolsPP.HitSetWrite (6729 ms)
+[ RUN      ] LibRadosTwoPoolsPP.HitSetTrim
+ got ls 1520233310,0
+first is 1520233310
+ got ls 1520233310,0
+ got ls 1520233310,0
+ got ls 1520233310,1520233313,1520233314,0
+ got ls 1520233310,1520233313,1520233314,0
+ got ls 1520233310,1520233313,1520233314,0
+ got ls 1520233310,1520233313,1520233314,1520233316,1520233317,0
+ got ls 1520233310,1520233313,1520233314,1520233316,1520233317,0
+ got ls 1520233310,1520233313,1520233314,1520233316,1520233317,0
+ got ls 1520233310,1520233313,1520233314,1520233316,1520233317,1520233319,1520233320,0
+ got ls 1520233310,1520233313,1520233314,1520233316,1520233317,1520233319,1520233320,0
+ got ls 1520233310,1520233313,1520233314,1520233316,1520233317,1520233319,1520233320,0
+ got ls 1520233314,1520233316,1520233317,1520233319,1520233320,1520233322,1520233323,0
+first now 1520233314, trimmed
+[       OK ] LibRadosTwoPoolsPP.HitSetTrim (19397 ms)
+[ RUN      ] LibRadosTwoPoolsPP.PromoteOn2ndRead
+foo0
+verifying foo0 is eventually promoted
+[       OK ] LibRadosTwoPoolsPP.PromoteOn2ndRead (20209 ms)
+[ RUN      ] LibRadosTwoPoolsPP.ProxyRead
+[       OK ] LibRadosTwoPoolsPP.ProxyRead (17335 ms)
+[ RUN      ] LibRadosTwoPoolsPP.CachePin
+[       OK ] LibRadosTwoPoolsPP.CachePin (21245 ms)
+[----------] 21 tests from LibRadosTwoPoolsPP (273715 ms total)
+
+[----------] 4 tests from LibRadosTierECPP
+test/librados/TestCase.cc:485: Failure
+Value of: create_one_ec_pool_pp(pool_name, s_cluster)
+  Actual: "mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262919-49 pool_type:erasure failed with error -2"
+Expected: ""
+[ RUN      ] LibRadosTierECPP.Dirty
+*** Caught signal (Segmentation fault) **
+ in thread 7f64931a88c0 thread_name:ceph_test_rados
+ ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+ 1: (()+0x1c273a) [0x7f649338573a]
+ 2: (()+0xf5e0) [0x7f6488a705e0]
+ 3: (()+0x9dc87) [0x7f64898a5c87]
+ 4: (()+0x9e3c3) [0x7f64898a63c3]
+ 5: (()+0x9e4a8) [0x7f64898a64a8]
+ 6: (rados_ioctx_create()+0x40) [0x7f6489878ca0]
+ 7: (librados::Rados::ioctx_create(char const*, librados::IoCtx&)+0x23) [0x7f6489878e13]
+ 8: (RadosTestECPP::SetUp()+0x4a) [0x7f649345acda]
+ 9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7f649337d873]
+ 10: (testing::Test::Run()+0x50) [0x7f649336ed30]
+ 11: (testing::TestInfo::Run()+0x9e) [0x7f649336ee3e]
+ 12: (testing::TestCase::Run()+0xa5) [0x7f649336ef45]
+ 13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7f649336f218]
+ 14: (testing::UnitTest::Run()+0x68) [0x7f649336f4d8]
+ 15: (main()+0x9a) [0x7f64932c9e6a]
+ 16: (__libc_start_main()+0xf5) [0x7f6487a81c05]
+ 17: (()+0x1099f2) [0x7f64932cc9f2]
+2018-03-05 15:03:02.662756 7f64931a88c0 -1 *** Caught signal (Segmentation fault) **
+ in thread 7f64931a88c0 thread_name:ceph_test_rados
+
+ ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+ 1: (()+0x1c273a) [0x7f649338573a]
+ 2: (()+0xf5e0) [0x7f6488a705e0]
+ 3: (()+0x9dc87) [0x7f64898a5c87]
+ 4: (()+0x9e3c3) [0x7f64898a63c3]
+ 5: (()+0x9e4a8) [0x7f64898a64a8]
+ 6: (rados_ioctx_create()+0x40) [0x7f6489878ca0]
+ 7: (librados::Rados::ioctx_create(char const*, librados::IoCtx&)+0x23) [0x7f6489878e13]
+ 8: (RadosTestECPP::SetUp()+0x4a) [0x7f649345acda]
+ 9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7f649337d873]
+ 10: (testing::Test::Run()+0x50) [0x7f649336ed30]
+ 11: (testing::TestInfo::Run()+0x9e) [0x7f649336ee3e]
+ 12: (testing::TestCase::Run()+0xa5) [0x7f649336ef45]
+ 13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7f649336f218]
+ 14: (testing::UnitTest::Run()+0x68) [0x7f649336f4d8]
+ 15: (main()+0x9a) [0x7f64932c9e6a]
+ 16: (__libc_start_main()+0xf5) [0x7f6487a81c05]
+ 17: (()+0x1099f2) [0x7f64932cc9f2]
+ NOTE: a copy of the executable, or `objdump -rdS <executable>` is needed to interpret this.
+
+--- begin dump of recent events ---
+   -26> 2018-03-05 14:57:26.795723 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command perfcounters_dump hook 0x7f649d6cc9d0
+   -25> 2018-03-05 14:57:26.795736 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command 1 hook 0x7f649d6cc9d0
+   -24> 2018-03-05 14:57:26.795740 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command perf dump hook 0x7f649d6cc9d0
+   -23> 2018-03-05 14:57:26.795742 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command perfcounters_schema hook 0x7f649d6cc9d0
+   -22> 2018-03-05 14:57:26.795744 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command 2 hook 0x7f649d6cc9d0
+   -21> 2018-03-05 14:57:26.795745 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command perf schema hook 0x7f649d6cc9d0
+   -20> 2018-03-05 14:57:26.795747 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command perf reset hook 0x7f649d6cc9d0
+   -19> 2018-03-05 14:57:26.795748 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command config show hook 0x7f649d6cc9d0
+   -18> 2018-03-05 14:57:26.795750 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command config set hook 0x7f649d6cc9d0
+   -17> 2018-03-05 14:57:26.795753 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command config get hook 0x7f649d6cc9d0
+   -16> 2018-03-05 14:57:26.795755 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command config diff hook 0x7f649d6cc9d0
+   -15> 2018-03-05 14:57:26.795757 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command log flush hook 0x7f649d6cc9d0
+   -14> 2018-03-05 14:57:26.795758 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command log dump hook 0x7f649d6cc9d0
+   -13> 2018-03-05 14:57:26.795760 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command log reopen hook 0x7f649d6cc9d0
+   -12> 2018-03-05 14:57:26.820578 7f64931a88c0  5 asok(0x7f649d6c7ab0) init /var/run/ceph/rbd-client-262919.asok
+   -11> 2018-03-05 14:57:26.820592 7f64931a88c0  5 asok(0x7f649d6c7ab0) bind_and_listen /var/run/ceph/rbd-client-262919.asok
+   -10> 2018-03-05 14:57:26.820617 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command 0 hook 0x7f649d722a50
+    -9> 2018-03-05 14:57:26.820623 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command version hook 0x7f649d722a50
+    -8> 2018-03-05 14:57:26.820625 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command git_version hook 0x7f649d722a50
+    -7> 2018-03-05 14:57:26.820627 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command help hook 0x7f649d6d7b20
+    -6> 2018-03-05 14:57:26.820629 7f64931a88c0  5 asok(0x7f649d6c7ab0) register_command get_command_descriptions hook 0x7f649d723890
+    -5> 2018-03-05 14:57:26.824496 7f64842f1700  5 asok(0x7f649d6c7ab0) entry start
+    -4> 2018-03-05 14:57:26.824640 7f64842f1700  5 asok(0x7f649d6c7ab0) AdminSocket: request '0' '' to 0x7f649d722a50 returned 1 bytes
+    -3> 2018-03-05 14:58:16.267940 7f64842f1700  5 asok(0x7f649d6c7ab0) AdminSocket: request '0' '' to 0x7f649d722a50 returned 1 bytes
+    -2> 2018-03-05 14:58:25.244590 7f64842f1700  5 asok(0x7f649d6c7ab0) AdminSocket: request '0' '' to 0x7f649d722a50 returned 1 bytes
+    -1> 2018-03-05 15:03:00.711443 7f64842f1700  5 asok(0x7f649d6c7ab0) AdminSocket: request '0' '' to 0x7f649d722a50 returned 1 bytes
+     0> 2018-03-05 15:03:02.662756 7f64931a88c0 -1 *** Caught signal (Segmentation fault) **
+ in thread 7f64931a88c0 thread_name:ceph_test_rados
+
+ ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+ 1: (()+0x1c273a) [0x7f649338573a]
+ 2: (()+0xf5e0) [0x7f6488a705e0]
+ 3: (()+0x9dc87) [0x7f64898a5c87]
+ 4: (()+0x9e3c3) [0x7f64898a63c3]
+ 5: (()+0x9e4a8) [0x7f64898a64a8]
+ 6: (rados_ioctx_create()+0x40) [0x7f6489878ca0]
+ 7: (librados::Rados::ioctx_create(char const*, librados::IoCtx&)+0x23) [0x7f6489878e13]
+ 8: (RadosTestECPP::SetUp()+0x4a) [0x7f649345acda]
+ 9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7f649337d873]
+ 10: (testing::Test::Run()+0x50) [0x7f649336ed30]
+ 11: (testing::TestInfo::Run()+0x9e) [0x7f649336ee3e]
+ 12: (testing::TestCase::Run()+0xa5) [0x7f649336ef45]
+ 13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7f649336f218]
+ 14: (testing::UnitTest::Run()+0x68) [0x7f649336f4d8]
+ 15: (main()+0x9a) [0x7f64932c9e6a]
+ 16: (__libc_start_main()+0xf5) [0x7f6487a81c05]
+ 17: (()+0x1099f2) [0x7f64932cc9f2]
+ NOTE: a copy of the executable, or `objdump -rdS <executable>` is needed to interpret this.
+
+--- logging levels ---
+   0/ 5 none
+   0/ 1 lockdep
+   0/ 1 context
+   1/ 1 crush
+   1/ 5 mds
+   1/ 5 mds_balancer
+   1/ 5 mds_locker
+   1/ 5 mds_log
+   1/ 5 mds_log_expire
+   1/ 5 mds_migrator
+   0/ 1 buffer
+   0/ 1 timer
+   0/ 1 filer
+   0/ 1 striper
+   0/ 1 objecter
+   0/ 5 rados
+   0/ 5 rbd
+   0/ 5 rbd_mirror
+   0/ 5 rbd_replay
+   0/ 5 journaler
+   0/ 5 objectcacher
+   0/ 5 client
+   0/ 5 osd
+   0/ 5 optracker
+   0/ 5 objclass
+   1/ 3 filestore
+   1/ 3 journal
+   0/ 5 ms
+   1/ 5 mon
+   0/10 monc
+   1/ 5 paxos
+   0/ 5 tp
+   1/ 5 auth
+   1/ 5 crypto
+   1/ 1 finisher
+   1/ 5 heartbeatmap
+   1/ 5 perfcounter
+   1/ 5 rgw
+   1/10 civetweb
+   1/ 5 javaclient
+   1/ 5 asok
+   1/ 1 throttle
+   0/ 0 refs
+   1/ 5 xio
+   1/ 5 compressor
+   1/ 5 newstore
+   1/ 5 bluestore
+   1/ 5 bluefs
+   1/ 3 bdev
+   1/ 5 kstore
+   4/ 5 rocksdb
+   0/ 0 leveldb
+   1/ 5 kinetic
+   1/ 5 fuse
+  -2/-2 (syslog threshold)
+  99/99 (stderr threshold)
+  max_recent       500
+  max_new         1000
+  log_file /var/log/ceph/ceph.client.log
+--- end dump of recent events ---

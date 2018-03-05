@@ -1,0 +1,45 @@
+Running main() from gmock_main.cc
+[==========] Running 7 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 7 tests from LibRadosCmd
+[ RUN      ] LibRadosCmd.MonDescribe
+[       OK ] LibRadosCmd.MonDescribe (229 ms)
+[ RUN      ] LibRadosCmd.MonDescribePP
+[       OK ] LibRadosCmd.MonDescribePP (9 ms)
+[ RUN      ] LibRadosCmd.OSDCmd
+[       OK ] LibRadosCmd.OSDCmd (10 ms)
+[ RUN      ] LibRadosCmd.OSDCmdPP
+[       OK ] LibRadosCmd.OSDCmdPP (8 ms)
+[ RUN      ] LibRadosCmd.PGCmd
+[       OK ] LibRadosCmd.PGCmd (58162 ms)
+[ RUN      ] LibRadosCmd.PGCmdPP
+[       OK ] LibRadosCmd.PGCmdPP (7679 ms)
+[ RUN      ] LibRadosCmd.WatchLog
+got: 2018-03-05 14:58:33.969941 mon.0 [INF] pgmap v50699: 664 pgs: 6 creating+peering, 4 creating+activating, 34 creating, 620 active+clean; 2501 kB data, 34155 MB used, 617 GB / 650 GB avail; 500 B/s rd, 4006 B/s wr, 7 op/s
+got: 2018-03-05 14:58:32.442540 mon.2 [INF] from='client.? 192.168.0.221:0/1716232933' entity='client.admin' cmd=[{"prefix": "osd tier add", "pool": "test-rados-api-yujiangnewceph-3-262919-6", "tierpool": "test-rados-api-yujiangnewceph-3-262919-7", "force_nonempty": "--force-nonempty" }]: dispatch
+got: 2018-03-05 14:58:32.931629 mon.2 [INF] from='client.? 192.168.0.221:0/1716232933' entity='client.admin' cmd=[{"prefix": "osd tier set-overlay", "pool": "test-rados-api-yujiangnewceph-3-262919-6", "overlaypool": "test-rados-api-yujiangnewceph-3-262919-7"}]: dispatch
+got: 2018-03-05 14:58:34.470961 mon.0 [INF] from='client.1523870 :/0' entity='client.admin' cmd=[{"prefix": "osd tier add", "pool": "test-rados-api-yujiangnewceph-3-262919-6", "tierpool": "test-rados-api-yujiangnewceph-3-262919-7", "force_nonempty": "--force-nonempty" }]: dispatch
+got: 2018-03-05 14:58:34.999901 mon.0 [INF] from='client.1523870 :/0' entity='client.admin' cmd='[{"prefix": "osd tier add", "pool": "test-rados-api-yujiangnewceph-3-262919-6", "tierpool": "test-rados-api-yujiangnewceph-3-262919-7", "force_nonempty": "--force-nonempty" }]': finished
+got: 2018-03-05 14:58:35.000099 mon.0 [INF] osdmap e4411: 11 osds: 11 up, 11 in
+got: 2018-03-05 14:58:35.006579 mon.0 [INF] from='client.1523870 :/0' entity='client.admin' cmd=[{"prefix": "osd tier set-overlay", "pool": "test-rados-api-yujiangnewceph-3-262919-6", "overlaypool": "test-rados-api-yujiangnewceph-3-262919-7"}]: dispatch
+got: 2018-03-05 14:58:35.038112 mon.0 [INF] pgmap v50701: 664 pgs: 10 creating+peering, 2 creating+activating, 28 creating, 624 active+clean; 2501 kB data, 34019 MB used, 617 GB / 650 GB avail; 6670 B/s wr, 10 op/s
+got: 2018-03-05 14:58:35.047278 client.985072 [INF] onexx
+got: 2018-03-05 14:58:35.047320 mon.1 [INF] from='client.? 192.168.0.221:0/2698716778' entity='client.admin' cmd=[{"prefix":"log", "logtext":["onexx"]}]: dispatch
+got: 2018-03-05 14:58:35.047455 mon.0 [INF] from='client.985072 :/0' entity='client.admin' cmd=[{"prefix":"log", "logtext":["onexx"]}]: dispatch
+got: 2018-03-05 14:58:37.119641 mon.0 [INF] pgmap v50704: 648 pgs: 6 creating+peering, 4 creating+activating, 8 creating, 630 active+clean; 2505 kB data, 33783 MB used, 617 GB / 650 GB avail; 36532 B/s wr, 49 op/s
+got: 2018-03-05 14:58:38.096454 mon.0 [INF] from='client.1523870 :/0' entity='client.admin' cmd='[{"prefix": "osd tier remove", "pool": "test-rados-api-yujiangnewceph-3-262919-6", "tierpool": "test-rados-api-yujiangnewceph-3-262919-7"}]': finished
+got: 2018-03-05 14:58:38.101041 mon.0 [INF] osdmap e4414: 11 osds: 11 up, 11 in
+got: 2018-03-05 14:58:38.107252 mon.0 [INF] pgmap v50705: 648 pgs: 6 creating+peering, 4 creating+activating, 8 creating, 630 active+clean; 2505 kB data, 33783 MB used, 617 GB / 650 GB avail; 34329 B/s wr, 45 op/s
+got: 2018-03-05 14:58:38.829214 mon.1 [INF] from='client.? 192.168.0.221:0/2698716778' entity='client.admin' cmd=[{"prefix":"log", "logtext":["threexx"]}]: dispatch
+got: 2018-03-05 14:58:38.829513 client.985072 [INF] threexx
+got: 2018-03-05 14:58:39.084394 mon.0 [INF] from='client.985072 :/0' entity='client.admin' cmd=[{"prefix":"log", "logtext":["threexx"]}]: dispatch
+got: 2018-03-05 14:58:39.250091 mon.0 [INF] osd.2 marked down after no pg stats for 11.797176seconds
+got: 2018-03-05 14:58:39.250166 mon.0 [INF] osd.7 marked down after no pg stats for 11.798047seconds
+got: 2018-03-05 14:58:39.288205 mon.0 [INF] osdmap e4415: 11 osds: 9 up, 11 in
+got: 2018-03-05 14:58:39.310033 mon.0 [INF] pgmap v50706: 648 pgs: 6 creating+peering, 4 creating+activating, 8 creating, 630 active+clean; 2505 kB data, 33796 MB used, 617 GB / 650 GB avail; 467 B/s rd, 467 B/s wr, 1 op/s
+[       OK ] LibRadosCmd.WatchLog (7618 ms)
+[----------] 7 tests from LibRadosCmd (73715 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 1 test case ran. (73715 ms total)
+[  PASSED  ] 7 tests.

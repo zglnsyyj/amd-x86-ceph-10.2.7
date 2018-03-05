@@ -1,0 +1,92 @@
+++ uuidgen
++ p=3e79a816-083f-44cf-b3d0-1218a6845e6e
++ ceph osd pool create 3e79a816-083f-44cf-b3d0-1218a6845e6e 12
+pool '3e79a816-083f-44cf-b3d0-1218a6845e6e' created
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_objects 10
+set-quota max_objects = 10 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
+++ seq 1 10
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj1 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj2 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj3 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj4 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj5 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj6 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj7 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj8 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj9 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put obj10 /etc/passwd
++ sleep 30
++ pid=9977
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_objects 100
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put onemore /etc/passwd
+2018-03-05 14:14:23.348493 7f7459390a40  0 client.4437.objecter  FULL, paused modify 0x7f745a71db80 tid 0
+set-quota max_objects = 100 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
++ wait 9977
++ '[' 0 -ne 0 ']'
++ true
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put twomore /etc/passwd
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_bytes 100
+set-quota max_bytes = 100 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
++ sleep 30
++ pid=10058
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_bytes 0
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put two /etc/passwd
+2018-03-05 14:14:55.055836 7f600770ba40  0 client.4443.objecter  FULL, paused modify 0x7f60082c4d90 tid 0
+set-quota max_bytes = 0 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_objects 0
+set-quota max_objects = 0 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
++ wait 10058
++ '[' 0 -ne 0 ']'
++ true
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put three /etc/passwd
+++ uuidgen
++ pp=14ad4888-1252-4507-919e-6e6a8515eabd
++ ceph osd pool create 14ad4888-1252-4507-919e-6e6a8515eabd 12
+pool '14ad4888-1252-4507-919e-6e6a8515eabd' created
++ ceph osd pool set-quota 14ad4888-1252-4507-919e-6e6a8515eabd max_objects 10
+set-quota max_objects = 10 for pool 14ad4888-1252-4507-919e-6e6a8515eabd
++ sleep 30
+++ seq 1 10
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj1 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj2 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj3 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj4 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj5 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj6 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj7 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj8 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj9 /etc/passwd
++ for f in '`seq 1 10`'
++ rados -p 14ad4888-1252-4507-919e-6e6a8515eabd put obj10 /etc/passwd
++ sleep 30
++ rados -p 3e79a816-083f-44cf-b3d0-1218a6845e6e put threemore /etc/passwd
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_bytes 0
+set-quota max_bytes = 0 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
++ ceph osd pool set-quota 3e79a816-083f-44cf-b3d0-1218a6845e6e max_objects 0
+set-quota max_objects = 0 for pool 3e79a816-083f-44cf-b3d0-1218a6845e6e
++ sleep 30
++ ceph osd pool delete 3e79a816-083f-44cf-b3d0-1218a6845e6e 3e79a816-083f-44cf-b3d0-1218a6845e6e --yes-i-really-really-mean-it
+pool '3e79a816-083f-44cf-b3d0-1218a6845e6e' removed
++ ceph osd pool delete 14ad4888-1252-4507-919e-6e6a8515eabd 14ad4888-1252-4507-919e-6e6a8515eabd --yes-i-really-really-mean-it
+pool '14ad4888-1252-4507-919e-6e6a8515eabd' removed
++ echo OK
+OK

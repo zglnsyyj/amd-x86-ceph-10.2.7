@@ -1,0 +1,115 @@
+[==========] Running 28 tests from 5 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from LibRadosMiscVersion
+[ RUN      ] LibRadosMiscVersion.Version
+[       OK ] LibRadosMiscVersion.Version (0 ms)
+[ RUN      ] LibRadosMiscVersion.VersionPP
+[       OK ] LibRadosMiscVersion.VersionPP (0 ms)
+[----------] 2 tests from LibRadosMiscVersion (0 ms total)
+
+[----------] 1 test from LibRadosMiscConnectFailure
+[ RUN      ] LibRadosMiscConnectFailure.ConnectFailure
+2018-03-05 14:57:18.568912 7f6e821458c0 10 monclient(hunting): build_initial_monmap
+2018-03-05 14:57:18.569152 7f6e821458c0  1 -- :/0 messenger.start
+2018-03-05 14:57:18.569210 7f6e821458c0 10 monclient(hunting): init
+2018-03-05 14:57:18.569217 7f6e821458c0 10 monclient(hunting): auth_supported 2 method cephx
+2018-03-05 14:57:18.569506 7f6e821458c0 10 monclient(hunting): _reopen_session rank -1 name 
+2018-03-05 14:57:18.569561 7f6e821458c0 10 monclient(hunting): picked mon.noname-b con 0x7f6e8bb49730 addr 192.168.100.75:6789/0
+2018-03-05 14:57:18.569578 7f6e821458c0 10 monclient(hunting): _send_mon_message to mon.noname-b at 192.168.100.75:6789/0
+2018-03-05 14:57:18.569580 7f6e821458c0  1 -- :/3049121729 --> 192.168.100.75:6789/0 -- auth(proto 0 30 bytes epoch 0) v1 -- ?+0 0x7f6e8bb4ef70 con 0x7f6e8bb49730
+2018-03-05 14:57:18.569586 7f6e821458c0 10 monclient(hunting): renew_subs
+2018-03-05 14:57:18.569589 7f6e821458c0 10 monclient(hunting): authenticate will time out at 2018-03-05 14:57:18.569588
+2018-03-05 14:57:18.569656 7f6e821458c0  0 monclient(hunting): authenticate timed out after 1e-09
+2018-03-05 14:57:18.569686 7f6e821458c0  0 librados: client.admin authentication error (110) Connection timed out
+2018-03-05 14:57:18.569714 7f6e821458c0 10 monclient(hunting): shutdown
+2018-03-05 14:57:18.569715 7f6e821458c0 20 monclient(hunting): shutdown discarding pending message mon_subscribe({monmap=0+}) v2
+2018-03-05 14:57:18.569723 7f6e821458c0  1 -- :/3049121729 mark_down 0x7f6e8bb49730 -- 0x7f6e8bb510c0
+2018-03-05 14:57:18.590530 7f6e821458c0  1 -- :/3049121729 mark_down_all
+2018-03-05 14:57:18.601479 7f6e821458c0  1 -- :/3049121729 shutdown complete.
+2018-03-05 14:57:18.601588 7f6e821458c0 10 monclient(hunting): build_initial_monmap
+2018-03-05 14:57:18.601858 7f6e821458c0  1 -- :/0 messenger.start
+2018-03-05 14:57:18.601888 7f6e821458c0 10 monclient(hunting): init
+2018-03-05 14:57:18.601896 7f6e821458c0 10 monclient(hunting): auth_supported 2 method cephx
+2018-03-05 14:57:18.602220 7f6e821458c0 10 monclient(hunting): _reopen_session rank -1 name 
+2018-03-05 14:57:18.602268 7f6e821458c0 10 monclient(hunting): picked mon.noname-b con 0x7f6e8bb46d20 addr 192.168.100.75:6789/0
+2018-03-05 14:57:18.602287 7f6e821458c0 10 monclient(hunting): _send_mon_message to mon.noname-b at 192.168.100.75:6789/0
+2018-03-05 14:57:18.602291 7f6e821458c0  1 -- :/564613196 --> 192.168.100.75:6789/0 -- auth(proto 0 30 bytes epoch 0) v1 -- ?+0 0x7f6e8bb516f0 con 0x7f6e8bb46d20
+2018-03-05 14:57:18.602301 7f6e821458c0 10 monclient(hunting): renew_subs
+2018-03-05 14:57:18.602305 7f6e821458c0 10 monclient(hunting): authenticate will time out at 2018-03-05 14:57:18.602305
+2018-03-05 14:57:18.602317 7f6e821458c0  0 librados: client.admin authentication error (110) Connection timed out
+2018-03-05 14:57:18.602343 7f6e821458c0 10 monclient(hunting): shutdown
+2018-03-05 14:57:18.602345 7f6e821458c0 20 monclient(hunting): shutdown discarding pending message mon_subscribe({monmap=0+}) v2
+2018-03-05 14:57:18.602351 7f6e821458c0  1 -- :/564613196 mark_down 0x7f6e8bb46d20 -- 0x7f6e8bb57f10
+2018-03-05 14:57:18.638709 7f6e821458c0  1 -- :/564613196 mark_down_all
+2018-03-05 14:57:18.653733 7f6e821458c0  1 -- :/564613196 shutdown complete.
+[       OK ] LibRadosMiscConnectFailure.ConnectFailure (127 ms)
+[----------] 1 test from LibRadosMiscConnectFailure (128 ms total)
+
+[----------] 3 tests from LibRadosMisc
+[ RUN      ] LibRadosMisc.ClusterFSID
+[       OK ] LibRadosMisc.ClusterFSID (16121 ms)
+[ RUN      ] LibRadosMisc.Exec
+[       OK ] LibRadosMisc.Exec (36 ms)
+[ RUN      ] LibRadosMisc.CloneRange
+[       OK ] LibRadosMisc.CloneRange (82 ms)
+[----------] 3 tests from LibRadosMisc (16239 ms total)
+
+[----------] 21 tests from LibRadosMiscPP
+[ RUN      ] LibRadosMiscPP.WaitOSDMapPP
+[       OK ] LibRadosMiscPP.WaitOSDMapPP (8448 ms)
+[ RUN      ] LibRadosMiscPP.LongNamePP
+[       OK ] LibRadosMiscPP.LongNamePP (393 ms)
+[ RUN      ] LibRadosMiscPP.LongLocatorPP
+[       OK ] LibRadosMiscPP.LongLocatorPP (109 ms)
+[ RUN      ] LibRadosMiscPP.LongNSpacePP
+[       OK ] LibRadosMiscPP.LongNSpacePP (28 ms)
+[ RUN      ] LibRadosMiscPP.LongAttrNamePP
+[       OK ] LibRadosMiscPP.LongAttrNamePP (38 ms)
+[ RUN      ] LibRadosMiscPP.TmapUpdatePP
+[       OK ] LibRadosMiscPP.TmapUpdatePP (61 ms)
+[ RUN      ] LibRadosMiscPP.TmapUpdateMisorderedPP
+[       OK ] LibRadosMiscPP.TmapUpdateMisorderedPP (65 ms)
+[ RUN      ] LibRadosMiscPP.TmapUpdateMisorderedPutPP
+[       OK ] LibRadosMiscPP.TmapUpdateMisorderedPutPP (29 ms)
+[ RUN      ] LibRadosMiscPP.Tmap2OmapPP
+[       OK ] LibRadosMiscPP.Tmap2OmapPP (142 ms)
+[ RUN      ] LibRadosMiscPP.ExecPP
+[       OK ] LibRadosMiscPP.ExecPP (409 ms)
+[ RUN      ] LibRadosMiscPP.BadFlagsPP
+[       OK ] LibRadosMiscPP.BadFlagsPP (375 ms)
+[ RUN      ] LibRadosMiscPP.Operate1PP
+[       OK ] LibRadosMiscPP.Operate1PP (280 ms)
+[ RUN      ] LibRadosMiscPP.Operate2PP
+[       OK ] LibRadosMiscPP.Operate2PP (365 ms)
+[ RUN      ] LibRadosMiscPP.BigObjectPP
+[       OK ] LibRadosMiscPP.BigObjectPP (755 ms)
+[ RUN      ] LibRadosMiscPP.AioOperatePP
+[       OK ] LibRadosMiscPP.AioOperatePP (2532 ms)
+[ RUN      ] LibRadosMiscPP.CloneRangePP
+[       OK ] LibRadosMiscPP.CloneRangePP (3558 ms)
+[ RUN      ] LibRadosMiscPP.AssertExistsPP
+[       OK ] LibRadosMiscPP.AssertExistsPP (352 ms)
+[ RUN      ] LibRadosMiscPP.AssertVersionPP
+[       OK ] LibRadosMiscPP.AssertVersionPP (2044 ms)
+[ RUN      ] LibRadosMiscPP.BigAttrPP
+osd_max_attr_size = 0
+osd_max_attr_size == 0; skipping test
+[       OK ] LibRadosMiscPP.BigAttrPP (14456 ms)
+[ RUN      ] LibRadosMiscPP.CopyPP
+[       OK ] LibRadosMiscPP.CopyPP (2800 ms)
+[ RUN      ] LibRadosMiscPP.CopyScrubPP
+waiting for initial deep scrubs...
+done waiting, doing copies
+waiting for final deep scrubs...
+done waiting
+[       OK ] LibRadosMiscPP.CopyScrubPP (62177 ms)
+[----------] 21 tests from LibRadosMiscPP (99417 ms total)
+
+[----------] 1 test from LibRadosTwoPoolsECPP
+[ RUN      ] LibRadosTwoPoolsECPP.CopyFrom
+[       OK ] LibRadosTwoPoolsECPP.CopyFrom (1414 ms)
+[----------] 1 test from LibRadosTwoPoolsECPP (1414 ms total)
+
+[----------] Global test environment tear-down
+[==========] 28 tests from 5 test cases ran. (131322 ms total)
+[  PASSED  ] 28 tests.

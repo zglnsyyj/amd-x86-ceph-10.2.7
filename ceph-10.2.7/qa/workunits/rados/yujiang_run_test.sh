@@ -3,7 +3,11 @@
 #./clone.sh 1 > clone.sh.log 2>&1
 #python cleanpool.py
 #./load-gen-big.sh 1 > load-gen-big.sh.log 2>&1
+<<<<<<< HEAD
 #python cleanpool.py
+=======
+##python cleanpool.py
+>>>>>>> 1b385a16d6942b4599194999833c91ddd472c846
 #./load-gen-mix.sh 1 > load-gen-mix.sh.log 2>&1
 #python cleanpool.py
 #./load-gen-mix-small-long.sh 1 > load-gen-mix-small-long.sh.log 2>&1
@@ -27,8 +31,13 @@
 #./test_rados_timeouts.sh 1 > test_rados_timeouts.sh.log 2>&1
 #python cleanpool.py
 #./test_rados_tool.sh 1 > test_rados_tool.sh.log 2>&1
+<<<<<<< HEAD
 #python cleanpool.py
 #./test.sh 1 > test.sh.log 2>&1
+=======
+python cleanpool.py
+./test.sh 1 > test.sh.log 2>&1
+>>>>>>> 1b385a16d6942b4599194999833c91ddd472c846
 python cleanpool.py
 ./test_tmap_to_omap.sh 1 > test_tmap_to_omap.sh.log 2>&1
 python cleanpool.py

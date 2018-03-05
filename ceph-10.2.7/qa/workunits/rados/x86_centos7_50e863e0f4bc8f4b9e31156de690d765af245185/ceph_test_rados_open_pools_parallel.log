@@ -1,0 +1,27 @@
+process_2_[263117]: starting.
+process_1_[263114]: starting.
+process_1_[263114]: creating pool ceph_test_rados_open_pools_parallel.yujiangnewceph-3-263075
+process_1_[263114]: created object 0...
+process_1_[263114]: created object 25...
+process_1_[263114]: created object 49...
+process_1_[263114]: finishing.
+process_1_[263114]: shutting down.
+process_2_[263117]: rados_pool_create.
+process_2_[263117]: rados_ioctx_create.
+process_2_[263117]: shutting down.
+*******************************
+process_3_[266335]: starting.
+*******************************
+process_4_[266336]: starting.
+process_4_[266336]: rados_pool_create.
+process_4_[266336]: rados_ioctx_create.
+process_4_[266336]: shutting down.
+process_3_[266335]: creating pool ceph_test_rados_open_pools_parallel.yujiangnewceph-3-263075
+process_3_[266335]: created object 0...
+process_3_[266335]: created object 25...
+process_3_[266335]: created object 49...
+process_3_[266335]: finishing.
+process_3_[266335]: shutting down.
+*******************************
+*******************************
+******* SUCCESS **********
