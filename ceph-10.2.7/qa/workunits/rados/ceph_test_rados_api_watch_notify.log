@@ -1,0 +1,101 @@
+Running main() from gmock_main.cc
+[==========] Running 24 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 9 tests from LibRadosWatchNotify
+[ RUN      ] LibRadosWatchNotify.WatchNotify
+watch_notify_test_cb
+[       OK ] LibRadosWatchNotify.WatchNotify (16190 ms)
+[ RUN      ] LibRadosWatchNotify.Watch2Delete
+waiting up to 300 for disconnect notification ...
+watch_notify2_test_errcb cookie 140685259192144 err -107
+[       OK ] LibRadosWatchNotify.Watch2Delete (1058 ms)
+[ RUN      ] LibRadosWatchNotify.AioWatchDelete
+watch_notify2_test_errcb cookie 140685259192144 err -107
+waiting up to 300 for disconnect notification ...
+[       OK ] LibRadosWatchNotify.AioWatchDelete (21 ms)
+[ RUN      ] LibRadosWatchNotify.Watch2Timeout
+waiting up to 900 for osd to time us out ...
+watch_notify2_test_errcb cookie 140685259198288 err -107
+watch_notify2_test_cb from 5105 notify_id 4037269258328 cookie 140685259198288
+[       OK ] LibRadosWatchNotify.Watch2Timeout (31101 ms)
+[ RUN      ] LibRadosWatchNotify.WatchNotify2
+watch_notify2_test_cb from 5105 notify_id 4037269268247 cookie 140685259203248
+[       OK ] LibRadosWatchNotify.WatchNotify2 (36 ms)
+[ RUN      ] LibRadosWatchNotify.AioWatchNotify2
+watch_notify2_test_cb from 5105 notify_id 4037269258329 cookie 140685259207776
+[       OK ] LibRadosWatchNotify.AioWatchNotify2 (31 ms)
+[ RUN      ] LibRadosWatchNotify.AioNotify
+watch_notify2_test_cb from 5105 notify_id 4037269268248 cookie 140685259212304
+[       OK ] LibRadosWatchNotify.AioNotify (25 ms)
+[ RUN      ] LibRadosWatchNotify.WatchNotify2Multi
+watch_notify2_test_cb from 5105 notify_id 4037269268328 cookie 140685259216832
+watch_notify2_test_cb from 5105 notify_id 4037269268328 cookie 140685259218576
+[       OK ] LibRadosWatchNotify.WatchNotify2Multi (31 ms)
+[ RUN      ] LibRadosWatchNotify.WatchNotify2Timeout
+watch_notify2_test_cb from 5105 notify_id 4037269268249 cookie 140685259157232
+watch_notify2_test_cb from 5105 notify_id 4041564235546 cookie 140685259157232
+[       OK ] LibRadosWatchNotify.WatchNotify2Timeout (3317 ms)
+[----------] 9 tests from LibRadosWatchNotify (51810 ms total)
+
+[----------] 1 test from LibRadosWatchNotifyEC
+[ RUN      ] LibRadosWatchNotifyEC.WatchNotify
+watch_notify_test_cb
+[       OK ] LibRadosWatchNotifyEC.WatchNotify (1864 ms)
+[----------] 1 test from LibRadosWatchNotifyEC (1864 ms total)
+
+[----------] 2 tests from LibRadosWatchNotifyECPP
+[ RUN      ] LibRadosWatchNotifyECPP.WatchNotify
+notify
+[       OK ] LibRadosWatchNotifyECPP.WatchNotify (1220 ms)
+[ RUN      ] LibRadosWatchNotifyECPP.WatchNotifyTimeout
+[       OK ] LibRadosWatchNotifyECPP.WatchNotifyTimeout (84 ms)
+[----------] 2 tests from LibRadosWatchNotifyECPP (1305 ms total)
+
+[----------] 12 tests from LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/0
+notify
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/0 (1900 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/1
+notify
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify/1 (3644 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/0
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/0 (28 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/1
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotifyTimeout/1 (20 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/0
+handle_notify cookie 140685259068496 notify_id 4140348483356 notifier_gid 5282
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/0 (25 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/1
+handle_notify cookie 140685259077296 notify_id 4140348483435 notifier_gid 5282
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2/1 (29 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/0
+handle_notify cookie 140685259077136 notify_id 4140348483357 notifier_gid 5282
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/0 (28 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/1
+handle_notify cookie 140685259232464 notify_id 4140348483358 notifier_gid 5282
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioWatchNotify2/1 (29 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/0
+handle_notify cookie 140685259236320 notify_id 4140348473435 notifier_gid 5282
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/0 (30 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/1
+handle_notify cookie 140685259240928 notify_id 4140348473436 notifier_gid 5282
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.AioNotify/1 (29 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/0
+ trying...
+handle_notify cookie 140685259240928 notify_id 4140348483436 notifier_gid 5282
+ timed out
+ flushing
+ flushed
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/0 (3028 ms)
+[ RUN      ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/1
+ trying...
+handle_notify cookie 140685259054672 notify_id 4157528352543 notifier_gid 5282
+ timed out
+ flushing
+ flushed
+[       OK ] LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP.WatchNotify2Timeout/1 (3768 ms)
+[----------] 12 tests from LibRadosWatchNotifyPPTests/LibRadosWatchNotifyPP (12560 ms total)
+
+[----------] Global test environment tear-down
+[==========] 24 tests from 4 test cases ran. (86672 ms total)
+[  PASSED  ] 24 tests.

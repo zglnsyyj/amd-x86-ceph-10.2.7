@@ -1,0 +1,155 @@
+Running main() from gmock_main.cc
+Note: Google Test filter = -LibRadosAio.RacingRemovePP
+[==========] Running 71 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 37 tests from LibRadosAio
+[ RUN      ] LibRadosAio.TooBig
+[       OK ] LibRadosAio.TooBig (4547 ms)
+[ RUN      ] LibRadosAio.TooBigPP
+[       OK ] LibRadosAio.TooBigPP (2085 ms)
+[ RUN      ] LibRadosAio.PoolQuotaPP
+[       OK ] LibRadosAio.PoolQuotaPP (28226 ms)
+[ RUN      ] LibRadosAio.SimpleWrite
+[       OK ] LibRadosAio.SimpleWrite (2074 ms)
+[ RUN      ] LibRadosAio.SimpleWritePP
+[       OK ] LibRadosAio.SimpleWritePP (4134 ms)
+[ RUN      ] LibRadosAio.WaitForSafe
+[       OK ] LibRadosAio.WaitForSafe (4163 ms)
+[ RUN      ] LibRadosAio.WaitForSafePP
+[       OK ] LibRadosAio.WaitForSafePP (3067 ms)
+[ RUN      ] LibRadosAio.RoundTrip
+[       OK ] LibRadosAio.RoundTrip (4125 ms)
+[ RUN      ] LibRadosAio.RoundTrip2
+[       OK ] LibRadosAio.RoundTrip2 (4089 ms)
+[ RUN      ] LibRadosAio.RoundTripPP
+[       OK ] LibRadosAio.RoundTripPP (3118 ms)
+[ RUN      ] LibRadosAio.RoundTripPP2
+[       OK ] LibRadosAio.RoundTripPP2 (3068 ms)
+[ RUN      ] LibRadosAio.RoundTripPP3
+[       OK ] LibRadosAio.RoundTripPP3 (4177 ms)
+[ RUN      ] LibRadosAio.RoundTripSparseReadPP
+[       OK ] LibRadosAio.RoundTripSparseReadPP (3076 ms)
+[ RUN      ] LibRadosAio.RoundTripAppend
+[       OK ] LibRadosAio.RoundTripAppend (3211 ms)
+[ RUN      ] LibRadosAio.RoundTripAppendPP
+[       OK ] LibRadosAio.RoundTripAppendPP (4099 ms)
+[ RUN      ] LibRadosAio.IsComplete
+[       OK ] LibRadosAio.IsComplete (4272 ms)
+[ RUN      ] LibRadosAio.IsCompletePP
+[       OK ] LibRadosAio.IsCompletePP (3146 ms)
+[ RUN      ] LibRadosAio.IsSafe
+[       OK ] LibRadosAio.IsSafe (3133 ms)
+[ RUN      ] LibRadosAio.IsSafePP
+[       OK ] LibRadosAio.IsSafePP (3118 ms)
+[ RUN      ] LibRadosAio.ReturnValue
+[       OK ] LibRadosAio.ReturnValue (3101 ms)
+[ RUN      ] LibRadosAio.ReturnValuePP
+[       OK ] LibRadosAio.ReturnValuePP (3123 ms)
+[ RUN      ] LibRadosAio.Flush
+[       OK ] LibRadosAio.Flush (3082 ms)
+[ RUN      ] LibRadosAio.FlushPP
+[       OK ] LibRadosAio.FlushPP (3119 ms)
+[ RUN      ] LibRadosAio.FlushAsync
+[       OK ] LibRadosAio.FlushAsync (3113 ms)
+[ RUN      ] LibRadosAio.FlushAsyncPP
+[       OK ] LibRadosAio.FlushAsyncPP (3161 ms)
+[ RUN      ] LibRadosAio.RoundTripWriteFull
+[       OK ] LibRadosAio.RoundTripWriteFull (3129 ms)
+[ RUN      ] LibRadosAio.RoundTripWriteFullPP
+[       OK ] LibRadosAio.RoundTripWriteFullPP (3098 ms)
+[ RUN      ] LibRadosAio.RoundTripWriteFullPP2
+[       OK ] LibRadosAio.RoundTripWriteFullPP2 (3119 ms)
+[ RUN      ] LibRadosAio.SimpleStat
+[       OK ] LibRadosAio.SimpleStat (3158 ms)
+[ RUN      ] LibRadosAio.SimpleStatPP
+[       OK ] LibRadosAio.SimpleStatPP (3122 ms)
+[ RUN      ] LibRadosAio.SimpleStatNS
+[       OK ] LibRadosAio.SimpleStatNS (3070 ms)
+[ RUN      ] LibRadosAio.SimpleStatPPNS
+[       OK ] LibRadosAio.SimpleStatPPNS (3082 ms)
+[ RUN      ] LibRadosAio.StatRemove
+[       OK ] LibRadosAio.StatRemove (3124 ms)
+[ RUN      ] LibRadosAio.StatRemovePP
+[       OK ] LibRadosAio.StatRemovePP (3128 ms)
+[ RUN      ] LibRadosAio.OmapPP
+[       OK ] LibRadosAio.OmapPP (3338 ms)
+[ RUN      ] LibRadosAio.MultiWrite
+[       OK ] LibRadosAio.MultiWrite (7220 ms)
+[ RUN      ] LibRadosAio.MultiWritePP
+[       OK ] LibRadosAio.MultiWritePP (3150 ms)
+[----------] 37 tests from LibRadosAio (151367 ms total)
+
+[----------] 34 tests from LibRadosAioEC
+[ RUN      ] LibRadosAioEC.SimpleWrite
+[       OK ] LibRadosAioEC.SimpleWrite (5465 ms)
+[ RUN      ] LibRadosAioEC.SimpleWritePP
+[       OK ] LibRadosAioEC.SimpleWritePP (12419 ms)
+[ RUN      ] LibRadosAioEC.WaitForSafe
+[       OK ] LibRadosAioEC.WaitForSafe (7227 ms)
+[ RUN      ] LibRadosAioEC.WaitForSafePP
+[       OK ] LibRadosAioEC.WaitForSafePP (7242 ms)
+[ RUN      ] LibRadosAioEC.RoundTrip
+[       OK ] LibRadosAioEC.RoundTrip (7291 ms)
+[ RUN      ] LibRadosAioEC.RoundTrip2
+[       OK ] LibRadosAioEC.RoundTrip2 (7381 ms)
+[ RUN      ] LibRadosAioEC.RoundTripPP
+[       OK ] LibRadosAioEC.RoundTripPP (7193 ms)
+[ RUN      ] LibRadosAioEC.RoundTripPP2
+[       OK ] LibRadosAioEC.RoundTripPP2 (7290 ms)
+[ RUN      ] LibRadosAioEC.RoundTripPP3
+[       OK ] LibRadosAioEC.RoundTripPP3 (3084 ms)
+[ RUN      ] LibRadosAioEC.RoundTripSparseReadPP
+[       OK ] LibRadosAioEC.RoundTripSparseReadPP (7242 ms)
+[ RUN      ] LibRadosAioEC.RoundTripAppend
+[       OK ] LibRadosAioEC.RoundTripAppend (7254 ms)
+[ RUN      ] LibRadosAioEC.RoundTripAppendPP
+[       OK ] LibRadosAioEC.RoundTripAppendPP (7498 ms)
+[ RUN      ] LibRadosAioEC.IsComplete
+[       OK ] LibRadosAioEC.IsComplete (7236 ms)
+[ RUN      ] LibRadosAioEC.IsCompletePP
+[       OK ] LibRadosAioEC.IsCompletePP (7188 ms)
+[ RUN      ] LibRadosAioEC.IsSafe
+[       OK ] LibRadosAioEC.IsSafe (7509 ms)
+[ RUN      ] LibRadosAioEC.IsSafePP
+[       OK ] LibRadosAioEC.IsSafePP (7340 ms)
+[ RUN      ] LibRadosAioEC.ReturnValue
+[       OK ] LibRadosAioEC.ReturnValue (7295 ms)
+[ RUN      ] LibRadosAioEC.ReturnValuePP
+[       OK ] LibRadosAioEC.ReturnValuePP (7282 ms)
+[ RUN      ] LibRadosAioEC.Flush
+[       OK ] LibRadosAioEC.Flush (7272 ms)
+[ RUN      ] LibRadosAioEC.FlushPP
+[       OK ] LibRadosAioEC.FlushPP (7243 ms)
+[ RUN      ] LibRadosAioEC.FlushAsync
+[       OK ] LibRadosAioEC.FlushAsync (7264 ms)
+[ RUN      ] LibRadosAioEC.FlushAsyncPP
+[       OK ] LibRadosAioEC.FlushAsyncPP (7191 ms)
+[ RUN      ] LibRadosAioEC.RoundTripWriteFull
+[       OK ] LibRadosAioEC.RoundTripWriteFull (7238 ms)
+[ RUN      ] LibRadosAioEC.RoundTripWriteFullPP
+[       OK ] LibRadosAioEC.RoundTripWriteFullPP (7316 ms)
+[ RUN      ] LibRadosAioEC.RoundTripWriteFullPP2
+[       OK ] LibRadosAioEC.RoundTripWriteFullPP2 (3112 ms)
+[ RUN      ] LibRadosAioEC.SimpleStat
+[       OK ] LibRadosAioEC.SimpleStat (7279 ms)
+[ RUN      ] LibRadosAioEC.SimpleStatPP
+[       OK ] LibRadosAioEC.SimpleStatPP (7338 ms)
+[ RUN      ] LibRadosAioEC.SimpleStatNS
+[       OK ] LibRadosAioEC.SimpleStatNS (7255 ms)
+[ RUN      ] LibRadosAioEC.SimpleStatPPNS
+[       OK ] LibRadosAioEC.SimpleStatPPNS (7266 ms)
+[ RUN      ] LibRadosAioEC.StatRemove
+[       OK ] LibRadosAioEC.StatRemove (7255 ms)
+[ RUN      ] LibRadosAioEC.StatRemovePP
+[       OK ] LibRadosAioEC.StatRemovePP (7313 ms)
+[ RUN      ] LibRadosAioEC.OmapPP
+[       OK ] LibRadosAioEC.OmapPP (5206 ms)
+[ RUN      ] LibRadosAioEC.MultiWrite
+[       OK ] LibRadosAioEC.MultiWrite (7276 ms)
+[ RUN      ] LibRadosAioEC.MultiWritePP
+[       OK ] LibRadosAioEC.MultiWritePP (7295 ms)
+[----------] 34 tests from LibRadosAioEC (240558 ms total)
+
+[----------] Global test environment tear-down
+[==========] 71 tests from 2 test cases ran. (391925 ms total)
+[  PASSED  ] 71 tests.
