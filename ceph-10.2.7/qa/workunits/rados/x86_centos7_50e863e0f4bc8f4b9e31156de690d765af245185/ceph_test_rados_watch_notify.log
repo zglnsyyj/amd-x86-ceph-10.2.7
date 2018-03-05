@@ -1,0 +1,113 @@
+process_4_[263108]: starting.
+process_1_[263104]: starting.
+process_2_[263105]: starting.
+process_3_[263106]: starting.
+process_1_[263104]: creating pool foo.263092
+process_1_[263104]: created object 0...
+process_1_[263104]: finishing.
+process_1_[263104]: shutting down.
+process_3_[263106]: notifying object 0.obj
+process_3_[263106]: shutting down.
+process_2_[263105]: watching object 0.obj
+process_2_[263105]: shutting down.
+process_4_[263108]: deleting pool foo.263092
+process_4_[263108]: shutting down.
+*******************************
+process_5_[265356]: starting.
+*******************************
+process_6_[265357]: starting.
+*******************************
+process_7_[265359]: starting.
+*******************************
+process_8_[265360]: starting.
+process_5_[265356]: creating pool foo.263092.
+process_5_[265356]: finishing.
+process_5_[265356]: shutting down.
+process_7_[265359]: notifying object 0.obj
+process_7_[265359]: shutting down.
+process_6_[265357]: watching object 0.obj
+process_6_[265357]: shutting down.
+process_8_[265360]: deleting pool foo.263092.
+process_8_[265360]: shutting down.
+*******************************
+*******************************
+process_9_[267172]: starting.
+*******************************
+*******************************
+process_10_[267173]: starting.
+*******************************
+*******************************
+process_15_[267180]: starting.
+*******************************
+*******************************
+process_11_[267175]: starting.
+*******************************
+*******************************
+process_12_[267176]: starting.
+*******************************
+*******************************
+process_13_[267177]: starting.
+*******************************
+*******************************
+process_14_[267179]: starting.
+process_9_[267172]: creating pool foo.263092..
+process_9_[267172]: created object 0...
+process_9_[267172]: finishing.
+process_9_[267172]: shutting down.
+process_11_[267175]: notifying object 0.obj
+process_11_[267175]: shutting down.
+process_12_[267176]: deleting pool foo.263092..
+process_12_[267176]: shutting down.
+process_13_[267177]: creating pool bar
+process_13_[267177]: created object 0...
+process_13_[267177]: finishing.
+process_13_[267177]: shutting down.
+process_14_[267179]: notifying object 0.obj
+process_14_[267179]: shutting down.
+process_10_[267173]: watching object 0.obj
+process_10_[267173]: shutting down.
+process_15_[267180]: deleting pool bar
+process_15_[267180]: shutting down.
+*******************************
+*******************************
+*******************************
+process_16_[267780]: starting.
+*******************************
+*******************************
+*******************************
+process_17_[267781]: starting.
+*******************************
+*******************************
+*******************************
+process_18_[267783]: starting.
+*******************************
+*******************************
+*******************************
+process_20_[267786]: starting.
+*******************************
+*******************************
+*******************************
+process_19_[267785]: starting.
+*******************************
+*******************************
+*******************************
+process_21_[267787]: starting.
+process_16_[267780]: creating pool foo.263092...
+process_16_[267780]: created object 0...
+process_16_[267780]: finishing.
+process_16_[267780]: shutting down.
+process_18_[267783]: notifying object 0.obj
+process_18_[267783]: shutting down.
+process_19_[267785]: deleted object 0...
+process_19_[267785]: shutting down.
+process_20_[267786]: notifying object 0.obj
+process_20_[267786]: shutting down.
+process_17_[267781]: watching object 0.obj
+process_17_[267781]: shutting down.
+process_21_[267787]: deleting pool foo.263092...
+process_21_[267787]: shutting down.
+*******************************
+*******************************
+*******************************
+*******************************
+******* SUCCESS **********

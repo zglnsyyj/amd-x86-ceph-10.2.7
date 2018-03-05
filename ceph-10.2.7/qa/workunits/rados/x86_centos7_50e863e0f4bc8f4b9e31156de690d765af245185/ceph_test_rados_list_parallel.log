@@ -1,0 +1,150 @@
+process_1_[263149]: starting.
+process_2_[263150]: starting.
+process_1_[263149]: creating pool ceph_test_rados_list_parallel.yujiangnewceph-3-263060
+process_1_[263149]: created object 0...
+process_1_[263149]: created object 25...
+process_1_[263149]: created object 49...
+process_1_[263149]: finishing.
+process_1_[263149]: shutting down.
+process_2_[263150]: listing objects.
+process_2_[263150]: listed object 0...
+process_2_[263150]: listed object 25...
+process_2_[263150]: saw 50 objects
+process_2_[263150]: shutting down.
+*******************************
+process_3_[267102]: starting.
+*******************************
+process_4_[267103]: starting.
+*******************************
+process_5_[267105]: starting.
+process_3_[267102]: creating pool ceph_test_rados_list_parallel.yujiangnewceph-3-263060
+process_3_[267102]: created object 0...
+process_3_[267102]: created object 25...
+process_3_[267102]: created object 49...
+process_3_[267102]: finishing.
+process_3_[267102]: shutting down.
+process_4_[267103]: listing objects.
+process_4_[267103]: listed object 0...
+process_4_[267103]: listed object 25...
+process_4_[267103]: saw 34 objects
+process_4_[267103]: shutting down.
+process_5_[267105]: removed 25 objects...
+process_5_[267105]: removed half of the objects
+process_5_[267105]: removed 50 objects...
+process_5_[267105]: removed 50 objects
+process_5_[267105]: shutting down.
+*******************************
+*******************************
+process_6_[267319]: starting.
+*******************************
+*******************************
+process_7_[267320]: starting.
+*******************************
+*******************************
+process_8_[267322]: starting.
+process_6_[267319]: creating pool ceph_test_rados_list_parallel.yujiangnewceph-3-263060
+process_6_[267319]: created object 0...
+process_6_[267319]: created object 25...
+process_6_[267319]: created object 49...
+process_6_[267319]: finishing.
+process_6_[267319]: shutting down.
+process_7_[267320]: listing objects.
+process_7_[267320]: listed object 0...
+process_7_[267320]: listed object 25...
+process_7_[267320]: listed object 50...
+process_7_[267320]: saw 58 objects
+process_7_[267320]: shutting down.
+process_8_[267322]: added 25 objects...
+process_8_[267322]: added half of the objects
+process_8_[267322]: added 50 objects...
+process_8_[267322]: added 50 objects
+process_8_[267322]: shutting down.
+*******************************
+*******************************
+*******************************
+process_9_[268936]: starting.
+*******************************
+*******************************
+*******************************
+process_11_[268939]: starting.
+*******************************
+*******************************
+*******************************
+process_10_[268937]: starting.
+*******************************
+*******************************
+*******************************
+process_13_[268943]: starting.
+*******************************
+*******************************
+*******************************
+process_12_[268940]: starting.
+process_9_[268936]: creating pool ceph_test_rados_list_parallel.yujiangnewceph-3-263060
+process_9_[268936]: created object 0...
+process_9_[268936]: created object 25...
+process_9_[268936]: created object 49...
+process_9_[268936]: finishing.
+process_9_[268936]: shutting down.
+process_10_[268937]: listing objects.
+process_10_[268937]: listed object 0...
+process_10_[268937]: listed object 25...
+process_10_[268937]: listed object 50...
+process_10_[268937]: listed object 75...
+process_10_[268937]: saw 100 objects
+process_10_[268937]: shutting down.
+process_11_[268939]: added 25 objects...
+process_11_[268939]: added half of the objects
+process_11_[268939]: added 50 objects...
+process_11_[268939]: added 50 objects
+process_11_[268939]: shutting down.
+process_13_[268943]: removed 25 objects...
+process_13_[268943]: removed half of the objects
+process_13_[268943]: removed 50 objects...
+process_13_[268943]: removed 50 objects
+process_13_[268943]: shutting down.
+process_12_[268940]: added 25 objects...
+process_12_[268940]: added half of the objects
+process_12_[268940]: added 50 objects...
+process_12_[268940]: added 50 objects
+process_12_[268940]: shutting down.
+*******************************
+*******************************
+*******************************
+*******************************
+process_14_[269043]: starting.
+*******************************
+*******************************
+*******************************
+*******************************
+process_15_[269044]: starting.
+*******************************
+*******************************
+*******************************
+*******************************
+process_16_[269046]: starting.
+process_14_[269043]: creating pool ceph_test_rados_list_parallel.yujiangnewceph-3-263060
+process_14_[269043]: created object 0...
+process_14_[269043]: created object 25...
+process_14_[269043]: created object 49...
+process_14_[269043]: finishing.
+process_14_[269043]: shutting down.
+process_15_[269044]: listing objects.
+process_15_[269044]: listed object 0...
+process_15_[269044]: listed object 25...
+process_15_[269044]: listed object 50...
+process_15_[269044]: listed object 75...
+process_15_[269044]: listed object 100...
+process_15_[269044]: listed object 125...
+process_15_[269044]: saw 150 objects
+process_15_[269044]: shutting down.
+process_16_[269046]: added 25 objects...
+process_16_[269046]: added half of the objects
+process_16_[269046]: added 50 objects...
+process_16_[269046]: added 50 objects
+process_16_[269046]: shutting down.
+*******************************
+*******************************
+*******************************
+*******************************
+*******************************
+******* SUCCESS **********

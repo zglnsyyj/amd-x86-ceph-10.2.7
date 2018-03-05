@@ -1,0 +1,100 @@
+[==========] Running 28 tests from 5 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from LibRadosMiscVersion
+[ RUN      ] LibRadosMiscVersion.Version
+[       OK ] LibRadosMiscVersion.Version (0 ms)
+[ RUN      ] LibRadosMiscVersion.VersionPP
+[       OK ] LibRadosMiscVersion.VersionPP (0 ms)
+[----------] 2 tests from LibRadosMiscVersion (0 ms total)
+
+[----------] 1 test from LibRadosMiscConnectFailure
+[ RUN      ] LibRadosMiscConnectFailure.ConnectFailure
+2018-03-05 14:57:26.829651 7fc87fb9f8c0 -1 asok(0x7fc889fc00c0) AdminSocketConfigObs::init: failed: AdminSocket::bind_and_listen: failed to bind the UNIX domain socket to '/var/run/ceph/rbd-client-262908.asok': (17) File exists
+2018-03-05 14:57:26.829667 7fc87fb9f8c0 10 monclient(hunting): build_initial_monmap
+2018-03-05 14:57:26.830155 7fc87fb9f8c0  1  Processor -- start 
+2018-03-05 14:57:26.830158 7fc87fb9f8c0  1 -- :/0 start start
+2018-03-05 14:57:26.830218 7fc87fb9f8c0 10 monclient(hunting): init
+2018-03-05 14:57:26.830225 7fc87fb9f8c0 10 monclient(hunting): auth_supported 2 method cephx
+2018-03-05 14:57:26.830400 7fc87fb9f8c0 10 monclient(hunting): _reopen_session rank -1 name 
+2018-03-05 14:57:26.830413 7fc87fb9f8c0 10 monclient(hunting): picked mon.c con 0x7fc88a05f4c0 addr 192.168.0.136:6789/0
+2018-03-05 14:57:26.830425 7fc87fb9f8c0 10 monclient(hunting): _send_mon_message to mon.c at 192.168.0.136:6789/0
+2018-03-05 14:57:26.830428 7fc87fb9f8c0  1 -- :/3479374925 >> 192.168.0.136:6789/0 conn(0x7fc88a05f4c0 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=1). == tx == 0x7fc88a05ed50 auth(proto 0 30 bytes epoch 0) v1
+2018-03-05 14:57:26.830438 7fc87fb9f8c0 10 monclient(hunting): renew_subs
+2018-03-05 14:57:26.830440 7fc87fb9f8c0 10 monclient(hunting): authenticate will time out at 2018-03-05 14:57:26.830440
+2018-03-05 14:57:26.830498 7fc87fb9f8c0  0 monclient(hunting): authenticate timed out after 1e-09
+2018-03-05 14:57:26.830516 7fc87fb9f8c0  0 librados: client.admin authentication error (110) Connection timed out
+2018-03-05 14:57:26.830537 7fc87fb9f8c0 10 monclient(hunting): shutdown
+2018-03-05 14:57:26.830538 7fc87fb9f8c0 20 monclient(hunting): shutdown discarding pending message mon_subscribe({monmap=0+}) v2
+2018-03-05 14:57:26.830545 7fc87fb9f8c0  1 -- :/3479374925 >> 192.168.0.136:6789/0 conn(0x7fc88a05f4c0 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=1).mark_down started.
+2018-03-05 14:57:26.830550 7fc87fb9f8c0  1 -- :/3479374925 >> 192.168.0.136:6789/0 conn(0x7fc88a05f4c0 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=1)._stop
+2018-03-05 14:57:26.845796 7fc87fb9f8c0  1 -- :/3479374925 mark_down_all 
+2018-03-05 14:57:26.845814 7fc87fb9f8c0  1 -- :/3479374925 >> 192.168.0.136:6789/0 conn(0x7fc88a05f4c0 sd=-1 :-1 s=STATE_CLOSED pgs=0 cs=0 l=1).mark_down started.
+2018-03-05 14:57:26.845830 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.845838 7fc87fb9f8c0  1 Event(0x7fc889ffd3f8 owner=140498820806400 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.845846 7fc87fb9f8c0  1 Event(0x7fc88a029938 owner=140498812413696 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.846158 7fc87fb9f8c0  1 -- :/3479374925 mark_down_all 
+2018-03-05 14:57:26.846168 7fc87fb9f8c0  1 -- :/3479374925 wait complete.
+2018-03-05 14:57:26.846530 7fc87fb9f8c0  1 -- :/3479374925 >> :/3479374925 conn(0x7fc88a056020 sd=-1 :-1 s=STATE_NONE pgs=0 cs=0 l=0).mark_down started.
+2018-03-05 14:57:26.846544 7fc87fb9f8c0  1 -- :/3479374925 >> :/3479374925 conn(0x7fc88a056020 sd=-1 :-1 s=STATE_NONE pgs=0 cs=0 l=0)._stop
+2018-03-05 14:57:26.846549 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.846558 7fc87fb9f8c0 10 monclient(hunting): build_initial_monmap
+2018-03-05 14:57:26.846664 7fc87fb9f8c0  1  Processor -- start 
+2018-03-05 14:57:26.846665 7fc87fb9f8c0  1 -- :/0 start start
+2018-03-05 14:57:26.846668 7fc87fb9f8c0 10 monclient(hunting): init
+2018-03-05 14:57:26.846673 7fc87fb9f8c0 10 monclient(hunting): auth_supported 2 method cephx
+2018-03-05 14:57:26.846768 7fc87fb9f8c0 10 monclient(hunting): _reopen_session rank -1 name 
+2018-03-05 14:57:26.846779 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.846784 7fc87fb9f8c0 10 monclient(hunting): picked mon.b con 0x7fc88a064c90 addr 192.168.0.137:6789/0
+2018-03-05 14:57:26.846788 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.846793 7fc87fb9f8c0 10 monclient(hunting): _send_mon_message to mon.b at 192.168.0.137:6789/0
+2018-03-05 14:57:26.846795 7fc87fb9f8c0  1 -- :/338199868 >> 192.168.0.137:6789/0 conn(0x7fc88a064c90 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=1). == tx == 0x7fc88a064100 auth(proto 0 30 bytes epoch 0) v1
+2018-03-05 14:57:26.846799 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.846801 7fc87fb9f8c0 10 monclient(hunting): renew_subs
+2018-03-05 14:57:26.846803 7fc87fb9f8c0 10 monclient(hunting): authenticate will time out at 2018-03-05 14:57:26.846803
+2018-03-05 14:57:26.846808 7fc87fb9f8c0  0 librados: client.admin authentication error (110) Connection timed out
+2018-03-05 14:57:26.846823 7fc87fb9f8c0 10 monclient(hunting): shutdown
+2018-03-05 14:57:26.846824 7fc87fb9f8c0 20 monclient(hunting): shutdown discarding pending message mon_subscribe({monmap=0+}) v2
+2018-03-05 14:57:26.846827 7fc87fb9f8c0  1 -- :/338199868 >> 192.168.0.137:6789/0 conn(0x7fc88a064c90 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=1).mark_down started.
+2018-03-05 14:57:26.846829 7fc87fb9f8c0  1 -- :/338199868 >> 192.168.0.137:6789/0 conn(0x7fc88a064c90 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=1)._stop
+2018-03-05 14:57:26.846832 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.850619 7fc87fb9f8c0  1 -- :/338199868 mark_down_all 
+2018-03-05 14:57:26.850632 7fc87fb9f8c0  1 -- :/338199868 >> 192.168.0.137:6789/0 conn(0x7fc88a064c90 sd=-1 :-1 s=STATE_CLOSED pgs=0 cs=0 l=1).mark_down started.
+2018-03-05 14:57:26.850645 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.850652 7fc87fb9f8c0  1 Event(0x7fc889ffd3f8 owner=140498820806400 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.850658 7fc87fb9f8c0  1 Event(0x7fc88a029938 owner=140498812413696 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.850762 7fc87fb9f8c0  1 -- :/338199868 mark_down_all 
+2018-03-05 14:57:26.850767 7fc87fb9f8c0  1 -- :/338199868 wait complete.
+2018-03-05 14:57:26.852081 7fc87fb9f8c0  1 -- :/338199868 >> :/338199868 conn(0x7fc88a05f4c0 sd=-1 :-1 s=STATE_NONE pgs=0 cs=0 l=0).mark_down started.
+2018-03-05 14:57:26.852091 7fc87fb9f8c0  1 -- :/338199868 >> :/338199868 conn(0x7fc88a05f4c0 sd=-1 :-1 s=STATE_NONE pgs=0 cs=0 l=0)._stop
+2018-03-05 14:57:26.852097 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.852807 7fc87fb9f8c0  1 Event(0x7fc889fc8ca8 owner=140498829199104 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.853534 7fc87fb9f8c0  1 Event(0x7fc889ffd3f8 owner=140498820806400 nevent=5000 time_id=1).wakeup
+2018-03-05 14:57:26.854337 7fc87fb9f8c0  1 Event(0x7fc88a029938 owner=140498812413696 nevent=5000 time_id=1).wakeup
+[       OK ] LibRadosMiscConnectFailure.ConnectFailure (34 ms)
+[----------] 1 test from LibRadosMiscConnectFailure (34 ms total)
+
+[----------] 3 tests from LibRadosMisc
+[ RUN      ] LibRadosMisc.ClusterFSID
+[       OK ] LibRadosMisc.ClusterFSID (53012 ms)
+[ RUN      ] LibRadosMisc.Exec
+[       OK ] LibRadosMisc.Exec (451 ms)
+[ RUN      ] LibRadosMisc.CloneRange
+[       OK ] LibRadosMisc.CloneRange (127 ms)
+[----------] 3 tests from LibRadosMisc (53590 ms total)
+
+[----------] 21 tests from LibRadosMiscPP
+[ RUN      ] LibRadosMiscPP.WaitOSDMapPP
+[       OK ] LibRadosMiscPP.WaitOSDMapPP (6202 ms)
+[ RUN      ] LibRadosMiscPP.LongNamePP
+test/librados/misc.cc:91: Failure
+Value of: ioctx.write(string(maxlen/2, 'a').c_str(), bl, bl.length(), 0)
+  Actual: -36
+Expected: 0
+[  FAILED  ] LibRadosMiscPP.LongNamePP (104 ms)
+[ RUN      ] LibRadosMiscPP.LongLocatorPP
+test/librados/misc.cc:108: Failure
+Value of: ioctx.write( string("a").c_str(), bl, bl.length(), 0)
+  Actual: -36
+Expected: 0
+[  FAILED  ] LibRadosMiscPP.LongLocatorPP (97 ms)
+[ RUN      ] LibRadosMiscPP.LongNSpacePP

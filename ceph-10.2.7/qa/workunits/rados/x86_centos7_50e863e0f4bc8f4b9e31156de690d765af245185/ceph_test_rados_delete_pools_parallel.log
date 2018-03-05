@@ -1,0 +1,32 @@
+process_1_[263101]: starting.
+process_2_[263102]: starting.
+process_1_[263101]: creating pool ceph_test_rados_delete_pools_parallel.yujiangnewceph-3-263082
+process_1_[263101]: created object 0...
+process_1_[263101]: created object 25...
+process_1_[263101]: created object 49...
+process_1_[263101]: finishing.
+process_1_[263101]: shutting down.
+process_2_[263102]: deleting pool ceph_test_rados_delete_pools_parallel.yujiangnewceph-3-263082
+process_2_[263102]: shutting down.
+*******************************
+process_3_[266443]: starting.
+*******************************
+process_4_[266444]: starting.
+*******************************
+process_5_[266445]: starting.
+process_3_[266443]: creating pool ceph_test_rados_delete_pools_parallel.yujiangnewceph-3-263082
+process_3_[266443]: created object 0...
+process_3_[266443]: created object 25...
+process_3_[266443]: created object 49...
+process_3_[266443]: finishing.
+process_3_[266443]: shutting down.
+process_5_[266445]: listing objects.
+process_5_[266445]: listed object 0...
+process_5_[266445]: listed object 25...
+process_5_[266445]: saw 50 objects
+process_5_[266445]: shutting down.
+process_4_[266444]: deleting pool ceph_test_rados_delete_pools_parallel.yujiangnewceph-3-263082
+process_4_[266444]: shutting down.
+*******************************
+*******************************
+******* SUCCESS **********

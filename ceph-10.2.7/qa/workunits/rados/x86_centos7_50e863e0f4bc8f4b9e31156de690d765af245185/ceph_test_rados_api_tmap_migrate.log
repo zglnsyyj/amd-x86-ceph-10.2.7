@@ -1,0 +1,223 @@
+Running main() from gmock_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from TmapMigratePP
+[ RUN      ] TmapMigratePP.DataScan
+2018-03-05 14:57:28.433226 7fd59b551bc0 -1 asok(0x7fd5a6862500) AdminSocketConfigObs::init: failed: AdminSocket::bind_and_listen: failed to bind the UNIX domain socket to '/var/run/ceph/rbd-client-263057.asok': (17) File exists
+*** Caught signal (Segmentation fault) **
+ in thread 7fd59b551bc0 thread_name:ceph_test_rados
+ ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+ 1: (()+0x572faa) [0x7fd59badffaa]
+ 2: (()+0xf5e0) [0x7fd590ba75e0]
+ 3: (()+0x194378) [0x7fd591d46378]
+ 4: (()+0xd44c6) [0x7fd591c864c6]
+ 5: (()+0xd4a5f) [0x7fd591c86a5f]
+ 6: (()+0xa3c8f) [0x7fd591c55c8f]
+ 7: (DataScan::main(std::vector<char const*, std::allocator<char const*> > const&)+0x6e3) [0x7fd59b784db3]
+ 8: (TmapMigratePP_DataScan_Test::TestBody()+0x89d) [0x7fd59b78d34d]
+ 9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7fd59b7da9e3]
+ 10: (testing::Test::Run()+0xb7) [0x7fd59b7cc0e7]
+ 11: (testing::TestInfo::Run()+0x9e) [0x7fd59b7cc18e]
+ 12: (testing::TestCase::Run()+0xa5) [0x7fd59b7cc295]
+ 13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7fd59b7cc568]
+ 14: (testing::UnitTest::Run()+0x68) [0x7fd59b7cc828]
+ 15: (main()+0x39) [0x7fd59b785a99]
+ 16: (__libc_start_main()+0xf5) [0x7fd58fbb8c05]
+ 17: (()+0x21f9bf) [0x7fd59b78c9bf]
+2018-03-05 14:58:14.630162 7fd59b551bc0 -1 *** Caught signal (Segmentation fault) **
+ in thread 7fd59b551bc0 thread_name:ceph_test_rados
+
+ ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+ 1: (()+0x572faa) [0x7fd59badffaa]
+ 2: (()+0xf5e0) [0x7fd590ba75e0]
+ 3: (()+0x194378) [0x7fd591d46378]
+ 4: (()+0xd44c6) [0x7fd591c864c6]
+ 5: (()+0xd4a5f) [0x7fd591c86a5f]
+ 6: (()+0xa3c8f) [0x7fd591c55c8f]
+ 7: (DataScan::main(std::vector<char const*, std::allocator<char const*> > const&)+0x6e3) [0x7fd59b784db3]
+ 8: (TmapMigratePP_DataScan_Test::TestBody()+0x89d) [0x7fd59b78d34d]
+ 9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7fd59b7da9e3]
+ 10: (testing::Test::Run()+0xb7) [0x7fd59b7cc0e7]
+ 11: (testing::TestInfo::Run()+0x9e) [0x7fd59b7cc18e]
+ 12: (testing::TestCase::Run()+0xa5) [0x7fd59b7cc295]
+ 13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7fd59b7cc568]
+ 14: (testing::UnitTest::Run()+0x68) [0x7fd59b7cc828]
+ 15: (main()+0x39) [0x7fd59b785a99]
+ 16: (__libc_start_main()+0xf5) [0x7fd58fbb8c05]
+ 17: (()+0x21f9bf) [0x7fd59b78c9bf]
+ NOTE: a copy of the executable, or `objdump -rdS <executable>` is needed to interpret this.
+
+--- begin dump of recent events ---
+   -73> 2018-03-05 14:57:28.409131 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command perfcounters_dump hook 0x7fd5a683a180
+   -72> 2018-03-05 14:57:28.409161 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command 1 hook 0x7fd5a683a180
+   -71> 2018-03-05 14:57:28.409163 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command perf dump hook 0x7fd5a683a180
+   -70> 2018-03-05 14:57:28.409165 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command perfcounters_schema hook 0x7fd5a683a180
+   -69> 2018-03-05 14:57:28.409179 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command 2 hook 0x7fd5a683a180
+   -68> 2018-03-05 14:57:28.409192 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command perf schema hook 0x7fd5a683a180
+   -67> 2018-03-05 14:57:28.409194 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command perf reset hook 0x7fd5a683a180
+   -66> 2018-03-05 14:57:28.409195 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command config show hook 0x7fd5a683a180
+   -65> 2018-03-05 14:57:28.409197 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command config set hook 0x7fd5a683a180
+   -64> 2018-03-05 14:57:28.409198 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command config get hook 0x7fd5a683a180
+   -63> 2018-03-05 14:57:28.409199 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command config diff hook 0x7fd5a683a180
+   -62> 2018-03-05 14:57:28.409201 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command log flush hook 0x7fd5a683a180
+   -61> 2018-03-05 14:57:28.409202 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command log dump hook 0x7fd5a683a180
+   -60> 2018-03-05 14:57:28.409204 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command log reopen hook 0x7fd5a683a180
+   -59> 2018-03-05 14:57:28.432861 7fd59b551bc0  5 asok(0x7fd5a6862500) init /var/run/ceph/rbd-client-263057.asok
+   -58> 2018-03-05 14:57:28.432882 7fd59b551bc0  5 asok(0x7fd5a6862500) bind_and_listen /var/run/ceph/rbd-client-263057.asok
+   -57> 2018-03-05 14:57:28.433226 7fd59b551bc0 -1 asok(0x7fd5a6862500) AdminSocketConfigObs::init: failed: AdminSocket::bind_and_listen: failed to bind the UNIX domain socket to '/var/run/ceph/rbd-client-263057.asok': (17) File exists
+   -56> 2018-03-05 14:58:14.624690 7fd59b551bc0  1  Processor -- bind bind my_inst.addr is 0.0.0.0:6812/1916030680
+   -55> 2018-03-05 14:58:14.624711 7fd59b551bc0  1 -- 0.0.0.0:6812/1916030680 start start
+   -54> 2018-03-05 14:58:14.624829 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command objecter_requests hook 0x7fd5a683a470
+   -53> 2018-03-05 14:58:14.624858 7fd59b551bc0  1  Processor -- start 
+   -52> 2018-03-05 14:58:14.624870 7fd59b551bc0 10 monclient(hunting): build_initial_monmap
+   -51> 2018-03-05 14:58:14.624924 7fd59b551bc0 10 monclient(hunting): init
+   -50> 2018-03-05 14:58:14.624937 7fd59b551bc0  5 adding auth protocol: cephx
+   -49> 2018-03-05 14:58:14.624939 7fd59b551bc0 10 monclient(hunting): auth_supported 2 method cephx
+   -48> 2018-03-05 14:58:14.625116 7fd59b551bc0  2 auth: KeyRing::load: loaded key file /Ceph/Meta/Keyring/client.admin.keyring
+   -47> 2018-03-05 14:58:14.625213 7fd59b551bc0 10 monclient(hunting): _reopen_session rank -1 name 
+   -46> 2018-03-05 14:58:14.625228 7fd59b551bc0  1 Event(0x7fd5a68bccc8 owner=140555038230272 nevent=5000 time_id=1).wakeup
+   -45> 2018-03-05 14:58:14.625241 7fd59b551bc0 10 monclient(hunting): picked mon.a con 0x7fd5a6a83000 addr 192.168.0.221:6789/0
+   -44> 2018-03-05 14:58:14.625247 7fd59b551bc0  1 Event(0x7fd5a68bccc8 owner=140555038230272 nevent=5000 time_id=1).wakeup
+   -43> 2018-03-05 14:58:14.625255 7fd59b551bc0 10 monclient(hunting): _send_mon_message to mon.a at 192.168.0.221:6789/0
+   -42> 2018-03-05 14:58:14.625261 7fd59b551bc0  1 -- 0.0.0.0:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=-1 :-1 s=STATE_CONNECTING pgs=0 cs=0 l=0). == tx == 0x7fd5a6873d40 auth(proto 0 30 bytes epoch 0) v1
+   -41> 2018-03-05 14:58:14.625288 7fd59b551bc0  1 Event(0x7fd5a68bccc8 owner=140555038230272 nevent=5000 time_id=1).wakeup
+   -40> 2018-03-05 14:58:14.625293 7fd59b551bc0 10 monclient(hunting): renew_subs
+   -39> 2018-03-05 14:58:14.625621 7fd585200700  1 -- 192.168.0.221:6812/1916030680 learned_addr learned my addr 192.168.0.221:6812/1916030680
+   -38> 2018-03-05 14:58:14.625749 7fd585200700  2 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_CONNECTING_WAIT_ACK_SEQ pgs=0 cs=0 l=0)._process_connection got newly_acked_seq 0 vs out_seq 0
+   -37> 2018-03-05 14:58:14.626113 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 1 0x7fd5a69f4f40 mon_map magic: 0 v1
+   -36> 2018-03-05 14:58:14.626144 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 2 0x7fd5a69f4d00 auth_reply(proto 2 0 (0) Success) v1
+   -35> 2018-03-05 14:58:14.626178 7fd585200700 10 monclient(hunting): handle_monmap mon_map magic: 0 v1
+   -34> 2018-03-05 14:58:14.626190 7fd585200700 10 monclient(hunting):  got monmap 1, mon.a is now rank 2
+   -33> 2018-03-05 14:58:14.626191 7fd585200700 10 monclient(hunting): dump:
+epoch 1
+fsid d166344d-be94-45a3-a8ac-3a2b2ca42d4a
+last_changed 2018-03-02 11:19:52.463686
+created 2018-03-02 11:19:52.463686
+0: 192.168.0.136:6789/0 mon.c
+1: 192.168.0.137:6789/0 mon.b
+2: 192.168.0.221:6789/0 mon.a
+
+   -32> 2018-03-05 14:58:14.626225 7fd585200700 10 monclient(hunting): my global_id is 1523843
+   -31> 2018-03-05 14:58:14.626341 7fd585200700 10 monclient(hunting): _send_mon_message to mon.a at 192.168.0.221:6789/0
+   -30> 2018-03-05 14:58:14.626353 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN pgs=675039 cs=1 l=1). == tx == 0x7fd5a69f4ac0 auth(proto 2 32 bytes epoch 0) v1
+   -29> 2018-03-05 14:58:14.626815 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 3 0x7fd5a69f4ac0 auth_reply(proto 2 0 (0) Success) v1
+   -28> 2018-03-05 14:58:14.626918 7fd585200700 10 monclient(hunting): _send_mon_message to mon.a at 192.168.0.221:6789/0
+   -27> 2018-03-05 14:58:14.626923 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN pgs=675039 cs=1 l=1). == tx == 0x7fd5a69f4ac0 auth(proto 2 165 bytes epoch 0) v1
+   -26> 2018-03-05 14:58:14.627227 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 4 0x7fd5a69f4ac0 auth_reply(proto 2 0 (0) Success) v1
+   -25> 2018-03-05 14:58:14.627332 7fd585200700  1 monclient(hunting): found mon.a
+   -24> 2018-03-05 14:58:14.627334 7fd585200700 10 monclient: _send_mon_message to mon.a at 192.168.0.221:6789/0
+   -23> 2018-03-05 14:58:14.627338 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN pgs=675039 cs=1 l=1). == tx == 0x7fd5a6989e00 mon_subscribe({monmap=0+}) v2
+   -22> 2018-03-05 14:58:14.627444 7fd59b551bc0  5 monclient: authenticate success, global_id 1523843
+   -21> 2018-03-05 14:58:14.627490 7fd59b551bc0 10 monclient: renew_subs
+   -20> 2018-03-05 14:58:14.627493 7fd59b551bc0 10 monclient: _send_mon_message to mon.a at 192.168.0.221:6789/0
+   -19> 2018-03-05 14:58:14.627499 7fd59b551bc0  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN pgs=675039 cs=1 l=1). == tx == 0x7fd5a6989c00 mon_subscribe({osdmap=0}) v2
+   -18> 2018-03-05 14:58:14.627685 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 5 0x7fd5a69f4f40 mon_map magic: 0 v1
+   -17> 2018-03-05 14:58:14.627728 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 6 0x7fd5a69f4d00 osd_map(4393..4393 src has 3794..4393) v3
+   -16> 2018-03-05 14:58:14.627749 7fd585200700 10 monclient: handle_monmap mon_map magic: 0 v1
+   -15> 2018-03-05 14:58:14.627757 7fd585200700 10 monclient:  got monmap 1, mon.a is now rank 2
+   -14> 2018-03-05 14:58:14.627758 7fd585200700 10 monclient: dump:
+epoch 1
+fsid d166344d-be94-45a3-a8ac-3a2b2ca42d4a
+last_changed 2018-03-02 11:19:52.463686
+created 2018-03-02 11:19:52.463686
+0: 192.168.0.136:6789/0 mon.c
+1: 192.168.0.137:6789/0 mon.b
+2: 192.168.0.221:6789/0 mon.a
+
+   -13> 2018-03-05 14:58:14.627935 7fd585200700 10 monclient: renew_subs
+   -12> 2018-03-05 14:58:14.627938 7fd585200700 10 monclient: _send_mon_message to mon.a at 192.168.0.221:6789/0
+   -11> 2018-03-05 14:58:14.627941 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN pgs=675039 cs=1 l=1). == tx == 0x7fd5a6989e00 mon_subscribe({osdmap=4394}) v2
+   -10> 2018-03-05 14:58:14.628062 7fd59b551bc0 10 monclient: renew_subs
+    -9> 2018-03-05 14:58:14.628071 7fd59b551bc0 10 monclient: _send_mon_message to mon.a at 192.168.0.221:6789/0
+    -8> 2018-03-05 14:58:14.628077 7fd59b551bc0  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN pgs=675039 cs=1 l=1). == tx == 0x7fd5a6989c00 mon_subscribe({fsmap=0}) v2
+    -7> 2018-03-05 14:58:14.628117 7fd59b551bc0  4 waiting for MDS map...
+    -6> 2018-03-05 14:58:14.628404 7fd585200700  1 -- 192.168.0.221:6812/1916030680 >> 192.168.0.221:6789/0 conn(0x7fd5a6a83000 sd=30 :-1 s=STATE_OPEN_MESSAGE_READ_FOOTER_AND_DISPATCH pgs=675039 cs=1 l=1). == rx == mon.2 seq 7 0x7fd5a68b4b40 fsmap(e 211) v1
+    -5> 2018-03-05 14:58:14.628472 7fd59b551bc0  4 Got MDS map 211
+    -4> 2018-03-05 14:58:14.628577 7fd59b551bc0 10 monclient(hunting): build_initial_monmap
+    -3> 2018-03-05 14:58:14.628641 7fd59b551bc0  1 librados: starting msgr at :/0
+    -2> 2018-03-05 14:58:14.628644 7fd59b551bc0  1 librados: starting objecter
+    -1> 2018-03-05 14:58:14.628723 7fd59b551bc0  5 asok(0x7fd5a6862500) register_command objecter_requests hook 0x7fd5a683a590 EEXIST
+     0> 2018-03-05 14:58:14.630162 7fd59b551bc0 -1 *** Caught signal (Segmentation fault) **
+ in thread 7fd59b551bc0 thread_name:ceph_test_rados
+
+ ceph version 10.2.7 (50e863e0f4bc8f4b9e31156de690d765af245185)
+ 1: (()+0x572faa) [0x7fd59badffaa]
+ 2: (()+0xf5e0) [0x7fd590ba75e0]
+ 3: (()+0x194378) [0x7fd591d46378]
+ 4: (()+0xd44c6) [0x7fd591c864c6]
+ 5: (()+0xd4a5f) [0x7fd591c86a5f]
+ 6: (()+0xa3c8f) [0x7fd591c55c8f]
+ 7: (DataScan::main(std::vector<char const*, std::allocator<char const*> > const&)+0x6e3) [0x7fd59b784db3]
+ 8: (TmapMigratePP_DataScan_Test::TestBody()+0x89d) [0x7fd59b78d34d]
+ 9: (void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*)+0x43) [0x7fd59b7da9e3]
+ 10: (testing::Test::Run()+0xb7) [0x7fd59b7cc0e7]
+ 11: (testing::TestInfo::Run()+0x9e) [0x7fd59b7cc18e]
+ 12: (testing::TestCase::Run()+0xa5) [0x7fd59b7cc295]
+ 13: (testing::internal::UnitTestImpl::RunAllTests()+0x268) [0x7fd59b7cc568]
+ 14: (testing::UnitTest::Run()+0x68) [0x7fd59b7cc828]
+ 15: (main()+0x39) [0x7fd59b785a99]
+ 16: (__libc_start_main()+0xf5) [0x7fd58fbb8c05]
+ 17: (()+0x21f9bf) [0x7fd59b78c9bf]
+ NOTE: a copy of the executable, or `objdump -rdS <executable>` is needed to interpret this.
+
+--- logging levels ---
+   0/ 5 none
+   0/ 1 lockdep
+   0/ 1 context
+   1/ 1 crush
+   1/ 5 mds
+   1/ 5 mds_balancer
+   1/ 5 mds_locker
+   1/ 5 mds_log
+   1/ 5 mds_log_expire
+   1/ 5 mds_migrator
+   0/ 1 buffer
+   0/ 1 timer
+   0/ 1 filer
+   0/ 1 striper
+   0/ 1 objecter
+   0/ 5 rados
+   0/ 5 rbd
+   0/ 5 rbd_mirror
+   0/ 5 rbd_replay
+   0/ 5 journaler
+   0/ 5 objectcacher
+   0/ 5 client
+   0/ 5 osd
+   0/ 5 optracker
+   0/ 5 objclass
+   1/ 3 filestore
+   1/ 3 journal
+   0/ 5 ms
+   1/ 5 mon
+   0/10 monc
+   1/ 5 paxos
+   0/ 5 tp
+   1/ 5 auth
+   1/ 5 crypto
+   1/ 1 finisher
+   1/ 5 heartbeatmap
+   1/ 5 perfcounter
+   1/ 5 rgw
+   1/10 civetweb
+   1/ 5 javaclient
+   1/ 5 asok
+   1/ 1 throttle
+   0/ 0 refs
+   1/ 5 xio
+   1/ 5 compressor
+   1/ 5 newstore
+   1/ 5 bluestore
+   1/ 5 bluefs
+   1/ 3 bdev
+   1/ 5 kstore
+   4/ 5 rocksdb
+   0/ 0 leveldb
+   1/ 5 kinetic
+   1/ 5 fuse
+  -2/-2 (syslog threshold)
+  99/99 (stderr threshold)
+  max_recent       500
+  max_new         1000
+  log_file /var/log/ceph/ceph.client.log
+--- end dump of recent events ---

@@ -1,0 +1,317 @@
+Running main() from gmock_main.cc
+[==========] Running 71 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 37 tests from LibRadosAio
+[ RUN      ] LibRadosAio.TooBig
+[       OK ] LibRadosAio.TooBig (5738 ms)
+[ RUN      ] LibRadosAio.TooBigPP
+[       OK ] LibRadosAio.TooBigPP (2032 ms)
+[ RUN      ] LibRadosAio.PoolQuotaPP
+[       OK ] LibRadosAio.PoolQuotaPP (56492 ms)
+[ RUN      ] LibRadosAio.SimpleWrite
+[       OK ] LibRadosAio.SimpleWrite (7706 ms)
+[ RUN      ] LibRadosAio.SimpleWritePP
+[       OK ] LibRadosAio.SimpleWritePP (18612 ms)
+[ RUN      ] LibRadosAio.WaitForSafe
+[       OK ] LibRadosAio.WaitForSafe (2886 ms)
+[ RUN      ] LibRadosAio.WaitForSafePP
+[       OK ] LibRadosAio.WaitForSafePP (2926 ms)
+[ RUN      ] LibRadosAio.RoundTrip
+[       OK ] LibRadosAio.RoundTrip (2879 ms)
+[ RUN      ] LibRadosAio.RoundTrip2
+[       OK ] LibRadosAio.RoundTrip2 (7665 ms)
+[ RUN      ] LibRadosAio.RoundTripPP
+[       OK ] LibRadosAio.RoundTripPP (3892 ms)
+[ RUN      ] LibRadosAio.RoundTripPP2
+[       OK ] LibRadosAio.RoundTripPP2 (2901 ms)
+[ RUN      ] LibRadosAio.RoundTripPP3
+[       OK ] LibRadosAio.RoundTripPP3 (2935 ms)
+[ RUN      ] LibRadosAio.RoundTripSparseReadPP
+[       OK ] LibRadosAio.RoundTripSparseReadPP (3828 ms)
+[ RUN      ] LibRadosAio.RoundTripAppend
+[       OK ] LibRadosAio.RoundTripAppend (2914 ms)
+[ RUN      ] LibRadosAio.RoundTripAppendPP
+[       OK ] LibRadosAio.RoundTripAppendPP (2858 ms)
+[ RUN      ] LibRadosAio.IsComplete
+[       OK ] LibRadosAio.IsComplete (2855 ms)
+[ RUN      ] LibRadosAio.IsCompletePP
+[       OK ] LibRadosAio.IsCompletePP (2881 ms)
+[ RUN      ] LibRadosAio.IsSafe
+[       OK ] LibRadosAio.IsSafe (2866 ms)
+[ RUN      ] LibRadosAio.IsSafePP
+[       OK ] LibRadosAio.IsSafePP (2859 ms)
+[ RUN      ] LibRadosAio.ReturnValue
+[       OK ] LibRadosAio.ReturnValue (2889 ms)
+[ RUN      ] LibRadosAio.ReturnValuePP
+[       OK ] LibRadosAio.ReturnValuePP (2936 ms)
+[ RUN      ] LibRadosAio.Flush
+[       OK ] LibRadosAio.Flush (3027 ms)
+[ RUN      ] LibRadosAio.FlushPP
+[       OK ] LibRadosAio.FlushPP (2874 ms)
+[ RUN      ] LibRadosAio.FlushAsync
+[       OK ] LibRadosAio.FlushAsync (2918 ms)
+[ RUN      ] LibRadosAio.FlushAsyncPP
+[       OK ] LibRadosAio.FlushAsyncPP (2929 ms)
+[ RUN      ] LibRadosAio.RoundTripWriteFull
+[       OK ] LibRadosAio.RoundTripWriteFull (2992 ms)
+[ RUN      ] LibRadosAio.RoundTripWriteFullPP
+[       OK ] LibRadosAio.RoundTripWriteFullPP (7601 ms)
+[ RUN      ] LibRadosAio.RoundTripWriteFullPP2
+[       OK ] LibRadosAio.RoundTripWriteFullPP2 (2952 ms)
+[ RUN      ] LibRadosAio.SimpleStat
+[       OK ] LibRadosAio.SimpleStat (11511 ms)
+[ RUN      ] LibRadosAio.SimpleStatPP
+[       OK ] LibRadosAio.SimpleStatPP (2965 ms)
+[ RUN      ] LibRadosAio.SimpleStatNS
+[       OK ] LibRadosAio.SimpleStatNS (2931 ms)
+[ RUN      ] LibRadosAio.SimpleStatPPNS
+[       OK ] LibRadosAio.SimpleStatPPNS (2920 ms)
+[ RUN      ] LibRadosAio.StatRemove
+[       OK ] LibRadosAio.StatRemove (2871 ms)
+[ RUN      ] LibRadosAio.StatRemovePP
+[       OK ] LibRadosAio.StatRemovePP (2915 ms)
+[ RUN      ] LibRadosAio.OmapPP
+[       OK ] LibRadosAio.OmapPP (4825 ms)
+[ RUN      ] LibRadosAio.MultiWrite
+[       OK ] LibRadosAio.MultiWrite (2926 ms)
+[ RUN      ] LibRadosAio.MultiWritePP
+[       OK ] LibRadosAio.MultiWritePP (2849 ms)
+[----------] 37 tests from LibRadosAio (205556 ms total)
+
+[----------] 34 tests from LibRadosAioEC
+[ RUN      ] LibRadosAioEC.SimpleWrite
+test/librados/aio.cc:1881: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-40) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.SimpleWrite (1916 ms)
+[ RUN      ] LibRadosAioEC.SimpleWritePP
+test/librados/aio.cc:1918: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-41) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-41 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.SimpleWritePP (1988 ms)
+[ RUN      ] LibRadosAioEC.WaitForSafe
+test/librados/aio.cc:1955: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-42) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.WaitForSafe (1908 ms)
+[ RUN      ] LibRadosAioEC.WaitForSafePP
+test/librados/aio.cc:1970: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-43) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-43 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.WaitForSafePP (1988 ms)
+[ RUN      ] LibRadosAioEC.RoundTrip
+test/librados/aio.cc:1990: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-44) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTrip (2056 ms)
+[ RUN      ] LibRadosAioEC.RoundTrip2
+test/librados/aio.cc:2023: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-45) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTrip2 (2014 ms)
+[ RUN      ] LibRadosAioEC.RoundTripPP
+test/librados/aio.cc:2055: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-46) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-46 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripPP (2043 ms)
+[ RUN      ] LibRadosAioEC.RoundTripPP2
+test/librados/aio.cc:2091: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-47) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-47 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripPP2 (6671 ms)
+[ RUN      ] LibRadosAioEC.RoundTripPP3
+[       OK ] LibRadosAioEC.RoundTripPP3 (3070 ms)
+[ RUN      ] LibRadosAioEC.RoundTripSparseReadPP
+test/librados/aio.cc:2170: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-49) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-49 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripSparseReadPP (2016 ms)
+[ RUN      ] LibRadosAioEC.RoundTripAppend
+test/librados/aio.cc:2208: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-50) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripAppend (2016 ms)
+[ RUN      ] LibRadosAioEC.RoundTripAppendPP
+test/librados/aio.cc:2277: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-51) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-51 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripAppendPP (2093 ms)
+[ RUN      ] LibRadosAioEC.IsComplete
+test/librados/aio.cc:2353: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-52) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.IsComplete (2034 ms)
+[ RUN      ] LibRadosAioEC.IsCompletePP
+test/librados/aio.cc:2392: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-53) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-53 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.IsCompletePP (2036 ms)
+[ RUN      ] LibRadosAioEC.IsSafe
+test/librados/aio.cc:2436: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-54) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.IsSafe (2035 ms)
+[ RUN      ] LibRadosAioEC.IsSafePP
+test/librados/aio.cc:2474: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-55) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-55 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.IsSafePP (2080 ms)
+[ RUN      ] LibRadosAioEC.ReturnValue
+test/librados/aio.cc:2517: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-56) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.ReturnValue (1934 ms)
+[ RUN      ] LibRadosAioEC.ReturnValuePP
+test/librados/aio.cc:2534: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-57) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-57 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.ReturnValuePP (1929 ms)
+[ RUN      ] LibRadosAioEC.Flush
+test/librados/aio.cc:2553: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-58) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.Flush (1936 ms)
+[ RUN      ] LibRadosAioEC.FlushPP
+test/librados/aio.cc:2581: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-59) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-59 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.FlushPP (1891 ms)
+[ RUN      ] LibRadosAioEC.FlushAsync
+test/librados/aio.cc:2614: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-60) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.FlushAsync (1908 ms)
+[ RUN      ] LibRadosAioEC.FlushAsyncPP
+test/librados/aio.cc:2654: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-61) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-61 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.FlushAsyncPP (1961 ms)
+[ RUN      ] LibRadosAioEC.RoundTripWriteFull
+test/librados/aio.cc:2699: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-62) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripWriteFull (1917 ms)
+[ RUN      ] LibRadosAioEC.RoundTripWriteFullPP
+test/librados/aio.cc:2741: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-63) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-63 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.RoundTripWriteFullPP (1922 ms)
+[ RUN      ] LibRadosAioEC.RoundTripWriteFullPP2
+[       OK ] LibRadosAioEC.RoundTripWriteFullPP2 (2944 ms)
+[ RUN      ] LibRadosAioEC.SimpleStat
+test/librados/aio.cc:2833: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-65) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.SimpleStat (1940 ms)
+[ RUN      ] LibRadosAioEC.SimpleStatPP
+test/librados/aio.cc:2865: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-66) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-66 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.SimpleStatPP (1936 ms)
+[ RUN      ] LibRadosAioEC.SimpleStatNS
+test/librados/aio.cc:2902: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-67) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.SimpleStatNS (1950 ms)
+[ RUN      ] LibRadosAioEC.SimpleStatPPNS
+test/librados/aio.cc:2963: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-68) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-68 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.SimpleStatPPNS (1931 ms)
+[ RUN      ] LibRadosAioEC.StatRemove
+test/librados/aio.cc:3000: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-69) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.StatRemove (1935 ms)
+[ RUN      ] LibRadosAioEC.StatRemovePP
+test/librados/aio.cc:3055: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-70) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-70 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.StatRemovePP (1961 ms)
+[ RUN      ] LibRadosAioEC.OmapPP
+test/librados/aio.cc:3116: Failure
+Value of: create_one_ec_pool_pp(pool_name, cluster)
+  Actual: "mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-71 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.OmapPP (1918 ms)
+[ RUN      ] LibRadosAioEC.MultiWrite
+test/librados/aio.cc:3149: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-72) failed: error rados_mon_command osd pool create failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.MultiWrite (1989 ms)
+[ RUN      ] LibRadosAioEC.MultiWritePP
+test/librados/aio.cc:3193: Failure
+Value of: test_data.init()
+  Actual: "create_one_ec_pool(test-rados-api-yujiangnewceph-3-262868-73) failed: error mon_command osd pool create pool:test-rados-api-yujiangnewceph-3-262868-73 pool_type:erasure failed with error -2"
+Expected: ""
+[  FAILED  ] LibRadosAioEC.MultiWritePP (2001 ms)
+[----------] 34 tests from LibRadosAioEC (73867 ms total)
+
+[----------] Global test environment tear-down
+[==========] 71 tests from 2 test cases ran. (279423 ms total)
+[  PASSED  ] 39 tests.
+[  FAILED  ] 32 tests, listed below:
+[  FAILED  ] LibRadosAioEC.SimpleWrite
+[  FAILED  ] LibRadosAioEC.SimpleWritePP
+[  FAILED  ] LibRadosAioEC.WaitForSafe
+[  FAILED  ] LibRadosAioEC.WaitForSafePP
+[  FAILED  ] LibRadosAioEC.RoundTrip
+[  FAILED  ] LibRadosAioEC.RoundTrip2
+[  FAILED  ] LibRadosAioEC.RoundTripPP
+[  FAILED  ] LibRadosAioEC.RoundTripPP2
+[  FAILED  ] LibRadosAioEC.RoundTripSparseReadPP
+[  FAILED  ] LibRadosAioEC.RoundTripAppend
+[  FAILED  ] LibRadosAioEC.RoundTripAppendPP
+[  FAILED  ] LibRadosAioEC.IsComplete
+[  FAILED  ] LibRadosAioEC.IsCompletePP
+[  FAILED  ] LibRadosAioEC.IsSafe
+[  FAILED  ] LibRadosAioEC.IsSafePP
+[  FAILED  ] LibRadosAioEC.ReturnValue
+[  FAILED  ] LibRadosAioEC.ReturnValuePP
+[  FAILED  ] LibRadosAioEC.Flush
+[  FAILED  ] LibRadosAioEC.FlushPP
+[  FAILED  ] LibRadosAioEC.FlushAsync
+[  FAILED  ] LibRadosAioEC.FlushAsyncPP
+[  FAILED  ] LibRadosAioEC.RoundTripWriteFull
+[  FAILED  ] LibRadosAioEC.RoundTripWriteFullPP
+[  FAILED  ] LibRadosAioEC.SimpleStat
+[  FAILED  ] LibRadosAioEC.SimpleStatPP
+[  FAILED  ] LibRadosAioEC.SimpleStatNS
+[  FAILED  ] LibRadosAioEC.SimpleStatPPNS
+[  FAILED  ] LibRadosAioEC.StatRemove
+[  FAILED  ] LibRadosAioEC.StatRemovePP
+[  FAILED  ] LibRadosAioEC.OmapPP
+[  FAILED  ] LibRadosAioEC.MultiWrite
+[  FAILED  ] LibRadosAioEC.MultiWritePP
+
+32 FAILED TESTS
