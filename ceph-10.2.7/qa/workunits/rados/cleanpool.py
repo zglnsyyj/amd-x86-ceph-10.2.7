@@ -18,7 +18,3 @@ def create_rbd_pool():
 if __name__=="__main__":
   delete_all_test_pool()
   create_rbd_pool()
-<<<<<<< HEAD
-=======
-
->>>>>>> 1b385a16d6942b4599194999833c91ddd472c846
